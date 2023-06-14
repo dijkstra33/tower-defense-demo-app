@@ -5,7 +5,7 @@ namespace TowerDefence
     public class Spawner : MonoBehaviour
     {
         [SerializeField]
-        private GameObject unitPrefab;
+        private Unit unitPrefab;
 
         private Transform _transform;
 
@@ -18,7 +18,8 @@ namespace TowerDefence
         {
             var direction = (spawnData.TargetTransform.position - transform.position).normalized;
             // TODO: use some sort of object pool.
-            Instantiate(unitPrefab, _transform.position, Quaternion.LookRotation(direction), _transform);
+            var spawnedUnit = Instantiate(unitPrefab, _transform.position, Quaternion.LookRotation(direction), _transform);
+            spawnedUnit.SetData(spawnData.TargetTransform);
         }
     }
 }
