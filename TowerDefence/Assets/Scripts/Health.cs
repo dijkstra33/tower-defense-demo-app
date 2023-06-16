@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace TowerDefence
@@ -12,6 +13,11 @@ namespace TowerDefence
         private void Start()
         {
             currentValue = maxValue;
+        }
+
+        public void DealDamage(float damage)
+        {
+            currentValue = Math.Max(currentValue - (int)damage, 0);
         }
     }
 }

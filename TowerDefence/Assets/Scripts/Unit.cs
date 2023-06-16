@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TowerDefence.Weapons;
+using UnityEngine;
 
 namespace TowerDefence
 {
@@ -7,10 +8,13 @@ namespace TowerDefence
         private enum UnitState
         {
             Moving,
+            Attacking,
         }
         
         [SerializeField]
         private float moveSpeed;
+
+        private AbstractWeapon[] weapons;
         
         private UnitState state = UnitState.Moving;
         
@@ -20,6 +24,7 @@ namespace TowerDefence
         private void Start()
         {
             _transform = transform;
+            weapons = GetComponentsInChildren<AbstractWeapon>();
         }
 
         public void SetData(Transform targetTransform)
@@ -34,6 +39,32 @@ namespace TowerDefence
                 case UnitState.Moving:
                     Move();
                     break;
+                case UnitState.Attacking:
+                    // TODO: do we really need this states here? :|
+                    break;
+            }
+
+            TryToChangeState();
+        }
+
+        private void TryToChangeState()
+        {
+            if (state == UnitState.Moving)
+            {
+                var allWeaponsAttacking = true;
+                foreach (var weapon in weapons)
+                {
+                    if (!weapon.IsAttacking)
+                    {
+                        allWeaponsAttacking = false;
+                        break;
+                    }
+                }
+
+                if (allWeaponsAttacking)
+                {
+                    state = UnitState.Attacking;
+                }
             }
         }
 

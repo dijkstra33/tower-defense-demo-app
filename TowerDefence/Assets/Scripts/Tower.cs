@@ -4,6 +4,16 @@ namespace TowerDefence
 {
     public class Tower : MonoBehaviour
     {
-        // TODO: empty class for now. Maybe replace it with tag?
+        public static Tower Instance { get; private set; }
+        
+        private void Awake()
+        {
+            Instance = this;
+        }
+
+        private void OnDestroy()
+        {
+            Instance = null;
+        }
     }
 }
