@@ -11,7 +11,7 @@ namespace Game.Weapons
         
         protected override void Attack(TargetInfo target)
         {
-            launcher.Launch(_transform, target, attackDamage);
+            launcher.Launch(_transform.position, target, attackDamage);
         }
     }
 }

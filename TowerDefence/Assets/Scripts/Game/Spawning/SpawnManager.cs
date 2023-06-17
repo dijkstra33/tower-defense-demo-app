@@ -1,10 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Game.Spawning
 {
     public class SpawnManager : MonoBehaviour
     {
+        [SerializeField]
+        private GameObject spawnersRoot;
+
+        public static GameObject ProjectilesRoot;
+        [SerializeField]
+        private GameObject projectilesRoot;
+        
         [SerializeField]
         [Tooltip("in seconds")]
         private float spawnStartDelay;
@@ -22,7 +30,9 @@ namespace Game.Spawning
 
         private void Start()
         {
-            spawners = GetComponentsInChildren<Spawner>();
+            ProjectilesRoot = projectilesRoot;
+            
+            spawners = spawnersRoot.GetComponentsInChildren<Spawner>();
             random = new System.Random();
             spawnData = BuildSpawnData();
             StartCoroutine(SpawnWaves());
@@ -52,6 +62,11 @@ namespace Game.Spawning
                 var spawnerIndex = random.Next(0, spawners.Length - 1);
                 spawners[spawnerIndex].Spawn(spawnData);
             }
+        }
+
+        private void OnDestroy()
+        {
+            ProjectilesRoot = null;
         }
     }
 }
