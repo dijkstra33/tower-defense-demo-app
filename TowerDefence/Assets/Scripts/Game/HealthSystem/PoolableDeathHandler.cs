@@ -1,7 +1,7 @@
 ﻿using Core.ObjectPooling;
 using UnityEngine;
 
-namespace Game.Health
+namespace Game.HealthSystem
 {
     [RequireComponent(typeof(Poolable))]
     public class PoolableDeathHandler : MonoBehaviour, IDeathHandler

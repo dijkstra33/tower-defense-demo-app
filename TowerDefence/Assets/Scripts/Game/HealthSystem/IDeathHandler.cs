@@ -1,4 +1,4 @@
-﻿namespace Game.Health
+﻿namespace Game.HealthSystem
 {
     public interface IDeathHandler
     {

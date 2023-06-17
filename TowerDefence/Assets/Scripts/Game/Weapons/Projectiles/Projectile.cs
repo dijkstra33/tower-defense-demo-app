@@ -1,5 +1,5 @@
 ﻿using Core.ObjectPooling;
-using Game.Health;
+using Game.HealthSystem;
 using Game.Weapons.TargetSelection;
 using UnityEngine;
 
@@ -10,7 +10,7 @@ namespace Game.Weapons.Projectiles
     {
         private bool isFired = false;
 
-        private Health.Health targetHealth;
+        private Health targetHealth;
         private Transform targetTransform;
         private float damage;
 

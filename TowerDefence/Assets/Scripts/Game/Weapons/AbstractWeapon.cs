@@ -1,9 +1,10 @@
-﻿using Game.Weapons.TargetSelection;
+﻿using Core.ObjectPooling;
+using Game.Weapons.TargetSelection;
 using UnityEngine;
 
 namespace Game.Weapons
 {
-    public abstract class AbstractWeapon : MonoBehaviour
+    public abstract class AbstractWeapon : MonoBehaviour, IResettable
     {
         [SerializeField]
         protected TargetSelector targetSelector;
@@ -25,8 +26,7 @@ namespace Game.Weapons
 
         protected void Start()
         {
-            targetSelector.SetAttackRange(attackRange);
-            timeUntillNextAttack = attackInterval;
+            Reset();
             _transform = transform;
         }
 
@@ -35,7 +35,7 @@ namespace Game.Weapons
             timeUntillNextAttack -= Time.deltaTime;
             if (timeUntillNextAttack <= 0)
             {
-                var target = targetSelector.SelectTarget(_transform.position);
+                var target = targetSelector.SelectTarget(_transform.position, attackRange);
                 if (target != null)
                 {
                     isAttacking = true;
@@ -51,5 +51,11 @@ namespace Game.Weapons
         }
 
         protected abstract void Attack(TargetInfo target);
+
+        public void Reset()
+        {
+            timeUntillNextAttack = attackInterval;
+            isAttacking = false;
+        }
     }
 }

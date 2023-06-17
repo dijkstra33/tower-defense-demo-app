@@ -1,9 +1,11 @@
 ﻿using Core.ObjectPooling;
+using Game.HealthSystem;
 using Game.Weapons;
 using UnityEngine;
 
 namespace Game
 {
+    [RequireComponent(typeof(Health))]
     public class Unit : MonoBehaviour, IResettable
     {
         private enum UnitState
@@ -19,8 +21,10 @@ namespace Game
         private AbstractWeapon[] weapons;
         
         private UnitState state = UnitState.Idle;
-        
+
+        public Transform Transform => _transform;
         private Transform _transform;
+
         private Transform targetTransform;
 
         private void Start()
@@ -75,7 +79,7 @@ namespace Game
         private void Move()
         {
             var direction = (targetTransform.position - _transform.position).normalized;
-            transform.position += direction * moveSpeed * Time.deltaTime;
+            transform.position += direction * (moveSpeed * Time.deltaTime);
         }
 
         public void Reset()

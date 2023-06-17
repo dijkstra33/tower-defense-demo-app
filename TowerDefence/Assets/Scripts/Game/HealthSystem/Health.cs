@@ -2,7 +2,7 @@ using System;
 using Core.ObjectPooling;
 using UnityEngine;
 
-namespace Game.Health
+namespace Game.HealthSystem
 {
     public class Health : MonoBehaviour, IResettable
     {

@@ -1,7 +1,7 @@
 ﻿using UI;
 using UnityEngine;
 
-namespace Game.Health
+namespace Game.HealthSystem
 {
     public class TowerDeathHandler : MonoBehaviour, IDeathHandler
     {
