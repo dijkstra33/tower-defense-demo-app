@@ -1,9 +1,10 @@
 using System;
+using Core.ObjectPooling;
 using UnityEngine;
 
 namespace Game.Health
 {
-    public class Health : MonoBehaviour
+    public class Health : MonoBehaviour, IResettable
     {
         [SerializeField]
         private int maxValue;
@@ -34,6 +35,12 @@ namespace Game.Health
                     deathHandler.OnDeath();
                 }
             }
+        }
+
+        public void Reset()
+        {
+            isDead = false;
+            currentValue = maxValue;
         }
     }
 }

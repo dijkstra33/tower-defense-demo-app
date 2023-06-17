@@ -1,4 +1,5 @@
-﻿using Game.Spawning;
+﻿using Core.ObjectPooling;
+using Game.Spawning;
 using Game.Weapons.Projectiles;
 using Game.Weapons.TargetSelection;
 using UnityEngine;
@@ -14,8 +15,11 @@ namespace Game.Weapons.Launchers
         public void Launch(Vector3 attackerPosition, TargetInfo target, float attackDamage)
         {
             var direction = (target.Transform.position - attackerPosition).normalized;
-            // TODO: use some sort of object pool.
-            var projectile = Instantiate(projectilePrefab, attackerPosition, Quaternion.LookRotation(direction), SpawnManager.ProjectilesRoot.transform);
+            var projectile = 
+                ObjectPoolManager.Instance.GetObject(
+                    projectilePrefab, attackerPosition, Quaternion.LookRotation(direction), 
+                    projectilePrefab.transform.localScale, SpawnManager.ProjectilesRoot);
+
             projectile.Fire(target, attackDamage);
         }
     }

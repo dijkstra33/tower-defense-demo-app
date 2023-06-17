@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 3433227238704272331}
   - component: {fileID: 4440059097794051910}
   - component: {fileID: 1382708073368822258}
+  - component: {fileID: 6611554445852772903}
+  - component: {fileID: -2674326057326425367}
   m_Layer: 0
   m_Name: Helicopter
   m_TagString: Untagged
@@ -129,3 +131,28 @@ MonoBehaviour:
   attackRange: 4
   attackDamage: 1
   launcher: {fileID: 11400000, guid: 0dc0a49cbf1fa9942a59264f9a0d4853, type: 2}
+--- !u!114 &6611554445852772903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3433227238704174441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c964ee427b2642f991a833c2f5eecc70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialPoolSize: 15
+--- !u!114 &-2674326057326425367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3433227238704174441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c97885268c7e4484b2fb78b9734cbf75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

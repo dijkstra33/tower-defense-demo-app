@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace Game.Spawning
@@ -7,11 +6,11 @@ namespace Game.Spawning
     public class SpawnManager : MonoBehaviour
     {
         [SerializeField]
-        private GameObject spawnersRoot;
+        private Transform spawnersRoot;
 
-        public static GameObject ProjectilesRoot;
+        public static Transform ProjectilesRoot;
         [SerializeField]
-        private GameObject projectilesRoot;
+        private Transform projectilesRoot;
         
         [SerializeField]
         [Tooltip("in seconds")]

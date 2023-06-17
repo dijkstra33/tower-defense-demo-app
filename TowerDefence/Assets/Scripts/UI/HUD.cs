@@ -11,7 +11,7 @@ namespace UI
         [SerializeField]
         private Button restartButton; 
 
-        private void Start()
+        private void Awake()
         {
             restartButton.onClick.AddListener(RestartGameClicked);
             Instance = this;

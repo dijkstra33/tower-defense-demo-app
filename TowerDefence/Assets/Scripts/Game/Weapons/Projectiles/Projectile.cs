@@ -1,10 +1,12 @@
-﻿using Game.Weapons.TargetSelection;
+﻿using Core.ObjectPooling;
+using Game.Health;
+using Game.Weapons.TargetSelection;
 using UnityEngine;
 
 namespace Game.Weapons.Projectiles
 {
     // TODO: add on fire particle effects controlled by separate component.
-    public class Projectile : MonoBehaviour
+    public class Projectile : MonoBehaviour, IResettable
     {
         private bool isFired = false;
 
@@ -65,7 +67,16 @@ namespace Game.Weapons.Projectiles
         private void Explode()
         {
             targetHealth.DealDamage(damage);
-            Destroy(gameObject);
+            var deathHandlers = GetComponents<IDeathHandler>();
+            foreach (var deathHandler in deathHandlers)
+            {
+                deathHandler.OnDeath();
+            }
+        }
+
+        public void Reset()
+        {
+            isFired = false;
         }
     }
 }

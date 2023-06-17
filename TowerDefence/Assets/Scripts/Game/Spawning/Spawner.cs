@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Core.ObjectPooling;
+using UnityEngine;
 
 namespace Game.Spawning
 {
@@ -17,9 +18,13 @@ namespace Game.Spawning
         public void Spawn(SpawnData spawnData)
         {
             var direction = (spawnData.TargetTransform.position - transform.position).normalized;
-            // TODO: use some sort of object pool.
-            var spawnedUnit = Instantiate(unitPrefab, _transform.position, Quaternion.LookRotation(direction), _transform);
-            spawnedUnit.SetData(spawnData.TargetTransform);
+            
+            var spawnedUnit = 
+                ObjectPoolManager.Instance.GetObject(
+                    unitPrefab, _transform.position, Quaternion.LookRotation(direction), 
+                    unitPrefab.transform.localScale, _transform);
+
+            spawnedUnit.MoveTo(spawnData.TargetTransform);
         }
     }
 }

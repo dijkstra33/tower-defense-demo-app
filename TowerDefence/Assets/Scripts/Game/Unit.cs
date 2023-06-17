@@ -1,12 +1,14 @@
-﻿using Game.Weapons;
+﻿using Core.ObjectPooling;
+using Game.Weapons;
 using UnityEngine;
 
 namespace Game
 {
-    public class Unit : MonoBehaviour
+    public class Unit : MonoBehaviour, IResettable
     {
         private enum UnitState
         {
+            Idle,
             Moving,
             Attacking,
         }
@@ -16,7 +18,7 @@ namespace Game
 
         private AbstractWeapon[] weapons;
         
-        private UnitState state = UnitState.Moving;
+        private UnitState state = UnitState.Idle;
         
         private Transform _transform;
         private Transform targetTransform;
@@ -27,9 +29,10 @@ namespace Game
             weapons = GetComponentsInChildren<AbstractWeapon>();
         }
 
-        public void SetData(Transform targetTransform)
+        public void MoveTo(Transform targetTransform)
         {
             this.targetTransform = targetTransform;
+            state = UnitState.Moving;
         }
 
         private void Update()
@@ -39,6 +42,7 @@ namespace Game
                 case UnitState.Moving:
                     Move();
                     break;
+                case UnitState.Idle:
                 case UnitState.Attacking:
                     // TODO: do we really need this states here? :|
                     break;
@@ -72,6 +76,11 @@ namespace Game
         {
             var direction = (targetTransform.position - _transform.position).normalized;
             transform.position += direction * moveSpeed * Time.deltaTime;
+        }
+
+        public void Reset()
+        {
+            state = UnitState.Idle;
         }
     }
 }
