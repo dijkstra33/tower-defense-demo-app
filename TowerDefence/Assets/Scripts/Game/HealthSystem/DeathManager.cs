@@ -1,18 +1,14 @@
 ﻿using System;
+using Core;
+using Core.ObjectPooling;
 using UnityEngine;
 
 namespace Game.HealthSystem
 {
-    public class DeathManager : MonoBehaviour
+    public class DeathManager : SingletonMoneBehaviour<DeathManager>
     {
         public event Action<Unit> OnUnitDeath;
-        
-        public static DeathManager Instance { get; private set; }
-
-        private void Awake()
-        {
-            Instance = this;
-        }
+        public event Action<Tower> OnTowerDeath;
 
         public void OnDeath(GameObject died)
         {
@@ -21,11 +17,18 @@ namespace Game.HealthSystem
             {
                 OnUnitDeath?.Invoke(unit);
             }
-        }
 
-        private void OnDestroy()
-        {
-            Instance = null;
+            var tower = died.GetComponent<Tower>();
+            if (tower != null)
+            {
+                OnTowerDeath?.Invoke(tower);
+            }
+
+            var poolable = died.GetComponent<Poolable>();
+            if (poolable != null)
+            {
+                poolable.ReleaseObject();
+            }
         }
     }
 }

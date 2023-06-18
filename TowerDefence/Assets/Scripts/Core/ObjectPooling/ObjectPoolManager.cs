@@ -3,17 +3,15 @@ using UnityEngine;
 
 namespace Core.ObjectPooling
 {
-    public class ObjectPoolManager : MonoBehaviour
+    public class ObjectPoolManager : SingletonMoneBehaviour<ObjectPoolManager>
     {
-        public static ObjectPoolManager Instance { get; private set; }
-
         private Dictionary<int, ObjectPool> objectPools = new();
         private Transform _transform;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _transform = transform;
-            Instance = this;
         }
 
         public T GetObject<T>(T poolablePrefab, Vector3 position, Quaternion rotation, Vector3? scale = null, Transform parent = null)
@@ -56,11 +54,6 @@ namespace Core.ObjectPooling
             }
 
             return objectPool;
-        }
-
-        private void OnDestroy()
-        {
-            Instance = null;
         }
     }
 }

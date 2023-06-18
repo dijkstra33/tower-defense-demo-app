@@ -1,14 +1,13 @@
-﻿using Game;
+﻿using Core;
+using Game;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI
 {
-    public class HUD : MonoBehaviour
+    public class HUD : SingletonMoneBehaviour<HUD>
     {
-        public static HUD Instance { get; private set; }
-
         [SerializeField]
         private TMP_Text currencyAmountText;
 
@@ -22,10 +21,10 @@ namespace UI
         [SerializeField]
         private Button restartButton;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             restartButton.onClick.AddListener(RestartGameClicked);
-            Instance = this;
         }
 
         private void Update()
@@ -45,7 +44,7 @@ namespace UI
             }
         }
 
-        public void ShowGameEndScreen()
+        public void ShowGameOverScreen()
         {
             // TODO: here will show game statistics and other stuff.
             restartButton.gameObject.SetActive(true);
@@ -54,11 +53,6 @@ namespace UI
         private void RestartGameClicked()
         {
             GameManager.RestartLevel();
-        }
-
-        private void OnDestroy()
-        {
-            Instance = null;
         }
     }
 }

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 260985256276021237}
   - component: {fileID: 260985256273860499}
   - component: {fileID: -8426615077345177253}
-  - component: {fileID: 3069494573549580338}
   m_Layer: 0
   m_Name: RocketProjectile
   m_TagString: Untagged
@@ -113,15 +112,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialPoolSize: 20
---- !u!114 &3069494573549580338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 260985256273826101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c97885268c7e4484b2fb78b9734cbf75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

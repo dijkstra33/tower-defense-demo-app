@@ -1,11 +1,10 @@
-﻿using UnityEngine;
+﻿using Core;
+using UnityEngine;
 
 namespace Game
 {
-    public class Tower : MonoBehaviour
+    public class Tower : SingletonMoneBehaviour<Tower>
     {
-        public static Tower Instance { get; private set; }
-
         public int CurrencyAmount => currencyAmount;
         [SerializeField]
         private int currencyAmount;
@@ -17,16 +16,6 @@ namespace Game
         public void ReceiveCurrency(int currency)
         {
             currencyAmount += currency;
-        }
-        
-        private void Awake()
-        {
-            Instance = this;
-        }
-
-        private void OnDestroy()
-        {
-            Instance = null;
         }
     }
 }

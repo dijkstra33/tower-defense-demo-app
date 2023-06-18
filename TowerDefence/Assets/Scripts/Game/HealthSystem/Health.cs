@@ -20,7 +20,7 @@ namespace Game.HealthSystem
             currentValue = maxValue;
         }
 
-        public void DealDamage(float damage)
+        public void ReceiveDamage(float damage)
         {
             if (isDead)
             {
@@ -38,11 +38,6 @@ namespace Game.HealthSystem
         private void Die()
         {
             isDead = true;
-            var deathHandlers = GetComponents<IDeathHandler>();
-            foreach (var deathHandler in deathHandlers)
-            {
-                deathHandler.OnDeath();
-            }
             DeathManager.Instance.OnDeath(gameObject);
         }
 

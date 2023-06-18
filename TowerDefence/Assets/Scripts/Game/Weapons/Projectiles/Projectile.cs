@@ -66,12 +66,8 @@ namespace Game.Weapons.Projectiles
 
         private void Explode()
         {
-            targetHealth.DealDamage(damage);
-            var deathHandlers = GetComponents<IDeathHandler>();
-            foreach (var deathHandler in deathHandlers)
-            {
-                deathHandler.OnDeath();
-            }
+            targetHealth.ReceiveDamage(damage);
+            DeathManager.Instance.OnDeath(gameObject);
         }
 
         public void Reset()
