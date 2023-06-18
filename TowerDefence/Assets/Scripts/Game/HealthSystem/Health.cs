@@ -28,13 +28,19 @@ namespace Game.HealthSystem
 
             if (currentValue == 0)
             {
-                isDead = true;
-                var deathHandlers = GetComponents<IDeathHandler>();
-                foreach (var deathHandler in deathHandlers)
-                {
-                    deathHandler.OnDeath();
-                }
+                Die();
             }
+        }
+
+        private void Die()
+        {
+            isDead = true;
+            var deathHandlers = GetComponents<IDeathHandler>();
+            foreach (var deathHandler in deathHandlers)
+            {
+                deathHandler.OnDeath();
+            }
+            DeathManager.Instance.OnDeath(gameObject);
         }
 
         public void Reset()

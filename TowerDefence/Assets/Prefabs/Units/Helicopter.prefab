@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.5
+  deathCurrencyReward: 12
 --- !u!114 &1382708073368822258
 MonoBehaviour:
   m_ObjectHideFlags: 0

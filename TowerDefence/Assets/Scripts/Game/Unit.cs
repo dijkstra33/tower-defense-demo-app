@@ -18,6 +18,10 @@ namespace Game
         [SerializeField]
         private float moveSpeed;
 
+        public int DeathCurrencyReward => deathCurrencyReward;
+        [SerializeField]
+        private int deathCurrencyReward;
+
         private AbstractWeapon[] weapons;
         
         private UnitState state = UnitState.Idle;
