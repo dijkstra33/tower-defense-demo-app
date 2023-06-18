@@ -32,6 +32,11 @@ namespace Game.Weapons
 
         protected void Update()
         {
+            if (GameManager.Instance.GameOver)
+            {
+                return;
+            }
+            
             timeUntillNextAttack -= Time.deltaTime;
             if (timeUntillNextAttack <= 0)
             {

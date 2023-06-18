@@ -49,6 +49,11 @@ namespace Game.Spawning
             yield return new WaitForSeconds(spawnStartDelay);
             while (true)
             {
+                if (GameManager.Instance.GameOver)
+                {
+                    yield break;
+                }
+                
                 SpawnWave();
                 yield return new WaitForSeconds(spawnInterval);
             }

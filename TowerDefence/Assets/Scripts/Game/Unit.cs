@@ -45,6 +45,11 @@ namespace Game
 
         private void Update()
         {
+            if (GameManager.Instance.GameOver)
+            {
+                return;
+            }
+            
             switch (state)
             {
                 case UnitState.Moving:

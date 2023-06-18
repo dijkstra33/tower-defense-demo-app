@@ -1,4 +1,5 @@
 using System;
+using Game;
 using TMPro;
 using UnityEngine;
 
@@ -14,6 +15,11 @@ namespace UI
 
         private void Update()
         {
+            if (GameManager.Instance.GameOver)
+            {
+                return;
+            }
+            
             time += Time.deltaTime;
             var timeInSeconds = Mathf.FloorToInt(time);
             if (timeInSeconds == prevTimeInSeconds)

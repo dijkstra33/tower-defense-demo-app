@@ -29,6 +29,11 @@ namespace UI
 
         private void Update()
         {
+            if (GameManager.Instance.GameOver)
+            {
+                return;
+            }
+            
             var actualCurrencyAmount = Tower.Instance.CurrencyAmount;
             if (prevCurrencyAmount != actualCurrencyAmount)
             {

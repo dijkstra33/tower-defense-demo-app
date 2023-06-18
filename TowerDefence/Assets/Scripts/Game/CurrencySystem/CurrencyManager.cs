@@ -26,6 +26,11 @@ namespace Game.CurrencySystem
             yield return new WaitForSeconds(passiveIncomeStartDelay);
             while (true)
             {
+                if (GameManager.Instance.GameOver)
+                {
+                    yield break;
+                }
+                
                 // TODO: this class is too greedy - maybe this should be placed inside Tower?
                 tower.ReceiveCurrency(tower.CurrencyPassiveIncome);
                 yield return new WaitForSeconds(passiveIncomeInterval);
