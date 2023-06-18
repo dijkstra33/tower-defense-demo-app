@@ -6,13 +6,16 @@ namespace Game.HealthSystem
 {
     public class Health : MonoBehaviour, IResettable
     {
+        public int MaxValue => maxValue;
         [SerializeField]
         private int maxValue;
-        
+
+        public int CurrentValue => currentValue;
         private int currentValue;
+
         private bool isDead = false;
 
-        private void Start()
+        private void Awake()
         {
             currentValue = maxValue;
         }
