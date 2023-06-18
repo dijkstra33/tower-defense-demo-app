@@ -1,4 +1,3 @@
-using System;
 using Game.HealthSystem;
 using TMPro;
 using UnityEngine;
@@ -18,8 +17,8 @@ namespace UI
         private Health health;
 
         private float interpolatedCurrentValue;
-        private int prevCurrentHealth;
-        private int prevMaxHealth;
+        private int prevCurrentHealth = -1;
+        private int prevMaxHealth = -1;
 
         private void Start()
         {

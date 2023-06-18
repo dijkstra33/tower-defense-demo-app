@@ -12,11 +12,11 @@ namespace Game.CurrencySystem
         [SerializeField]
         private float passiveIncomeInterval;
 
-        [SerializeField]
-        private int passiveIncomeBaseValue;
+        private Tower tower;
 
         private void Start()
         {
+            tower = Tower.Instance;
             StartCoroutine(ProducePassiveCurrencyIncome());
             DeathManager.Instance.OnUnitDeath += HandleUnitDeath;
         }
@@ -26,14 +26,15 @@ namespace Game.CurrencySystem
             yield return new WaitForSeconds(passiveIncomeStartDelay);
             while (true)
             {
-                Tower.Instance.ReceiveCurrency(passiveIncomeBaseValue);
+                // TODO: this class is too greedy - maybe this should be placed inside Tower?
+                tower.ReceiveCurrency(tower.CurrencyPassiveIncome);
                 yield return new WaitForSeconds(passiveIncomeInterval);
             }
         }
         
         private void HandleUnitDeath(Unit unit)
         {
-            Tower.Instance.ReceiveCurrency(unit.DeathCurrencyReward);
+            tower.ReceiveCurrency(unit.DeathCurrencyReward);
         }
     }
 }

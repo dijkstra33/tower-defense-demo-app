@@ -6,12 +6,17 @@ namespace Game
     {
         public static Tower Instance { get; private set; }
 
+        public int CurrencyAmount => currencyAmount;
         [SerializeField]
-        private int currencyValue;
+        private int currencyAmount;
+
+        public int CurrencyPassiveIncome => baseCurrencyPassiveIncome /* + bonuses */;
+        [SerializeField]
+        private int baseCurrencyPassiveIncome;
 
         public void ReceiveCurrency(int currency)
         {
-            currencyValue += currency;
+            currencyAmount += currency;
         }
         
         private void Awake()
