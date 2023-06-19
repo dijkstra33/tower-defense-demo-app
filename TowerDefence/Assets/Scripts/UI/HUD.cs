@@ -1,5 +1,6 @@
 ﻿using Core;
 using Game;
+using Game.UpgradeSystem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +18,9 @@ namespace UI
         private TMP_Text currencyIncomeText;
         
         private int prevCurrencyIncome = -1;
+
+        [SerializeField]
+        private UpgradePanel upgradePanel;
 
         [SerializeField]
         private Button restartButton;
@@ -47,6 +51,11 @@ namespace UI
                 prevCurrencyIncome = actualCurrencyPassiveIncome;
                 currencyIncomeText.text = actualCurrencyPassiveIncome.ToString();
             }
+        }
+        
+        public void SetAvailableUpgrades(Upgrade[] availableUpgrades)
+        {
+            upgradePanel.SetData(availableUpgrades);
         }
 
         public void ShowGameOverScreen()

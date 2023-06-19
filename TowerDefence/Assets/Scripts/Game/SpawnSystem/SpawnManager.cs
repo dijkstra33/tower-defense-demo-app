@@ -25,14 +25,13 @@ namespace Game.Spawning
         
         private Spawner[] spawners;
         private SpawnData spawnData;
-        private System.Random random;
+        private readonly System.Random random = new();
 
         private void Start()
         {
             ProjectilesRoot = projectilesRoot;
             
             spawners = spawnersRoot.GetComponentsInChildren<Spawner>();
-            random = new System.Random();
             spawnData = BuildSpawnData();
             StartCoroutine(SpawnWaves());
         }

@@ -1,4 +1,5 @@
-﻿using Core;
+﻿using System;
+using Core;
 using UnityEngine;
 
 namespace Game
@@ -16,6 +17,12 @@ namespace Game
         public void ReceiveCurrency(int currency)
         {
             currencyAmount += currency;
+        }
+
+        public void SpendCurrency(int currency)
+        {
+            currencyAmount -= currency;
+            currencyAmount = Math.Max(0, currencyAmount);
         }
     }
 }
