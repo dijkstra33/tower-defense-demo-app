@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Core;
@@ -71,6 +70,11 @@ namespace Game.UpgradeSystem
 
         public void BuyUpgrade(Upgrade upgrade)
         {
+            if (GameManager.Instance.GameOver)
+            {
+                return;
+            }
+            
             var isUpgradeAffordable = Tower.Instance.CurrencyAmount >= upgrade.Price;
             if (upgrade == null || !isUpgradeAffordable)
             {
