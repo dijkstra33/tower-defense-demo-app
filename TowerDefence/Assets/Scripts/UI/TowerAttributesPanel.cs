@@ -1,4 +1,5 @@
 ﻿using Game;
+using Game.HealthSystem;
 using TMPro;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace UI
         [SerializeField]
         private TMP_Text currencyAmountText;
 
+        // TODO: check with profiler - is it worth it?
         private int prevCurrencyAmount = -1;
         
         [SerializeField]
@@ -19,7 +21,12 @@ namespace UI
         [SerializeField]
         private TMP_Text killCurrencyBonusText;
         
-        private int prevkillCurrencyBonus = -1;
+        private int prevKillCurrencyBonus = -1;
+        
+        [SerializeField]
+        private TMP_Text armorText;
+        
+        private int prevArmor = -1;
 
         private void Update()
         {
@@ -43,10 +50,18 @@ namespace UI
             }
 
             var actualKillCurrencyBonus = Tower.Instance.GetKillCurrencyBonus();
-            if (prevkillCurrencyBonus != actualKillCurrencyBonus)
+            if (prevKillCurrencyBonus != actualKillCurrencyBonus)
             {
-                prevkillCurrencyBonus = actualKillCurrencyBonus;
+                prevKillCurrencyBonus = actualKillCurrencyBonus;
                 killCurrencyBonusText.text = actualKillCurrencyBonus.ToString();
+            }
+
+            var armored = Tower.Instance.GetComponent<Armored>();
+            var actualArmor = armored?.GetArmor() ?? 0;
+            if (prevArmor != actualArmor)
+            {
+                prevArmor = actualArmor;
+                armorText.text = actualArmor.ToString();
             }
         }
     }

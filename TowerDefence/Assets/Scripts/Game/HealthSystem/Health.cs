@@ -15,9 +15,12 @@ namespace Game.HealthSystem
 
         private bool isDead = false;
 
+        private Armored armored;
+
         private void Awake()
         {
             currentValue = maxValue;
+            armored = GetComponent<Armored>();
         }
 
         public void ReceiveDamage(float damage)
@@ -27,7 +30,8 @@ namespace Game.HealthSystem
                 return;
             }
             
-            currentValue = Math.Max(currentValue - (int)damage, 0);
+            var pureDamage = armored != null ? armored.GetPureDamage(damage) : (int)damage;
+            currentValue = Math.Max(currentValue - pureDamage, 0);
 
             if (currentValue == 0)
             {

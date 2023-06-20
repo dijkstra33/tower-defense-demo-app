@@ -5,5 +5,6 @@
         Damage,
         CurrencyPassiveIncome,
         KillCurrencyBonus,
+        Armor,
     }
 }
