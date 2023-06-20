@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 4
   isUpgradable: 1
+  color: {r: 0.9811321, g: 0.4321593, b: 0, a: 1}
   targetSelector: {fileID: 11400000, guid: d10b41739ee6fcb439f071db71056917, type: 2}
   attackInterval: 8
   attackRange: 7

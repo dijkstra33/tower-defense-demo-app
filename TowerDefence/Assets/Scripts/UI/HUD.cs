@@ -9,7 +9,7 @@ namespace UI
     public class HUD : SingletonMoneBehaviour<HUD>
     {
         [SerializeField]
-        private UpgradePanel upgradePanel;
+        private UpgradesPanel upgradesPanel;
 
         [SerializeField]
         private Button restartButton;
@@ -22,7 +22,7 @@ namespace UI
         
         public void SetAvailableUpgrades(Upgrade[] availableUpgrades)
         {
-            upgradePanel.SetData(availableUpgrades);
+            upgradesPanel.SetData(availableUpgrades);
         }
 
         public void ShowGameOverScreen()

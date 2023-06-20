@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UI
 {
-    public class UpgradePanel : MonoBehaviour
+    public class UpgradesPanel : MonoBehaviour
     {
         [SerializeField]
         private UpgradeView upgradeViewPrefab;

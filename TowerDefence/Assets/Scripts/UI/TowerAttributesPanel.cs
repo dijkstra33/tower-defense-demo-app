@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace UI
 {
-    public class AttributePanel : MonoBehaviour
+    public class TowerAttributesPanel : MonoBehaviour
     {
         [SerializeField]
         private TMP_Text currencyAmountText;

@@ -1,5 +1,6 @@
 ﻿using System;
 using Core;
+using Game.Weapons;
 using UnityEngine;
 
 namespace Game
@@ -23,6 +24,11 @@ namespace Game
         {
             currencyAmount -= currency;
             currencyAmount = Math.Max(0, currencyAmount);
+        }
+
+        public AbstractWeapon[] GetWeapons()
+        {
+            return GetComponentsInChildren<AbstractWeapon>();
         }
     }
 }

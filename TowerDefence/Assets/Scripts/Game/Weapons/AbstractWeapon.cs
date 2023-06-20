@@ -14,17 +14,23 @@ namespace Game.Weapons
         public bool IsUpgradable => isUpgradable;
         [SerializeField]
         private bool isUpgradable;
+
+        public Color Color => color;
+        [SerializeField]
+        private Color color;
         
         [SerializeField]
         protected TargetSelector targetSelector;
 
+        public float GetAttackSpeed() => 1 / attackInterval;
         [SerializeField]
         private float attackInterval;
 
+        public float GetAttackRange() => attackRange;
         [SerializeField]
         private float attackRange;
 
-        protected float GetAttackDamage() => 
+        public float GetAttackDamage() => 
             attackDamage + UpgradeManager.Instance.GetUpgradeValue(UpgradeType.Damage, this);
 
         [SerializeField]
