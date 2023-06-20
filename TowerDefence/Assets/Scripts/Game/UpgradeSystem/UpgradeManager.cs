@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Core;
+using Game.Weapons;
 using UI;
 using UnityEngine;
 
@@ -25,7 +26,7 @@ namespace Game.UpgradeSystem
         private Upgrade[] allUpgrades;
         private Upgrade[] availableUpgrades;
 
-        private List<Upgrade> purchasedUpgrades = new();
+        private List<Upgrade> activeUpgrades = new();
         
         private readonly System.Random random = new();
 
@@ -74,9 +75,30 @@ namespace Game.UpgradeSystem
             }
 
             Tower.Instance.SpendCurrency(upgrade.Price);
-            purchasedUpgrades.Add(upgrade);
+            activeUpgrades.Add(upgrade);
             availableUpgrades[Array.IndexOf(availableUpgrades, upgrade)] = null;
             HUD.Instance.SetAvailableUpgrades(availableUpgrades);
+        }
+
+        public float GetUpgradeValue(UpgradeType upgradeType, AbstractWeapon weapon)
+        {
+            if (!weapon.IsUpgradable)
+            {
+                return 0f;
+            }
+            
+            var value = 0f;
+            foreach (var activeUpgrade in activeUpgrades)
+            {
+                if (!activeUpgrade.IsApplicable(upgradeType, weapon.WeaponType))
+                {
+                    continue;
+                }
+
+                value += activeUpgrade.GetUpgradeValue();
+            }
+
+            return value;
         }
     }
 }

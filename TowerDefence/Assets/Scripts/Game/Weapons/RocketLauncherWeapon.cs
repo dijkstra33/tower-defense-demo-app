@@ -1,4 +1,4 @@
-﻿using Game.Weapons.Launchers;
+﻿using Game.Weapons.Projectiles;
 using Game.Weapons.TargetSelection;
 using UnityEngine;
 
@@ -7,11 +7,11 @@ namespace Game.Weapons
     public class RocketLauncherWeapon : AbstractWeapon
     {
         [SerializeField]
-        private Launcher launcher;
+        private ProjectileLauncher projectileLauncher;
         
         protected override void Attack(TargetInfo target)
         {
-            launcher.Launch(_transform.position, target, attackDamage);
+            projectileLauncher.Launch(_transform.position, target, GetAttackDamage());
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Core.ObjectPooling;
+using Game.UpgradeSystem;
 using Game.Weapons.TargetSelection;
 using UnityEngine;
 
@@ -6,6 +7,14 @@ namespace Game.Weapons
 {
     public abstract class AbstractWeapon : MonoBehaviour, IResettable
     {
+        public WeaponType WeaponType => weaponType;
+        [SerializeField]
+        protected WeaponType weaponType;
+
+        public bool IsUpgradable => isUpgradable;
+        [SerializeField]
+        private bool isUpgradable;
+        
         [SerializeField]
         protected TargetSelector targetSelector;
 
@@ -14,9 +23,12 @@ namespace Game.Weapons
 
         [SerializeField]
         private float attackRange;
-        
+
+        protected float GetAttackDamage() => 
+            attackDamage + UpgradeManager.Instance.GetUpgradeValue(UpgradeType.Damage, this);
+
         [SerializeField]
-        protected float attackDamage;
+        private float attackDamage;
 
         public bool IsAttacking => isAttacking;
         private bool isAttacking;

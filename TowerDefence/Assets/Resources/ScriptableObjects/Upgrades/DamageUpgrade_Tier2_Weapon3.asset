@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3fb65b4c618457f89180cb2e2115416, type: 3}
-  m_Name: Upgrade_2
+  m_Script: {fileID: 11500000, guid: eace9bed68cb462a90335de0e32712fd, type: 3}
+  m_Name: DamageUpgrade_Tier2_Weapon3
   m_EditorClassIdentifier: 
   price: 50
-  sprite: {fileID: 21300000, guid: 1418ea639c3675346a5a07d9fa9799ec, type: 3}
+  sprite: {fileID: 21300000, guid: 8b494021498fdc943be72e335ccddb85, type: 3}
+  weaponType: 3
+  upgradeType: 0
+  value: 12

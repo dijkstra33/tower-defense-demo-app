@@ -44,8 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5149111f3f74256acf3779ad89ffd6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponType: 2
+  isUpgradable: 1
   targetSelector: {fileID: 11400000, guid: d10b41739ee6fcb439f071db71056917, type: 2}
   attackInterval: 1
   attackRange: 5
   attackDamage: 3
-  launcher: {fileID: 11400000, guid: 404b1e5d29429e4469012f51a5536280, type: 2}
+  projectileLauncher: {fileID: 11400000, guid: 404b1e5d29429e4469012f51a5536280, type: 2}

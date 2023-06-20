@@ -1,13 +1,12 @@
 ﻿using Core.ObjectPooling;
 using Game.Spawning;
-using Game.Weapons.Projectiles;
 using Game.Weapons.TargetSelection;
 using UnityEngine;
 
-namespace Game.Weapons.Launchers
+namespace Game.Weapons.Projectiles
 {
-    [CreateAssetMenu(menuName = "Game/Launcher")]
-    public class Launcher : ScriptableObject
+    [CreateAssetMenu(menuName = "Game/Projectile Launcher")]
+    public class ProjectileLauncher : ScriptableObject
     {
         [SerializeField]
         protected Projectile projectilePrefab;
