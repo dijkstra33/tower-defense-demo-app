@@ -1,5 +1,7 @@
-﻿using Game.UpgradeSystem;
+﻿using Game;
+using Game.UpgradeSystem;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -11,6 +13,9 @@ namespace UI
         [SerializeField]
         private Transform upgradeViewsRoot;
 
+        [SerializeField]
+        private Image autoRerollProgressBarImage;
+
         private UpgradeView[] upgradeViews;
 
         private void Start()
@@ -21,6 +26,17 @@ namespace UI
                 upgradeViews[i] = Instantiate(upgradeViewPrefab, upgradeViewsRoot);
                 upgradeViews[i].SetData(null);
             }
+        }
+
+        private void Update()
+        {
+            if (GameManager.Instance.GameOver)
+            {
+                return;
+            }
+            
+            autoRerollProgressBarImage.fillAmount = 
+                UpgradeManager.Instance.TimeUntilAutoReroll / UpgradeManager.Instance.AutoRerollCycleDuration;
         }
 
         public void SetData(Upgrade[] upgrades)

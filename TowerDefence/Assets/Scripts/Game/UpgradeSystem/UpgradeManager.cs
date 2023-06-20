@@ -26,6 +26,12 @@ namespace Game.UpgradeSystem
         private Upgrade[] allUpgrades;
         private Upgrade[] availableUpgrades;
 
+        public float TimeUntilAutoReroll => timeUntilAutoReroll;
+        private float timeUntilAutoReroll;
+
+        public float AutoRerollCycleDuration => autoRerollCycleDuration;
+        private float autoRerollCycleDuration;
+
         private List<Upgrade> activeUpgrades = new();
         
         private readonly System.Random random = new();
@@ -34,25 +40,22 @@ namespace Game.UpgradeSystem
         {
             base.Awake();
             allUpgrades = Resources.LoadAll<Upgrade>(UPGRADES_PATH);
+            timeUntilAutoReroll = upgradeSystemStartDelay;
+            autoRerollCycleDuration = upgradeSystemStartDelay;
         }
-
-        private void Start()
+        private void Update()
         {
-            StartCoroutine(ManageUpgradeAutoReroll());
-        }
-
-        private IEnumerator ManageUpgradeAutoReroll()
-        {
-            yield return new WaitForSeconds(upgradeSystemStartDelay);
-            while (true)
+            if (GameManager.Instance.GameOver)
             {
-                if (GameManager.Instance.GameOver)
-                {
-                    yield break;
-                }
-
+                return;
+            }
+            
+            timeUntilAutoReroll -= Time.deltaTime;
+            if (timeUntilAutoReroll <= 0f)
+            {
                 RerollUpgrades();
-                yield return new WaitForSeconds(upgradeAutoRerollInterval);
+                timeUntilAutoReroll = upgradeAutoRerollInterval;
+                autoRerollCycleDuration = upgradeAutoRerollInterval;
             }
         }
 
