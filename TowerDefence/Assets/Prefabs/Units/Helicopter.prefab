@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 3433227238704174441}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.114, y: 0.20704849, z: -0.095261745}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -112,8 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c8e94f00db54861a56ed00c028e4334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.5
-  deathCurrencyReward: 12
+  moveSpeed: 0.2
+  deathCurrencyReward: 5
 --- !u!114 &1382708073368822258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,9 +128,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 255
   isUpgradable: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
   targetSelector: {fileID: 11400000, guid: 2b569b653d3edbd4abf9b956fa753ee4, type: 2}
   attackInterval: 2.5
-  attackRange: 4
+  attackRange: 3.5
   attackDamage: 1
   projectileLauncher: {fileID: 11400000, guid: 0dc0a49cbf1fa9942a59264f9a0d4853, type: 2}
 --- !u!114 &6611554445852772903
