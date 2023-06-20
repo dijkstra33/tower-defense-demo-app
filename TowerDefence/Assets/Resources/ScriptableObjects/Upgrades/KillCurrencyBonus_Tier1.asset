@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eace9bed68cb462a90335de0e32712fd, type: 3}
-  m_Name: DamageUpgrade_Tier2_Weapon3
+  m_Name: KillCurrencyBonus_Tier1
   m_EditorClassIdentifier: 
-  price: 50
-  sprite: {fileID: 21300000, guid: 8b494021498fdc943be72e335ccddb85, type: 3}
-  weaponType: 3
-  upgradeType: 0
-  value: 8
+  price: 10
+  sprite: {fileID: 21300000, guid: cc968e7b86a1fca47843d65dc2b312db, type: 3}
+  weaponType: 254
+  upgradeType: 2
+  value: 1

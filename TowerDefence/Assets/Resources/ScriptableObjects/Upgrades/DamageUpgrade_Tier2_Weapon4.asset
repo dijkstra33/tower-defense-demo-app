@@ -16,4 +16,4 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 94404a7b14f965c4d8ad137132f6241c, type: 3}
   weaponType: 4
   upgradeType: 0
-  value: 12
+  value: 8

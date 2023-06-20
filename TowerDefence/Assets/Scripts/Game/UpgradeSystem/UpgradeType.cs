@@ -3,5 +3,7 @@
     public enum UpgradeType
     {
         Damage,
+        CurrencyPassiveIncome,
+        KillCurrencyBonus,
     }
 }

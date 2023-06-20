@@ -7,6 +7,8 @@
         Debuff = 3,
         Vengeance = 4,
         HealthSteal = 5,
+        
+        None = 254,
         Other = 255,
     }
 }

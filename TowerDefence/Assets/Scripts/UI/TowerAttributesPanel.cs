@@ -15,6 +15,11 @@ namespace UI
         private TMP_Text currencyIncomeText;
         
         private int prevCurrencyIncome = -1;
+        
+        [SerializeField]
+        private TMP_Text killCurrencyBonusText;
+        
+        private int prevkillCurrencyBonus = -1;
 
         private void Update()
         {
@@ -30,11 +35,18 @@ namespace UI
                 currencyAmountText.text = actualCurrencyAmount.ToString();
             }
 
-            var actualCurrencyPassiveIncome = Tower.Instance.CurrencyPassiveIncome;
+            var actualCurrencyPassiveIncome = Tower.Instance.GetCurrencyPassiveIncome();
             if (prevCurrencyIncome != actualCurrencyPassiveIncome)
             {
                 prevCurrencyIncome = actualCurrencyPassiveIncome;
                 currencyIncomeText.text = actualCurrencyPassiveIncome.ToString();
+            }
+
+            var actualKillCurrencyBonus = Tower.Instance.GetKillCurrencyBonus();
+            if (prevkillCurrencyBonus != actualKillCurrencyBonus)
+            {
+                prevkillCurrencyBonus = actualKillCurrencyBonus;
+                killCurrencyBonusText.text = actualKillCurrencyBonus.ToString();
             }
         }
     }

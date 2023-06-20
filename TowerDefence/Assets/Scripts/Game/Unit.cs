@@ -18,9 +18,9 @@ namespace Game
         [SerializeField]
         private float moveSpeed;
 
-        public int DeathCurrencyReward => deathCurrencyReward;
+        public int KillCurrencyReward => killCurrencyReward;
         [SerializeField]
-        private int deathCurrencyReward;
+        private int killCurrencyReward;
 
         private AbstractWeapon[] weapons;
         

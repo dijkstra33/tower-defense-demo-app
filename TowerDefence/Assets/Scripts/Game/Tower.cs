@@ -1,5 +1,6 @@
 ﻿using System;
 using Core;
+using Game.UpgradeSystem;
 using Game.Weapons;
 using UnityEngine;
 
@@ -11,9 +12,16 @@ namespace Game
         [SerializeField]
         private int currencyAmount;
 
-        public int CurrencyPassiveIncome => baseCurrencyPassiveIncome /* + bonuses */;
+        public int GetCurrencyPassiveIncome() => 
+            baseCurrencyPassiveIncome + (int)UpgradeManager.Instance.GetUpgradeValue(UpgradeType.CurrencyPassiveIncome, null);
+
         [SerializeField]
         private int baseCurrencyPassiveIncome;
+        
+        public int GetKillCurrencyBonus()
+        {
+            return (int)UpgradeManager.Instance.GetUpgradeValue(UpgradeType.KillCurrencyBonus, null);
+        }
 
         public void ReceiveCurrency(int currency)
         {

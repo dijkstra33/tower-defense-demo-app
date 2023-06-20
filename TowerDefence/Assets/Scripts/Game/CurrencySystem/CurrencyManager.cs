@@ -32,14 +32,15 @@ namespace Game.CurrencySystem
                 }
                 
                 // TODO: this class is too greedy - maybe this should be placed inside Tower?
-                tower.ReceiveCurrency(tower.CurrencyPassiveIncome);
+                tower.ReceiveCurrency(tower.GetCurrencyPassiveIncome());
                 yield return new WaitForSeconds(passiveIncomeInterval);
             }
         }
         
         private void HandleUnitDeath(Unit unit)
         {
-            tower.ReceiveCurrency(unit.DeathCurrencyReward);
+            var totalKillCurrencyReward = unit.KillCurrencyReward + Tower.Instance.GetKillCurrencyBonus();
+            tower.ReceiveCurrency(totalKillCurrencyReward);
         }
     }
 }

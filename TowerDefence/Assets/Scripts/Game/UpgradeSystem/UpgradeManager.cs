@@ -89,7 +89,7 @@ namespace Game.UpgradeSystem
 
         public float GetUpgradeValue(UpgradeType upgradeType, AbstractWeapon weapon)
         {
-            if (!weapon.IsUpgradable)
+            if (weapon != null && !weapon.IsUpgradable)
             {
                 return 0f;
             }
@@ -97,7 +97,8 @@ namespace Game.UpgradeSystem
             var value = 0f;
             foreach (var activeUpgrade in activeUpgrades)
             {
-                if (!activeUpgrade.IsApplicable(upgradeType, weapon.WeaponType))
+                var weaponType = weapon != null ? weapon.WeaponType : WeaponType.None;
+                if (!activeUpgrade.IsApplicable(upgradeType, weaponType))
                 {
                     continue;
                 }
