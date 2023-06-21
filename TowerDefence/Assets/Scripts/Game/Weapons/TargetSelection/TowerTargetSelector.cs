@@ -6,7 +6,7 @@ namespace Game.Weapons.TargetSelection
     [CreateAssetMenu(menuName = "Game/TargetSelectors/" + nameof(TowerTargetSelector))]
     public class TowerTargetSelector : TargetSelector
     {
-        public override TargetInfo? SelectTarget(Vector3 selectorPosition, float attackRange)
+        public override TargetInfo[] SelectTargets(Vector3 selectorPosition, float attackRange)
         {
             var tower = Tower.Instance;
             var distanceToTarget = Vector3.Distance(tower.gameObject.transform.position, selectorPosition);
@@ -16,7 +16,10 @@ namespace Game.Weapons.TargetSelection
             }
             
             var towerHealth = tower.GetComponent<Health>();
-            return new TargetInfo(towerHealth, tower.gameObject.transform);
+            return new []
+            {
+                new TargetInfo(towerHealth, tower.gameObject.transform),
+            };
         }
     }
 }

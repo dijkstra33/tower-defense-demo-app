@@ -6,7 +6,7 @@ namespace Game.Weapons.TargetSelection
     [CreateAssetMenu(menuName = "Game/TargetSelectors/" + nameof(ClosestUnitTargetSelector))]
     public class ClosestUnitTargetSelector : TargetSelector
     {
-        public override TargetInfo? SelectTarget(Vector3 selectorPosition, float attackRange)
+        public override TargetInfo[] SelectTargets(Vector3 selectorPosition, float attackRange)
         {
             var units = FindObjectsOfType<Unit>();
             var closestDistance = float.MaxValue;
@@ -14,12 +14,12 @@ namespace Game.Weapons.TargetSelection
 
             foreach (var unit in units)
             {
+                var distance = Vector3.Distance(unit.Transform.position, selectorPosition);
                 if (distance > attackRange)
                 {
                     continue;
                 }
                 
-                var distance = Vector3.Distance(unit.Transform.position, selectorPosition);
                 if (distance < closestDistance)
                 {
                     closestDistance = distance;
@@ -32,7 +32,10 @@ namespace Game.Weapons.TargetSelection
                 return null;
             }
 
-            return new TargetInfo(closestTarget.GetComponent<Health>(), closestTarget.Transform);
+            return new []
+            {
+                new TargetInfo(closestTarget.GetComponent<Health>(), closestTarget.Transform),
+            };
         }
     }
 }

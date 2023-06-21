@@ -48,7 +48,7 @@ namespace Game.Weapons
             _transform = transform;
         }
 
-        protected void Update()
+        protected virtual void Update()
         {
             if (GameManager.Instance.GameOver)
             {
@@ -58,11 +58,11 @@ namespace Game.Weapons
             timeUntillNextAttack -= Time.deltaTime;
             if (timeUntillNextAttack <= 0)
             {
-                var target = targetSelector.SelectTarget(_transform.position, attackRange);
-                if (target != null)
+                var targets = targetSelector.SelectTargets(_transform.position, attackRange);
+                if (targets != null && targets.Length > 0)
                 {
                     isAttacking = true;
-                    Attack(target.Value);
+                    Attack(targets);
                     timeUntillNextAttack = attackInterval;
                 }
                 else
@@ -73,7 +73,15 @@ namespace Game.Weapons
             }
         }
 
-        protected abstract void Attack(TargetInfo target);
+        protected virtual void Attack(TargetInfo[] targets)
+        {
+            foreach (var target in targets)
+            {
+                Attack(target);
+            }
+        }
+
+        protected virtual void Attack(TargetInfo target) { }
 
         public void Reset()
         {

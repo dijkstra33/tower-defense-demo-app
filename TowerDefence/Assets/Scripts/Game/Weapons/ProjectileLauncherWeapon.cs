@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Weapons
 {
-    public class RocketLauncherWeapon : AbstractWeapon
+    public class ProjectileLauncherWeapon : AbstractWeapon
     {
         [SerializeField]
         private ProjectileLauncher projectileLauncher;
