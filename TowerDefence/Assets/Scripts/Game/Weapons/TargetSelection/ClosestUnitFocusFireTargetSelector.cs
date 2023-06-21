@@ -5,7 +5,7 @@ namespace Game.Weapons.TargetSelection
 {
     public class ClosestUnitFocusFireTargetSelector : ClosestUnitTargetSelector
     {
-        private TargetInfo? target;
+        private TargetInfo? currentTarget;
 
         private void Start()
         {
@@ -14,23 +14,23 @@ namespace Game.Weapons.TargetSelection
         
         private void HandleUnitDied(Unit unit)
         {
-            if (target.HasValue && target.Value.Transform == unit.transform)
+            if (currentTarget.HasValue && currentTarget.Value.Transform == unit.transform)
             {
-                target = null;
+                currentTarget = null;
             }
         }
 
         public override TargetInfo[] SelectTargets(Vector3 selectorPosition, float attackRange)
         {
-            if (target.HasValue && target.Value.Transform.gameObject.activeInHierarchy)
+            if (currentTarget.HasValue && currentTarget.Value.Transform.gameObject.activeInHierarchy)
             {
-                return new [] { target.Value };
+                return new [] { currentTarget.Value };
             }
 
             var targets = base.SelectTargets(selectorPosition, attackRange);
             if (targets != null && targets.Length > 0)
             {
-                target = targets[0];
+                currentTarget = targets[0];
             }
 
             return targets;

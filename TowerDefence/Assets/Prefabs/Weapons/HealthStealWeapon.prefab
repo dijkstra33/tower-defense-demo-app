@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 14524272168538431}
   - component: {fileID: 14524272168538428}
   m_Layer: 0
-  m_Name: Weapon_5
+  m_Name: HealthStealWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,8 +47,8 @@ MonoBehaviour:
   weaponType: 5
   isUpgradable: 1
   color: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
-  targetSelectorPrefab: {fileID: 1375541992452393390, guid: fa2406f2b0d52044e8d08bfda2a242c9, type: 3}
+  targetSelectorPrefab: {fileID: 7656259469755932241, guid: e515c191b7ea8534eb9d3cf23032f47c, type: 3}
   attackInterval: 2
   attackRange: 5
-  attackDamage: 1
+  attackDamage: 3
   projectileLauncher: {fileID: 11400000, guid: 404b1e5d29429e4469012f51a5536280, type: 2}

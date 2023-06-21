@@ -4089,11 +4089,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 14524272168538429, guid: 0d9ffc41aaaa1ef4684bf3a4d4377e2a, type: 3}
       propertyPath: m_Name
-      value: Weapon_5
+      value: HealthStealWeapon
       objectReference: {fileID: 0}
     - target: {fileID: 14524272168538431, guid: 0d9ffc41aaaa1ef4684bf3a4d4377e2a, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 14524272168538431, guid: 0d9ffc41aaaa1ef4684bf3a4d4377e2a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4146,7 +4146,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1132637353375856098, guid: f024a7a86c9fdd5448afda6865b5e556, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1132637353375856098, guid: f024a7a86c9fdd5448afda6865b5e556, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4264,7 +4264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3059773870934440739, guid: fafa95a247a54564bad65ba90777ef94, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3059773870934440739, guid: fafa95a247a54564bad65ba90777ef94, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4317,7 +4317,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4028788195800972747, guid: afad3c9d28a13c44a8208d8cb88ed6d3, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4028788195800972747, guid: afad3c9d28a13c44a8208d8cb88ed6d3, type: 3}
       propertyPath: m_LocalPosition.x

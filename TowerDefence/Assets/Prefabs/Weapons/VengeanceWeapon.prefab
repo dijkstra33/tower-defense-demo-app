@@ -49,6 +49,6 @@ MonoBehaviour:
   color: {r: 0.9811321, g: 0.4321593, b: 0, a: 1}
   targetSelectorPrefab: {fileID: 7269473910757939555, guid: 5824e72e7e7846746ae4870487fdf096, type: 3}
   attackInterval: 1
-  attackRange: 6
+  attackRange: 10
   attackDamage: 8
   projectileLauncher: {fileID: 11400000, guid: 404b1e5d29429e4469012f51a5536280, type: 2}
