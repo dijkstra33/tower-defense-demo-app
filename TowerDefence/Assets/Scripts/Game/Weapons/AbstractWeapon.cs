@@ -20,7 +20,9 @@ namespace Game.Weapons
         private Color color;
         
         [SerializeField]
-        protected TargetSelector targetSelector;
+        protected TargetSelector targetSelectorPrefab;
+
+        private TargetSelector targetSelector;
 
         public float GetAttackSpeed() => 1 / attackInterval;
         [SerializeField]
@@ -46,6 +48,7 @@ namespace Game.Weapons
         {
             Reset();
             _transform = transform;
+            targetSelector = Instantiate(targetSelectorPrefab, _transform);
         }
 
         protected virtual void Update()

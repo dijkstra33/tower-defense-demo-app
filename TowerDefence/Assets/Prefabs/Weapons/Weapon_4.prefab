@@ -47,7 +47,7 @@ MonoBehaviour:
   weaponType: 4
   isUpgradable: 1
   color: {r: 0.9811321, g: 0.4321593, b: 0, a: 1}
-  targetSelector: {fileID: 11400000, guid: d10b41739ee6fcb439f071db71056917, type: 2}
+  targetSelectorPrefab: {fileID: 1375541992452393390, guid: fa2406f2b0d52044e8d08bfda2a242c9, type: 3}
   attackInterval: 8
   attackRange: 7
   attackDamage: 6

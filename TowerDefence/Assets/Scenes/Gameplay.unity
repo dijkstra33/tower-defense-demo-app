@@ -4203,7 +4203,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1521232533528635892, guid: 15310813befc5b0499bb089a4aee1ec2, type: 3}
       propertyPath: m_Name
-      value: Weapon_2
+      value: FocusFireWeapon
       objectReference: {fileID: 0}
     - target: {fileID: 1521232533528635894, guid: 15310813befc5b0499bb089a4aee1ec2, type: 3}
       propertyPath: m_RootOrder

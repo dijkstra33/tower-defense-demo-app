@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &14524272168538429
+--- !u!1 &6729861934396503074
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 14524272168538431}
-  - component: {fileID: 14524272168538428}
+  - component: {fileID: 6729861934396503072}
+  - component: {fileID: 6729861934396503073}
   m_Layer: 0
-  m_Name: Weapon_5
+  m_Name: TowerTargetSelector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &14524272168538431
+--- !u!4 &6729861934396503072
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 14524272168538429}
+  m_GameObject: {fileID: 6729861934396503074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,23 +32,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &14524272168538428
+--- !u!114 &6729861934396503073
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 14524272168538429}
+  m_GameObject: {fileID: 6729861934396503074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5149111f3f74256acf3779ad89ffd6b, type: 3}
+  m_Script: {fileID: 11500000, guid: 9fbd2a53e96543ae99315f2a01efe48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponType: 5
-  isUpgradable: 1
-  color: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
-  targetSelectorPrefab: {fileID: 1375541992452393390, guid: fa2406f2b0d52044e8d08bfda2a242c9, type: 3}
-  attackInterval: 2
-  attackRange: 5
-  attackDamage: 1
-  projectileLauncher: {fileID: 11400000, guid: 404b1e5d29429e4469012f51a5536280, type: 2}

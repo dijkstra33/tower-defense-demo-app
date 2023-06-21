@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Game.Weapons.TargetSelection
 {
-    [CreateAssetMenu(menuName = "Game/TargetSelectors/" + nameof(ClosestUnitTargetSelector))]
     public class ClosestUnitTargetSelector : TargetSelector
     {
         public override TargetInfo[] SelectTargets(Vector3 selectorPosition, float attackRange)
@@ -15,7 +14,7 @@ namespace Game.Weapons.TargetSelection
             foreach (var unit in units)
             {
                 var distance = Vector3.Distance(unit.Transform.position, selectorPosition);
-                if (distance > attackRange)
+                if (!unit.gameObject.activeInHierarchy || distance > attackRange)
                 {
                     continue;
                 }

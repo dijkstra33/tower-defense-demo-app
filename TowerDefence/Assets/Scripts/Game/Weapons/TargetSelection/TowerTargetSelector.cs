@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Game.Weapons.TargetSelection
 {
-    [CreateAssetMenu(menuName = "Game/TargetSelectors/" + nameof(TowerTargetSelector))]
     public class TowerTargetSelector : TargetSelector
     {
         public override TargetInfo[] SelectTargets(Vector3 selectorPosition, float attackRange)

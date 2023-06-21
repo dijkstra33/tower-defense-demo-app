@@ -164,7 +164,7 @@ MonoBehaviour:
   weaponType: 255
   isUpgradable: 0
   color: {r: 0, g: 0, b: 0, a: 0}
-  targetSelector: {fileID: 11400000, guid: 2b569b653d3edbd4abf9b956fa753ee4, type: 2}
+  targetSelectorPrefab: {fileID: 6729861934396503073, guid: 1b080ee7a51d80c4bbc7b752604d4efc, type: 3}
   attackInterval: 1
   attackRange: 1
   attackDamage: 4
