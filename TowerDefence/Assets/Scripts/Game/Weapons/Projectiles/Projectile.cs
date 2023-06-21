@@ -20,6 +20,7 @@ namespace Game.Weapons.Projectiles
         [SerializeField]
         private float minExplodeDistance;
 
+        private Health attackerHealth;
         private Transform _transform;
 
         private void Start()
@@ -27,17 +28,26 @@ namespace Game.Weapons.Projectiles
             _transform = transform;
         }
 
-        public void Fire(TargetInfo target, float damage)
+        public void Fire(Health attackerHealth, TargetInfo target, float damage)
         {
             if (isFired)
             {
                 return;
             }
 
+            this.attackerHealth = attackerHealth;
             targetHealth = target.Health;
             targetTransform = target.Transform;
             this.damage = damage;
             isFired = true;
+
+            attackerHealth.OnDeath += HandleOnAttackerDeath;
+        }
+
+        private void HandleOnAttackerDeath()
+        {
+            attackerHealth.OnDeath -= HandleOnAttackerDeath;
+            attackerHealth = null;
         }
 
         private void Update()
@@ -66,13 +76,18 @@ namespace Game.Weapons.Projectiles
 
         private void Explode()
         {
-            targetHealth.ReceiveDamage(damage);
+            targetHealth.ReceiveDamage(damage, attackerHealth);
             DeathManager.Instance.OnDeath(gameObject);
         }
 
         public void Reset()
         {
             isFired = false;
+            if (attackerHealth != null)
+            {
+                attackerHealth.OnDeath -= HandleOnAttackerDeath;
+                attackerHealth = null;
+            }
         }
     }
 }

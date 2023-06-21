@@ -24,7 +24,7 @@ namespace Game.Weapons
 
             foreach (var target in targets)
             {
-                target.Health.ReceiveDamage(GetAttackDamage());
+                target.Health.ReceiveDamage(GetAttackDamage(), ownerHealth);
             }
         }
     }

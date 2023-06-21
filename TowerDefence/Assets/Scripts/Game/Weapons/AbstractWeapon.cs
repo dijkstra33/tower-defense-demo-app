@@ -1,4 +1,5 @@
 ﻿using Core.ObjectPooling;
+using Game.HealthSystem;
 using Game.UpgradeSystem;
 using Game.Weapons.TargetSelection;
 using UnityEngine;
@@ -23,6 +24,7 @@ namespace Game.Weapons
         protected TargetSelector targetSelectorPrefab;
 
         private TargetSelector targetSelector;
+        protected Health ownerHealth;
 
         public float GetAttackSpeed() => 1 / attackInterval;
         [SerializeField]
@@ -49,6 +51,7 @@ namespace Game.Weapons
             Reset();
             _transform = transform;
             targetSelector = Instantiate(targetSelectorPrefab, _transform);
+            ownerHealth = GetComponentInParent<Health>();
         }
 
         protected virtual void Update()

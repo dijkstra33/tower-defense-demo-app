@@ -14,7 +14,7 @@ namespace Game.Weapons.TargetSelection
             foreach (var unit in units)
             {
                 var distance = Vector3.Distance(unit.Transform.position, selectorPosition);
-                if (unit.gameObject.activeInHierarchy || distance > attackRange)
+                if (!unit.gameObject.activeInHierarchy || distance > attackRange)
                 {
                     continue;
                 }

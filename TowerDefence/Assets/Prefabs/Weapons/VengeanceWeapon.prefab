@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1132637353375856098}
   - component: {fileID: 1132637353375856101}
   m_Layer: 0
-  m_Name: Weapon_4
+  m_Name: VengeanceWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,8 +47,8 @@ MonoBehaviour:
   weaponType: 4
   isUpgradable: 1
   color: {r: 0.9811321, g: 0.4321593, b: 0, a: 1}
-  targetSelectorPrefab: {fileID: 1375541992452393390, guid: fa2406f2b0d52044e8d08bfda2a242c9, type: 3}
-  attackInterval: 8
-  attackRange: 7
-  attackDamage: 6
+  targetSelectorPrefab: {fileID: 7269473910757939555, guid: 5824e72e7e7846746ae4870487fdf096, type: 3}
+  attackInterval: 1
+  attackRange: 6
+  attackDamage: 8
   projectileLauncher: {fileID: 11400000, guid: 404b1e5d29429e4469012f51a5536280, type: 2}

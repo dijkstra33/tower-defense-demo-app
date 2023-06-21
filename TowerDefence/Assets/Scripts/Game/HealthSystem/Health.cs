@@ -6,6 +6,9 @@ namespace Game.HealthSystem
 {
     public class Health : MonoBehaviour, IResettable
     {
+        public event Action<Health> OnDamageReceived;
+        public event Action OnDeath;
+        
         public int MaxValue => maxValue;
         [SerializeField]
         private int maxValue;
@@ -23,7 +26,7 @@ namespace Game.HealthSystem
             armored = GetComponent<Armored>();
         }
 
-        public void ReceiveDamage(float damage)
+        public void ReceiveDamage(float damage, Health attackerHealth = null)
         {
             if (isDead)
             {
@@ -31,6 +34,7 @@ namespace Game.HealthSystem
             }
             
             var pureDamage = armored != null ? armored.GetPureDamage(damage) : (int)damage;
+            OnDamageReceived?.Invoke(attackerHealth);
             currentValue = Math.Max(currentValue - pureDamage, 0);
 
             if (currentValue == 0)
@@ -43,6 +47,7 @@ namespace Game.HealthSystem
         {
             isDead = true;
             DeathManager.Instance.OnDeath(gameObject);
+            OnDeath?.Invoke();
         }
 
         public void Reset()
