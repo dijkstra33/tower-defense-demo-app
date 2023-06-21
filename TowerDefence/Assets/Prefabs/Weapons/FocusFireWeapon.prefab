@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1521232533528635894}
   - component: {fileID: 1521232533528635895}
   m_Layer: 0
-  m_Name: Weapon_2
+  m_Name: FocusFireWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

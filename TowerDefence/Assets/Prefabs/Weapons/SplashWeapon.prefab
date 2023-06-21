@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4028788195800972747}
   - component: {fileID: 4028788195800972746}
   m_Layer: 0
-  m_Name: Weapon_1
+  m_Name: SplashWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
