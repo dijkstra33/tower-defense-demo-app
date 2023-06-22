@@ -1,5 +1,85 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1225470476449295789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4450576688974910915}
+  - component: {fileID: 5441299911974849052}
+  - component: {fileID: 340598325141996742}
+  - component: {fileID: 257169574878241735}
+  m_Layer: 0
+  m_Name: Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4450576688974910915
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225470476449295789}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8267856240445981732}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5441299911974849052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225470476449295789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5149111f3f74256acf3779ad89ffd6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponType: 255
+  color: {r: 0, g: 0, b: 0, a: 0}
+  targetSelectorPrefab: {fileID: 6729861934396503073, guid: 1b080ee7a51d80c4bbc7b752604d4efc, type: 3}
+  projectilePrefab: {fileID: 5905614910941387483, guid: 23c9c18dd49e8c24280b3b272135d168, type: 3}
+  projectileMoveSpeed: 1.2
+  projectileMinExplodeDistance: 0.25
+--- !u!114 &340598325141996742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225470476449295789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b7c2b84fa54d5b8fa99c8f825d15c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 4
+  attackInterval: 2
+  attackRange: 1
+--- !u!114 &257169574878241735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225470476449295789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07462cd76b3a4345a523c3bc5397807f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 6
 --- !u!1 &8267856240445495300
 GameObject:
   m_ObjectHideFlags: 0
@@ -15,8 +95,9 @@ GameObject:
   - component: {fileID: 8267856240445595320}
   - component: {fileID: 8267856240445595303}
   - component: {fileID: 8267856240445595302}
-  - component: {fileID: 8267856240445595321}
   - component: {fileID: 2955239151330612097}
+  - component: {fileID: 7135531464396621684}
+  - component: {fileID: 8106747759788926515}
   m_Layer: 0
   m_Name: Buggy_Fast
   m_TagString: Untagged
@@ -35,7 +116,8 @@ Transform:
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4450576688974910915}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -135,7 +217,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.9
-  killCurrencyReward: 3
 --- !u!114 &8267856240445595302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,32 +226,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8267856240445495300}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b77e1eb61783469d952cc144fe111eb6, type: 3}
+  m_Script: {fileID: 11500000, guid: e30d2be78cb9469aa2dacc12ed9da63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseArmor: 0
---- !u!114 &8267856240445595321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8267856240445495300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5149111f3f74256acf3779ad89ffd6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponType: 255
-  isUpgradable: 0
-  color: {r: 0, g: 0, b: 0, a: 0}
-  targetSelectorPrefab: {fileID: 6729861934396503073, guid: 1b080ee7a51d80c4bbc7b752604d4efc, type: 3}
-  attackInterval: 1
-  attackRange: 1
-  attackDamage: 4
-  projectilePrefab: {fileID: 5905614910941387483, guid: 23c9c18dd49e8c24280b3b272135d168, type: 3}
-  projectileMoveSpeed: 1.2
-  projectileMinExplodeDistance: 0.25
+  baseArmor: 1
 --- !u!114 &2955239151330612097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,3 +243,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialPoolSize: 8
+--- !u!114 &7135531464396621684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8267856240445495300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f812db0a56534627a6898db554ec707e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseKillCurrencyBonus: 4
+--- !u!114 &8106747759788926515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8267856240445495300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07462cd76b3a4345a523c3bc5397807f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 6

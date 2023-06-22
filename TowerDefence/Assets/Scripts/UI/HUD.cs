@@ -1,6 +1,6 @@
 ﻿using Core;
 using Game;
-using Game.UpgradeSystem;
+using Game.AttributeSystem.Upgrades;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,13 +19,19 @@ namespace UI
             base.Awake();
             restartButton.onClick.AddListener(RestartGameClicked);
         }
-        
-        public void SetAvailableUpgrades(Upgrade[] availableUpgrades)
+
+        private void Start()
+        {
+            UpgradeManager.Instance.OnAvailableUpgradesChanged += HandleAvailableUpgradesChanged;
+            GameManager.Instance.OnGameOver += HandleGameOver;
+        }
+
+        private void HandleAvailableUpgradesChanged(Upgrade[] availableUpgrades)
         {
             upgradesPanel.SetData(availableUpgrades);
         }
 
-        public void ShowGameOverScreen()
+        private void HandleGameOver()
         {
             // TODO: here will show game statistics and other stuff.
             restartButton.gameObject.SetActive(true);

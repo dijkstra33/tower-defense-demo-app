@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.Weapons.TargetSelection
 {
-    public class TowerTargetSelector : TargetSelector
+    public class TowerTargetSelector : AbstractTargetSelector
     {
         public override TargetInfo[] SelectTargets(Vector3 selectorPosition, float attackRange)
         {

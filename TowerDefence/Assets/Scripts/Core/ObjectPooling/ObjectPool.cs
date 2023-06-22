@@ -40,7 +40,7 @@ namespace Core.ObjectPooling
             @object.transform.rotation = rotation;
             @object.transform.localScale = scale ?? Vector3.one;
 
-            var resettableArray = @object.GetComponents<IResettable>();
+            var resettableArray = @object.GetComponentsInChildren<IResettable>();
             foreach (var resettable in resettableArray)
             {
                 resettable.Reset();

@@ -1,5 +1,5 @@
 ﻿using Game;
-using Game.HealthSystem;
+using Game.AttributeSystem;
 using TMPro;
 using UnityEngine;
 
@@ -27,6 +27,12 @@ namespace UI
         private TMP_Text armorText;
         
         private int prevArmor = -1;
+        private Tower tower;
+
+        protected void Start()
+        {
+            tower = Tower.Instance;
+        }
 
         private void Update()
         {
@@ -34,30 +40,29 @@ namespace UI
             {
                 return;
             }
-            
-            var actualCurrencyAmount = Tower.Instance.CurrencyAmount;
+
+            var actualCurrencyAmount = tower.CurrencyAmount;
             if (prevCurrencyAmount != actualCurrencyAmount)
             {
                 prevCurrencyAmount = actualCurrencyAmount;
                 currencyAmountText.text = actualCurrencyAmount.ToString();
             }
 
-            var actualCurrencyPassiveIncome = Tower.Instance.GetCurrencyPassiveIncome();
+            var actualCurrencyPassiveIncome = (int)tower.AttributeOwner.GetValue(AttributeType.CurrencyPassiveIncome);
             if (prevCurrencyIncome != actualCurrencyPassiveIncome)
             {
                 prevCurrencyIncome = actualCurrencyPassiveIncome;
                 currencyIncomeText.text = actualCurrencyPassiveIncome.ToString();
             }
 
-            var actualKillCurrencyBonus = Tower.Instance.GetKillCurrencyBonus();
+            var actualKillCurrencyBonus = (int)tower.AttributeOwner.GetValue(AttributeType.KillCurrencyBonus);
             if (prevKillCurrencyBonus != actualKillCurrencyBonus)
             {
                 prevKillCurrencyBonus = actualKillCurrencyBonus;
                 killCurrencyBonusText.text = actualKillCurrencyBonus.ToString();
             }
 
-            var armored = Tower.Instance.GetComponent<Armored>();
-            var actualArmor = armored?.GetArmor() ?? 0;
+            var actualArmor = (int)tower.AttributeOwner.GetValue(AttributeType.Armor);
             if (prevArmor != actualArmor)
             {
                 prevArmor = actualArmor;

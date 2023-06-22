@@ -141,6 +141,8 @@ GameObject:
   m_Component:
   - component: {fileID: 14524272168538431}
   - component: {fileID: 14524272168538428}
+  - component: {fileID: 2001922270532119689}
+  - component: {fileID: 3079155678807409038}
   m_Layer: 0
   m_Name: HealthStealWeapon
   m_TagString: Untagged
@@ -177,11 +179,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: 5
-  isUpgradable: 1
   color: {r: 0.0013062527, g: 0.990566, b: 0, a: 1}
   targetSelectorPrefab: {fileID: 7656259469755932241, guid: e515c191b7ea8534eb9d3cf23032f47c, type: 3}
-  attackInterval: 2
-  attackRange: 5
-  attackDamage: 3
   lineRenderer: {fileID: 1400857802}
   lineShowDuration: 0.4
+--- !u!114 &2001922270532119689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14524272168538429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07462cd76b3a4345a523c3bc5397807f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 4
+--- !u!114 &3079155678807409038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14524272168538429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b7c2b84fa54d5b8fa99c8f825d15c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 1
+  attackInterval: 1
+  attackRange: 5

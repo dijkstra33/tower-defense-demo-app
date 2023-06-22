@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.Weapons.TargetSelection
 {
-    public class ClosestUnitTargetSelector : TargetSelector
+    public class ClosestUnitTargetSelector : AbstractTargetSelector
     {
         public override TargetInfo[] SelectTargets(Vector3 selectorPosition, float attackRange)
         {

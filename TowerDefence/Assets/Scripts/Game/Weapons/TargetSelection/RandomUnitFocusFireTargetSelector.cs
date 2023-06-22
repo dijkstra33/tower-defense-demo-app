@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Weapons.TargetSelection
 {
-    public class RandomUnitFocusFireTargetSelector : TargetSelector
+    public class RandomUnitFocusFireTargetSelector : AbstractTargetSelector
     {
         private TargetInfo? currentTarget;
         

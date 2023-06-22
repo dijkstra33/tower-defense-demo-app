@@ -1,9 +1,11 @@
 using System;
 using Core.ObjectPooling;
+using Game.AttributeSystem;
 using UnityEngine;
 
 namespace Game.HealthSystem
 {
+    [RequireComponent(typeof(AbstractAttributeOwner))]
     public class Health : MonoBehaviour, IResettable
     {
         public event Action<Health> OnDamageReceived;
@@ -18,12 +20,12 @@ namespace Game.HealthSystem
 
         private bool isDead = false;
 
-        private Armored armored;
+        private AbstractAttributeOwner attributeOwner;
 
         private void Awake()
         {
             currentValue = maxValue;
-            armored = GetComponent<Armored>();
+            attributeOwner = GetComponent<AbstractAttributeOwner>();
         }
 
         public void ReceiveDamage(float damage, Health attackerHealth = null)
@@ -33,7 +35,7 @@ namespace Game.HealthSystem
                 return;
             }
             
-            var pureDamage = armored != null ? armored.GetPureDamage(damage) : (int)damage;
+            var pureDamage = GetPureDamage(damage);
             OnDamageReceived?.Invoke(attackerHealth);
             currentValue = Math.Max(currentValue - pureDamage, 0);
 
@@ -41,6 +43,12 @@ namespace Game.HealthSystem
             {
                 Die();
             }
+        }
+        
+        private int GetPureDamage(float damage)
+        {
+            var armor = (int)attributeOwner.GetValue(AttributeType.Armor);
+            return Math.Max(1, (int)damage - armor);
         }
 
         private void Die()

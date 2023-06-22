@@ -1,12 +1,14 @@
-﻿using Core;
+﻿using System;
+using Core;
 using Game.HealthSystem;
-using UI;
 using UnityEngine.SceneManagement;
 
 namespace Game
 {
     public class GameManager : SingletonMoneBehaviour<GameManager>
     {
+        public event Action OnGameOver;
+        
         public bool GameOver => gameOver;
         private bool gameOver = false;
         
@@ -19,7 +21,7 @@ namespace Game
         private void HandleTowerDeath(Tower tower)
         {
             gameOver = true;
-            HUD.Instance.ShowGameOverScreen();
+            OnGameOver?.Invoke();
         }
 
         public static void RestartLevel()

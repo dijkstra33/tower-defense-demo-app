@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Game.Weapons.TargetSelection
 {
-    public class RandomTowerAttackerUnitTargetSelector : TargetSelector
+    public class RandomTowerAttackerUnitTargetSelector : AbstractTargetSelector
     {
         private HashSet<Unit> towerAttackers = new();
 

@@ -1,4 +1,4 @@
-﻿using Game.UpgradeSystem;
+﻿using Game.AttributeSystem.Upgrades;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

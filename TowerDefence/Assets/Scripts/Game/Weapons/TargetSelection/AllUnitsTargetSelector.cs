@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Weapons.TargetSelection
 {
-    public class AllUnitsTargetSelector : TargetSelector
+    public class AllUnitsTargetSelector : AbstractTargetSelector
     {
         public override TargetInfo[] SelectTargets(Vector3 selectorPosition, float attackRange)
         {

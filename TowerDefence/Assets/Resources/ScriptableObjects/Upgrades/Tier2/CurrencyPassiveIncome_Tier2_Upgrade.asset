@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3fb65b4c618457f89180cb2e2115416, type: 3}
+  m_Name: CurrencyPassiveIncome_Tier2_Upgrade
+  m_EditorClassIdentifier: 
+  buff: {fileID: 11400000, guid: 5d812a8d1612f974f8af45d3de42c295, type: 2}
+  price: 50
+  sprite: {fileID: 21300000, guid: d2c827714dc42ab4693e41a49e0afc42, type: 3}
+  valueText: +{0} Income

@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4028788195800972747}
   - component: {fileID: 4028788195800972746}
+  - component: {fileID: 3519502744233529376}
+  - component: {fileID: 5306436362325103506}
   m_Layer: 0
   m_Name: SplashWeapon
   m_TagString: Untagged
@@ -46,13 +48,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: 1
-  isUpgradable: 1
   color: {r: 0.5787859, g: 0, b: 1, a: 1}
   targetSelectorPrefab: {fileID: -8550851618821670046, guid: b5fe44be9cb2fe84a826b76c26866b33, type: 3}
-  attackInterval: 3
-  attackRange: 5
-  attackDamage: 2
   attackParticleSystem: {fileID: 7263060952219328102}
+--- !u!114 &3519502744233529376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4028788195800972749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07462cd76b3a4345a523c3bc5397807f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+--- !u!114 &5306436362325103506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4028788195800972749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b7c2b84fa54d5b8fa99c8f825d15c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 1
+  attackInterval: 3
+  attackRange: 4.5
 --- !u!1001 &4028788195580288546
 PrefabInstance:
   m_ObjectHideFlags: 0

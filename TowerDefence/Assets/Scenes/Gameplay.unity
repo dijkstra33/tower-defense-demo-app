@@ -1885,7 +1885,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currencyAmount: 100
-  baseCurrencyPassiveIncome: 10
 --- !u!4 &835741602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 220c2363b8fb44e4287e83ab206d82d5, type: 3}
@@ -1900,10 +1899,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 835741594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63d3856dba6043b9ab29bc6738f0c432, type: 3}
+  m_Script: {fileID: 11500000, guid: e30d2be78cb9469aa2dacc12ed9da63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   baseArmor: 0
+--- !u!114 &835741608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835741594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95af3975fcda43f781b5a34033530d0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseCurrencyPassiveIncome: 10
+  baseKillCurrencyBonus: 0
+--- !u!114 &835741609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835741594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07462cd76b3a4345a523c3bc5397807f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!1 &905228460
 GameObject:
   m_ObjectHideFlags: 0

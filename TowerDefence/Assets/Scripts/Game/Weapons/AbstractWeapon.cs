@@ -1,47 +1,33 @@
 ﻿using Core.ObjectPooling;
+using Game.AttributeSystem;
 using Game.HealthSystem;
-using Game.UpgradeSystem;
 using Game.Weapons.TargetSelection;
 using UnityEngine;
 
 namespace Game.Weapons
 {
+    [RequireComponent(typeof(WeaponAttributeOwner))]
     public abstract class AbstractWeapon : MonoBehaviour, IResettable
     {
         public WeaponType WeaponType => weaponType;
         [SerializeField]
         protected WeaponType weaponType;
 
-        public bool IsUpgradable => isUpgradable;
-        [SerializeField]
-        private bool isUpgradable;
-
         public Color Color => color;
         [SerializeField]
         private Color color;
         
         [SerializeField]
-        protected TargetSelector targetSelectorPrefab;
+        protected AbstractTargetSelector targetSelectorPrefab;
 
-        private TargetSelector targetSelector;
+        private AbstractTargetSelector targetSelector;
         
         protected Health ownerHealth;
 
-        public float GetAttackSpeed() => 1 / attackInterval;
-        [SerializeField]
-        private float attackInterval;
-
-        public float GetAttackRange() => 
-            attackRange + UpgradeManager.Instance.GetUpgradeValue(UpgradeType.AttackRange, this, AttackContext.Empty);
-
-        [SerializeField]
-        private float attackRange;
-
-        public float GetAttackDamage(AttackContext attackContext) => 
-            attackDamage + UpgradeManager.Instance.GetUpgradeValue(UpgradeType.Damage, this, attackContext);
-
-        [SerializeField]
-        private float attackDamage;
+        public AbstractAttributeOwner AttributeOwner => attributeOwner;
+        protected AbstractAttributeOwner attributeOwner;
+        
+        public float GetAttackSpeed() => 1 / attributeOwner.GetValue(AttributeType.AttackInterval);
 
         public bool IsAttacking => isAttacking;
         private bool isAttacking;
@@ -52,6 +38,7 @@ namespace Game.Weapons
         protected virtual void Awake()
         {
             ownerHealth = GetComponentInParent<Health>();
+            attributeOwner = GetComponent<AbstractAttributeOwner>();
         }
 
         protected void Start()
@@ -71,13 +58,14 @@ namespace Game.Weapons
             timeUntillNextAttack -= Time.deltaTime;
             if (timeUntillNextAttack <= 0)
             {
-                var targets = targetSelector.SelectTargets(_transform.position, GetAttackRange());
+                var attackRange = attributeOwner.GetValue(AttributeType.AttackRange);
+                var targets = targetSelector.SelectTargets(_transform.position, attackRange);
                 if (targets != null && targets.Length > 0)
                 {
                     isAttacking = true;
                     var attackContext = new AttackContext(targets);
                     Attack(targets, attackContext);
-                    timeUntillNextAttack = attackInterval;
+                    timeUntillNextAttack = attributeOwner.GetValue(AttributeType.AttackInterval);
                 }
                 else
                 {
@@ -99,7 +87,7 @@ namespace Game.Weapons
 
         public void Reset()
         {
-            timeUntillNextAttack = attackInterval;
+            timeUntillNextAttack = 0f;
             isAttacking = false;
         }
     }

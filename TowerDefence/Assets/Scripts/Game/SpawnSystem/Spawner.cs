@@ -1,7 +1,7 @@
 ﻿using Core.ObjectPooling;
 using UnityEngine;
 
-namespace Game.Spawning
+namespace Game.SpawnSystem
 {
     public class Spawner : MonoBehaviour
     {

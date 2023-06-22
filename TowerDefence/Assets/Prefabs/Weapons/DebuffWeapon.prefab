@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3059773870934440739}
   - component: {fileID: 3059773870934440738}
+  - component: {fileID: 6415722372125710656}
+  - component: {fileID: 565520127771315352}
   m_Layer: 0
   m_Name: DebuffWeapon
   m_TagString: Untagged
@@ -45,12 +47,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: 3
-  isUpgradable: 1
   color: {r: 0, g: 0.11148453, b: 0.98039216, a: 1}
   targetSelectorPrefab: {fileID: 301475837594985049, guid: eff82004b46f98a4aa0ecdbc35942890, type: 3}
-  attackInterval: 3
-  attackRange: 10
-  attackDamage: 5
   projectilePrefab: {fileID: 6906503672136009371, guid: fbb56cc61b97a7b4aad66a0f946b79ba, type: 3}
   projectileMoveSpeed: 1
   projectileMinExplodeDistance: 0.25
+--- !u!114 &6415722372125710656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059773870934440737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07462cd76b3a4345a523c3bc5397807f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
+--- !u!114 &565520127771315352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059773870934440737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b7c2b84fa54d5b8fa99c8f825d15c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 1
+  attackInterval: 2
+  attackRange: 9

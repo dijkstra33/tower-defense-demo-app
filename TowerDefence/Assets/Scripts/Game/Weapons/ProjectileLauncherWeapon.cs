@@ -1,4 +1,5 @@
-﻿using Game.Weapons.Projectiles;
+﻿using Game.AttributeSystem;
+using Game.Weapons.Projectiles;
 using Game.Weapons.TargetSelection;
 using UnityEngine;
 
@@ -30,8 +31,9 @@ namespace Game.Weapons
 
         private ProjectileParams GetProjectileParams(AttackContext attackContext)
         {
+            var attackDamage = attributeOwner.GetValue(AttributeType.Damage, attackContext);
             return new(
-                damage: GetAttackDamage(attackContext), 
+                damage: attackDamage, 
                 moveSpeed: projectileMoveSpeed,
                 minExplodeDistance: projectileMinExplodeDistance);
         }

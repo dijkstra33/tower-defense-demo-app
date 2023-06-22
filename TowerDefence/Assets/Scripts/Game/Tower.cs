@@ -1,26 +1,25 @@
 ﻿using System;
 using Core;
-using Game.UpgradeSystem;
+using Game.AttributeSystem;
 using Game.Weapons;
 using UnityEngine;
 
 namespace Game
 {
+    [RequireComponent(typeof(TowerAttributeOwner))]
     public class Tower : SingletonMoneBehaviour<Tower>
     {
         public int CurrencyAmount => currencyAmount;
         [SerializeField]
         private int currencyAmount;
 
-        public int GetCurrencyPassiveIncome() => 
-            baseCurrencyPassiveIncome + (int)UpgradeManager.Instance.GetUpgradeValue(UpgradeType.CurrencyPassiveIncome);
+        public AbstractAttributeOwner AttributeOwner => attributeOwner;
+        private AbstractAttributeOwner attributeOwner;
 
-        [SerializeField]
-        private int baseCurrencyPassiveIncome;
-        
-        public int GetKillCurrencyBonus()
+        protected override void Awake()
         {
-            return (int)UpgradeManager.Instance.GetUpgradeValue(UpgradeType.KillCurrencyBonus);
+            base.Awake();
+            attributeOwner = GetComponent<AbstractAttributeOwner>();
         }
 
         public void ReceiveCurrency(int currency)

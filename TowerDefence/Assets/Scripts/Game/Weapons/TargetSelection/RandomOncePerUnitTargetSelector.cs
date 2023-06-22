@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Weapons.TargetSelection
 {
-    public class RandomOncePerUnitTargetSelector : TargetSelector
+    public class RandomOncePerUnitTargetSelector : AbstractTargetSelector
     {
         private HashSet<Unit> targetedUnits = new();
         

@@ -1,4 +1,5 @@
 ﻿using System;
+using Game.AttributeSystem;
 using Game.Weapons.TargetSelection;
 using UnityEngine;
 
@@ -28,7 +29,8 @@ namespace Game.Weapons
         protected override void Attack(TargetInfo target, AttackContext attackContext)
         {
             ShowLineToTarget(target);
-            target.Health.ReceiveDamage(GetAttackDamage(attackContext), ownerHealth);
+            var attackDamage = attributeOwner.GetValue(AttributeType.Damage, attackContext);
+            target.Health.ReceiveDamage(attackDamage, ownerHealth);
         }
 
         private void ShowLineToTarget(TargetInfo target)

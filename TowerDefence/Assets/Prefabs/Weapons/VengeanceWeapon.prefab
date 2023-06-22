@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1132637353375856098}
   - component: {fileID: 1132637353375856101}
+  - component: {fileID: 6201588479892148989}
+  - component: {fileID: 5777585723817269116}
   m_Layer: 0
   m_Name: VengeanceWeapon
   m_TagString: Untagged
@@ -45,12 +47,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: 4
-  isUpgradable: 1
   color: {r: 0.9811321, g: 0.4321593, b: 0, a: 1}
   targetSelectorPrefab: {fileID: 7269473910757939555, guid: 5824e72e7e7846746ae4870487fdf096, type: 3}
-  attackInterval: 1
-  attackRange: 10
-  attackDamage: 8
   projectilePrefab: {fileID: 62216399339084744, guid: 8184468cf69eeaf479f9f2e5f1497e74, type: 3}
   projectileMoveSpeed: 1.9
   projectileMinExplodeDistance: 0.15
+--- !u!114 &6201588479892148989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132637353375856100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07462cd76b3a4345a523c3bc5397807f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 5
+--- !u!114 &5777585723817269116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132637353375856100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b7c2b84fa54d5b8fa99c8f825d15c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 8
+  attackInterval: 2
+  attackRange: 5

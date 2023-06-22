@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Game.Spawning
+namespace Game.SpawnSystem
 {
     public class SpawnData
     {

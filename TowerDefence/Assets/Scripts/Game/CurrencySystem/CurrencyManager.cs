@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Game.AttributeSystem;
 using Game.HealthSystem;
 using UnityEngine;
 
@@ -31,16 +32,19 @@ namespace Game.CurrencySystem
                     yield break;
                 }
                 
-                // TODO: this class is too greedy - maybe this should be placed inside Tower?
-                tower.ReceiveCurrency(tower.GetCurrencyPassiveIncome());
+                var currencyPassiveIncome = (int)tower.AttributeOwner.GetValue(AttributeType.CurrencyPassiveIncome);
+                tower.ReceiveCurrency(currencyPassiveIncome);
                 yield return new WaitForSeconds(passiveIncomeInterval);
             }
         }
         
         private void HandleUnitDeath(Unit unit)
         {
-            var totalKillCurrencyReward = unit.KillCurrencyReward + Tower.Instance.GetKillCurrencyBonus();
-            tower.ReceiveCurrency(totalKillCurrencyReward);
+            var totalKillCurrencyReward = 
+                tower.AttributeOwner.GetValue(AttributeType.KillCurrencyBonus) + 
+                unit.AttributeOwner.GetValue(AttributeType.KillCurrencyBonus);
+
+            tower.ReceiveCurrency((int)totalKillCurrencyReward);
         }
     }
 }

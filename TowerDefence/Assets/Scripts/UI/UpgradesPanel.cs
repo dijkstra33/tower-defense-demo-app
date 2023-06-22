@@ -1,5 +1,5 @@
 ﻿using Game;
-using Game.UpgradeSystem;
+using Game.AttributeSystem.Upgrades;
 using UnityEngine;
 using UnityEngine.UI;
 

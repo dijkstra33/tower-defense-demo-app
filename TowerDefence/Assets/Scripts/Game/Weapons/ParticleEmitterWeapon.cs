@@ -1,4 +1,5 @@
-﻿using Game.Weapons.TargetSelection;
+﻿using Game.AttributeSystem;
+using Game.Weapons.TargetSelection;
 using UnityEngine;
 
 namespace Game.Weapons
@@ -19,11 +20,11 @@ namespace Game.Weapons
         protected override void Attack(TargetInfo[] targets, AttackContext attackContext)
         {
             var particleSystemMain = attackParticleSystem.main;
-            particleSystemMain.startSpeed = GetAttackRange();
+            particleSystemMain.startSpeed = attributeOwner.GetValue(AttributeType.AttackRange, attackContext);
             attackParticleSystem.Emit(particlesCount);
             attackParticleSystem.Play();
 
-            var attackDamage = GetAttackDamage(attackContext);
+            var attackDamage = attributeOwner.GetValue(AttributeType.Damage, attackContext);
             foreach (var target in targets)
             {
                 target.Health.ReceiveDamage(attackDamage, ownerHealth);

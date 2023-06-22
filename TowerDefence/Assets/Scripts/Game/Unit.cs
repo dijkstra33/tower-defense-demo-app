@@ -1,4 +1,5 @@
 ﻿using Core.ObjectPooling;
+using Game.AttributeSystem;
 using Game.HealthSystem;
 using Game.Weapons;
 using UnityEngine;
@@ -18,10 +19,6 @@ namespace Game
         [SerializeField]
         private float moveSpeed;
 
-        public int KillCurrencyReward => killCurrencyReward;
-        [SerializeField]
-        private int killCurrencyReward;
-
         private AbstractWeapon[] weapons;
         
         private UnitState state = UnitState.Idle;
@@ -30,6 +27,14 @@ namespace Game
         private Transform _transform;
 
         private Transform targetTransform;
+
+        public AbstractAttributeOwner AttributeOwner => attributeOwner;
+        private AbstractAttributeOwner attributeOwner;
+
+        private void Awake()
+        {
+            attributeOwner = GetComponent<AbstractAttributeOwner>();
+        }
 
         private void Start()
         {

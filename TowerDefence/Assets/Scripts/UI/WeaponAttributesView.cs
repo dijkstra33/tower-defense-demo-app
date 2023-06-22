@@ -1,4 +1,6 @@
-﻿using Game.Weapons;
+﻿using Game;
+using Game.AttributeSystem;
+using Game.Weapons;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -45,7 +47,7 @@ namespace UI
                 return;
             }
 
-            var attackDamage = (int)weapon.GetAttackDamage(AttackContext.Empty);
+            var attackDamage = (int)weapon.AttributeOwner.GetValue(AttributeType.Damage);
             if (prevWeaponDamage != attackDamage)
             {
                 prevWeaponDamage = attackDamage;
@@ -59,7 +61,7 @@ namespace UI
                 weaponAttackSpeedText.text = $"{attackSpeed:F1}";
             }
 
-            var attackRange = weapon.GetAttackRange();
+            var attackRange = weapon.AttributeOwner.GetValue(AttributeType.AttackRange);
             if (!Mathf.Approximately(prevWeaponAttackRange, attackRange))
             {
                 prevWeaponAttackRange = attackRange;

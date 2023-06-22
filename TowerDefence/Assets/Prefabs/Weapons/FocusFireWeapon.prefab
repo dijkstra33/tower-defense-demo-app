@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1521232533528635894}
   - component: {fileID: 1521232533528635895}
+  - component: {fileID: 7018776255867216714}
+  - component: {fileID: 1473936523910423362}
   m_Layer: 0
   m_Name: FocusFireWeapon
   m_TagString: Untagged
@@ -45,12 +47,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: 2
-  isUpgradable: 1
   color: {r: 1, g: 0.028755568, b: 0, a: 1}
   targetSelectorPrefab: {fileID: 4184637558670201907, guid: 581bfffcb6e405a4e88ef3288ea84440, type: 3}
-  attackInterval: 1
-  attackRange: 6
-  attackDamage: 3
   projectilePrefab: {fileID: 3044954744779103906, guid: 6cf5b26b61d828848bfcd9d3cd09627c, type: 3}
   projectileMoveSpeed: 2.4
   projectileMinExplodeDistance: 0.25
+--- !u!114 &7018776255867216714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521232533528635892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07462cd76b3a4345a523c3bc5397807f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+--- !u!114 &1473936523910423362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521232533528635892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b7c2b84fa54d5b8fa99c8f825d15c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 3
+  attackInterval: 1
+  attackRange: 6
