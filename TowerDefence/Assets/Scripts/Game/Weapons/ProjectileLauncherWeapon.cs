@@ -23,15 +23,15 @@ namespace Game.Weapons
             projectileLauncher = new ProjectileLauncher(projectilePrefab, ownerHealth);
         }
         
-        protected override void Attack(TargetInfo target)
+        protected override void Attack(TargetInfo target, AttackContext attackContext)
         {
-            projectileLauncher.Launch(_transform.position, target, GetProjectileParams());
+            projectileLauncher.Launch(_transform.position, target, GetProjectileParams(attackContext));
         }
 
-        private ProjectileParams GetProjectileParams()
+        private ProjectileParams GetProjectileParams(AttackContext attackContext)
         {
             return new(
-                damage: GetAttackDamage(), 
+                damage: GetAttackDamage(attackContext), 
                 moveSpeed: projectileMoveSpeed,
                 minExplodeDistance: projectileMinExplodeDistance);
         }

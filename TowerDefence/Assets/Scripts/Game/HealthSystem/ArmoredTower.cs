@@ -9,6 +9,7 @@ namespace Game.HealthSystem
         [SerializeField]
         private int baseArmor;
         
-        public override int GetArmor() => baseArmor + (int)UpgradeManager.Instance.GetUpgradeValue(UpgradeType.Armor, null);
+        public override int GetArmor() => 
+            baseArmor + (int)UpgradeManager.Instance.GetUpgradeValue(UpgradeType.Armor);
     }
 }

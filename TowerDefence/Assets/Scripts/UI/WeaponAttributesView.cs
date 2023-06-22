@@ -45,7 +45,7 @@ namespace UI
                 return;
             }
 
-            var attackDamage = (int)weapon.GetAttackDamage();
+            var attackDamage = (int)weapon.GetAttackDamage(AttackContext.Empty);
             if (prevWeaponDamage != attackDamage)
             {
                 prevWeaponDamage = attackDamage;

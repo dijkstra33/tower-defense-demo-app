@@ -13,14 +13,14 @@ namespace Game
         private int currencyAmount;
 
         public int GetCurrencyPassiveIncome() => 
-            baseCurrencyPassiveIncome + (int)UpgradeManager.Instance.GetUpgradeValue(UpgradeType.CurrencyPassiveIncome, null);
+            baseCurrencyPassiveIncome + (int)UpgradeManager.Instance.GetUpgradeValue(UpgradeType.CurrencyPassiveIncome);
 
         [SerializeField]
         private int baseCurrencyPassiveIncome;
         
         public int GetKillCurrencyBonus()
         {
-            return (int)UpgradeManager.Instance.GetUpgradeValue(UpgradeType.KillCurrencyBonus, null);
+            return (int)UpgradeManager.Instance.GetUpgradeValue(UpgradeType.KillCurrencyBonus);
         }
 
         public void ReceiveCurrency(int currency)

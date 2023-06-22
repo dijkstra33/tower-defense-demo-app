@@ -16,16 +16,17 @@ namespace Game.Weapons
             particlesCount = attackParticleSystem.emission.GetBurst(0).maxCount;
         }
 
-        protected override void Attack(TargetInfo[] targets)
+        protected override void Attack(TargetInfo[] targets, AttackContext attackContext)
         {
             var particleSystemMain = attackParticleSystem.main;
             particleSystemMain.startSpeed = GetAttackRange();
             attackParticleSystem.Emit(particlesCount);
             attackParticleSystem.Play();
 
+            var attackDamage = GetAttackDamage(attackContext);
             foreach (var target in targets)
             {
-                target.Health.ReceiveDamage(GetAttackDamage(), ownerHealth);
+                target.Health.ReceiveDamage(attackDamage, ownerHealth);
             }
         }
     }

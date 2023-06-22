@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.UpgradeSystem
 {
-    [CreateAssetMenu(menuName = "Game/Upgrades/Add Value Upgrade")]
+    [CreateAssetMenu(menuName = "Game/Upgrades/Add Value")]
     public class AddValueUpgrade : Upgrade
     {
         [SerializeField]
@@ -15,15 +15,12 @@ namespace Game.UpgradeSystem
         [SerializeField]
         private float value;
 
-        [SerializeField]
-        private string valueText;
-
         public override bool IsApplicable(UpgradeType upgradeType, WeaponType weaponType)
         {
             return this.upgradeType == upgradeType && this.weaponType == weaponType;
         }
 
-        public override float GetUpgradeValue() => value;
+        public override float GetUpgradeValue(AttackContext _) => value;
 
         public override string GetValueText()
         {

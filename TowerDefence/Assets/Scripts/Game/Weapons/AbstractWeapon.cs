@@ -24,6 +24,7 @@ namespace Game.Weapons
         protected TargetSelector targetSelectorPrefab;
 
         private TargetSelector targetSelector;
+        
         protected Health ownerHealth;
 
         public float GetAttackSpeed() => 1 / attackInterval;
@@ -31,13 +32,13 @@ namespace Game.Weapons
         private float attackInterval;
 
         public float GetAttackRange() => 
-            attackRange + UpgradeManager.Instance.GetUpgradeValue(UpgradeType.AttackRange, this);
+            attackRange + UpgradeManager.Instance.GetUpgradeValue(UpgradeType.AttackRange, this, AttackContext.Empty);
 
         [SerializeField]
         private float attackRange;
 
-        public float GetAttackDamage() => 
-            attackDamage + UpgradeManager.Instance.GetUpgradeValue(UpgradeType.Damage, this);
+        public float GetAttackDamage(AttackContext attackContext) => 
+            attackDamage + UpgradeManager.Instance.GetUpgradeValue(UpgradeType.Damage, this, attackContext);
 
         [SerializeField]
         private float attackDamage;
@@ -74,7 +75,8 @@ namespace Game.Weapons
                 if (targets != null && targets.Length > 0)
                 {
                     isAttacking = true;
-                    Attack(targets);
+                    var attackContext = new AttackContext(targets);
+                    Attack(targets, attackContext);
                     timeUntillNextAttack = attackInterval;
                 }
                 else
@@ -85,15 +87,15 @@ namespace Game.Weapons
             }
         }
 
-        protected virtual void Attack(TargetInfo[] targets)
+        protected virtual void Attack(TargetInfo[] targets, AttackContext attackContext)
         {
             foreach (var target in targets)
             {
-                Attack(target);
+                Attack(target, attackContext);
             }
         }
 
-        protected virtual void Attack(TargetInfo target) { }
+        protected virtual void Attack(TargetInfo target, AttackContext attackContext) { }
 
         public void Reset()
         {

@@ -87,7 +87,12 @@ namespace Game.UpgradeSystem
             HUD.Instance.SetAvailableUpgrades(availableUpgrades);
         }
 
-        public float GetUpgradeValue(UpgradeType upgradeType, AbstractWeapon weapon)
+        public float GetUpgradeValue(UpgradeType upgradeType)
+        {
+            return GetUpgradeValue(upgradeType, null, AttackContext.Empty);
+        }
+
+        public float GetUpgradeValue(UpgradeType upgradeType, AbstractWeapon weapon, AttackContext context)
         {
             if (weapon != null && !weapon.IsUpgradable)
             {
@@ -103,7 +108,7 @@ namespace Game.UpgradeSystem
                     continue;
                 }
 
-                value += activeUpgrade.GetUpgradeValue();
+                value += activeUpgrade.GetUpgradeValue(context);
             }
 
             return value;

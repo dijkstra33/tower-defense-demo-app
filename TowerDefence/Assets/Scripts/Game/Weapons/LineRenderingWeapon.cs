@@ -25,10 +25,10 @@ namespace Game.Weapons
             }
         }
         
-        protected override void Attack(TargetInfo target)
+        protected override void Attack(TargetInfo target, AttackContext attackContext)
         {
             ShowLineToTarget(target);
-            target.Health.ReceiveDamage(GetAttackDamage(), ownerHealth);
+            target.Health.ReceiveDamage(GetAttackDamage(attackContext), ownerHealth);
         }
 
         private void ShowLineToTarget(TargetInfo target)
