@@ -46,9 +46,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 3
   isUpgradable: 1
-  color: {r: 0, g: 0.19684792, b: 1, a: 1}
+  color: {r: 0, g: 0.11148453, b: 0.98039216, a: 1}
   targetSelectorPrefab: {fileID: 301475837594985049, guid: eff82004b46f98a4aa0ecdbc35942890, type: 3}
   attackInterval: 3
   attackRange: 10
   attackDamage: 5
-  projectileLauncher: {fileID: 11400000, guid: 404b1e5d29429e4469012f51a5536280, type: 2}
+  projectilePrefab: {fileID: 6906503672136009371, guid: fbb56cc61b97a7b4aad66a0f946b79ba, type: 3}
+  projectileMoveSpeed: 1
+  projectileMinExplodeDistance: 0.25

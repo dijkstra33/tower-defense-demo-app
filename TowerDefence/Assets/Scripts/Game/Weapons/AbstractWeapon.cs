@@ -46,12 +46,16 @@ namespace Game.Weapons
 
         protected Transform _transform;
 
+        protected virtual void Awake()
+        {
+            ownerHealth = GetComponentInParent<Health>();
+        }
+
         protected void Start()
         {
             Reset();
             _transform = transform;
             targetSelector = Instantiate(targetSelectorPrefab, _transform);
-            ownerHealth = GetComponentInParent<Health>();
         }
 
         protected virtual void Update()

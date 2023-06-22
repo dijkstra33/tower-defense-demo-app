@@ -168,7 +168,9 @@ MonoBehaviour:
   attackInterval: 3
   attackRange: 1
   attackDamage: 13
-  projectileLauncher: {fileID: 11400000, guid: 0dc0a49cbf1fa9942a59264f9a0d4853, type: 2}
+  projectilePrefab: {fileID: 5905614910941387483, guid: 23c9c18dd49e8c24280b3b272135d168, type: 3}
+  projectileMoveSpeed: 1.2
+  projectileMinExplodeDistance: 0.25
 --- !u!114 &7537927562910256036
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,13 +6,18 @@ using UnityEngine;
 
 namespace Game.Weapons.Projectiles
 {
-    [CreateAssetMenu(menuName = "Game/Projectile Launcher")]
-    public class ProjectileLauncher : ScriptableObject
+    public class ProjectileLauncher
     {
-        [SerializeField]
-        protected Projectile projectilePrefab;
+        private readonly Projectile projectilePrefab;
+        private readonly Health attackerHealth;
+
+        public ProjectileLauncher(Projectile projectilePrefab, Health attackerHealth)
+        {
+            this.projectilePrefab = projectilePrefab;
+            this.attackerHealth = attackerHealth;
+        }
         
-        public void Launch(Health attackerHealth, Vector3 attackerPosition, TargetInfo target, float attackDamage)
+        public void Launch(Vector3 attackerPosition, TargetInfo target, ProjectileParams projectileParams)
         {
             var direction = (target.Transform.position - attackerPosition).normalized;
             var projectile = 
@@ -20,7 +25,7 @@ namespace Game.Weapons.Projectiles
                     projectilePrefab, attackerPosition, Quaternion.LookRotation(direction), 
                     projectilePrefab.transform.localScale, SpawnManager.ProjectilesRoot);
 
-            projectile.Fire(attackerHealth, target, attackDamage);
+            projectile.Fire(attackerHealth, target, projectileParams);
         }
     }
 }

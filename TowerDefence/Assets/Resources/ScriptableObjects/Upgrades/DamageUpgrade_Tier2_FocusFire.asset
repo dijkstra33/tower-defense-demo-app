@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DamageUpgrade_Tier2_FocusFire
   m_EditorClassIdentifier: 
   price: 50
-  sprite: {fileID: 21300000, guid: 1418ea639c3675346a5a07d9fa9799ec, type: 3}
+  sprite: {fileID: 21300000, guid: ade04e341acd7a640afa18738d12fc0f, type: 3}
   weaponType: 2
   upgradeType: 0
   value: 8

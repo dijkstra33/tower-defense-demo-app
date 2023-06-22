@@ -6,21 +6,15 @@ using UnityEngine;
 namespace Game.Weapons.Projectiles
 {
     // TODO: add on fire particle effects controlled by separate component.
-    public class Projectile : MonoBehaviour, IResettable
+    [RequireComponent(typeof(Poolable))]
+    public class Projectile : MonoBehaviour
     {
         private bool isFired = false;
-
-        private Health targetHealth;
-        private Transform targetTransform;
-        private float damage;
-
-        [SerializeField]
-        private float moveSpeed;
-
-        [SerializeField]
-        private float minExplodeDistance;
-
+        
         private Health attackerHealth;
+        private TargetInfo targetInfo;
+        private ProjectileParams projectileParams;
+
         private Transform _transform;
 
         private void Start()
@@ -28,7 +22,7 @@ namespace Game.Weapons.Projectiles
             _transform = transform;
         }
 
-        public void Fire(Health attackerHealth, TargetInfo target, float damage)
+        public void Fire(Health attackerHealth, TargetInfo targetInfo, ProjectileParams projectileParams)
         {
             if (isFired)
             {
@@ -36,9 +30,8 @@ namespace Game.Weapons.Projectiles
             }
 
             this.attackerHealth = attackerHealth;
-            targetHealth = target.Health;
-            targetTransform = target.Transform;
-            this.damage = damage;
+            this.targetInfo = targetInfo;
+            this.projectileParams = projectileParams;
             isFired = true;
 
             attackerHealth.OnDeath += HandleOnAttackerDeath;
@@ -57,8 +50,8 @@ namespace Game.Weapons.Projectiles
                 return;
             }
 
-            var distanceToTarget = Vector3.Distance(_transform.position, targetTransform.position);
-            if (distanceToTarget < minExplodeDistance)
+            var distanceToTarget = Vector3.Distance(_transform.position, targetInfo.Transform.position);
+            if (distanceToTarget < projectileParams.MinExplodeDistance)
             {
                 Explode();
             }
@@ -70,19 +63,17 @@ namespace Game.Weapons.Projectiles
 
         private void Move()
         {
-            var direction = (targetTransform.position - _transform.position).normalized;
-            transform.position += direction * moveSpeed * Time.deltaTime;
+            var direction = (targetInfo.Transform.position - _transform.position).normalized;
+            transform.position += direction * projectileParams.MoveSpeed * Time.deltaTime;
         }
 
         private void Explode()
         {
-            targetHealth.ReceiveDamage(damage, attackerHealth);
-            DeathManager.Instance.OnDeath(gameObject);
-        }
-
-        public void Reset()
-        {
             isFired = false;
+            
+            targetInfo.Health.ReceiveDamage(projectileParams.Damage, attackerHealth);
+            DeathManager.Instance.OnDeath(gameObject);
+            
             if (attackerHealth != null)
             {
                 attackerHealth.OnDeath -= HandleOnAttackerDeath;

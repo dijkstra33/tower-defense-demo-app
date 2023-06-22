@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 1
   isUpgradable: 1
-  color: {r: 1, g: 0, b: 0, a: 1}
+  color: {r: 0.5787859, g: 0, b: 1, a: 1}
   targetSelectorPrefab: {fileID: -8550851618821670046, guid: b5fe44be9cb2fe84a826b76c26866b33, type: 3}
   attackInterval: 3
   attackRange: 5
@@ -110,11 +110,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5990547201973190724, guid: cd1e0308d7ddc294f80fe29dadcc6b63, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.107547104
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5990547201973190724, guid: cd1e0308d7ddc294f80fe29dadcc6b63, type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.107547104
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5990547201973190724, guid: cd1e0308d7ddc294f80fe29dadcc6b63, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.68303776
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd1e0308d7ddc294f80fe29dadcc6b63, type: 3}
