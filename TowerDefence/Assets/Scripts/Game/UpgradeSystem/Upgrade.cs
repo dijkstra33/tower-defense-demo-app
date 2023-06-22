@@ -15,5 +15,7 @@ namespace Game.UpgradeSystem
 
         public abstract bool IsApplicable(UpgradeType upgradeType, WeaponType weaponType);
         public abstract float GetUpgradeValue();
+
+        public abstract string GetValueText();
     }
 }

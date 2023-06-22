@@ -17,3 +17,4 @@ MonoBehaviour:
   weaponType: 3
   upgradeType: 0
   value: 8
+  valueText: +{0} Damage

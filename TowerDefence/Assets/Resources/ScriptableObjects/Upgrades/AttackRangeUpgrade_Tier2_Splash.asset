@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eace9bed68cb462a90335de0e32712fd, type: 3}
-  m_Name: Armor_Tier1
+  m_Name: AttackRangeUpgrade_Tier2_Splash
   m_EditorClassIdentifier: 
-  price: 10
-  sprite: {fileID: 21300000, guid: a41574a97607ec244a8beb332f0db6ed, type: 3}
-  weaponType: 254
-  upgradeType: 3
-  value: 1
-  valueText: +{0} Armor
+  price: 50
+  sprite: {fileID: 21300000, guid: 8b494021498fdc943be72e335ccddb85, type: 3}
+  weaponType: 1
+  upgradeType: 4
+  value: 0.5
+  valueText: +{0:F1} Attack Range

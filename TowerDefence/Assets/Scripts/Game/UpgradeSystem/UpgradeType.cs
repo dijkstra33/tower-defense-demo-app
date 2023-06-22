@@ -6,5 +6,6 @@
         CurrencyPassiveIncome,
         KillCurrencyBonus,
         Armor,
+        AttackRange,
     }
 }

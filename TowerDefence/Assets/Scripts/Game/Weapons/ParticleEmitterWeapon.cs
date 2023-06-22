@@ -10,8 +10,9 @@ namespace Game.Weapons
 
         private short particlesCount;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             particlesCount = attackParticleSystem.emission.GetBurst(0).maxCount;
         }
 

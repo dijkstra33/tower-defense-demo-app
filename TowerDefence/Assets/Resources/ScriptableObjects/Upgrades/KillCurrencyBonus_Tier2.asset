@@ -17,3 +17,4 @@ MonoBehaviour:
   weaponType: 254
   upgradeType: 2
   value: 4
+  valueText: +{0} Kill Bounty

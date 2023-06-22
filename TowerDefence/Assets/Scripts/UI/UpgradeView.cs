@@ -16,6 +16,9 @@ namespace UI
         [SerializeField]
         private TMP_Text priceLabel;
 
+        [SerializeField]
+        private TMP_Text valueLabel;
+
         private Upgrade upgrade;
 
         private void Awake()
@@ -34,6 +37,7 @@ namespace UI
             
             icon.sprite = upgrade.Sprite;
             priceLabel.text = upgrade.Price.ToString();
+            valueLabel.text = upgrade.GetValueText();
         }
         
         private void OnClick()

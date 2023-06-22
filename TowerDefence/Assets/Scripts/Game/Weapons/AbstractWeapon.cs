@@ -30,7 +30,9 @@ namespace Game.Weapons
         [SerializeField]
         private float attackInterval;
 
-        public float GetAttackRange() => attackRange;
+        public float GetAttackRange() => 
+            attackRange + UpgradeManager.Instance.GetUpgradeValue(UpgradeType.AttackRange, this);
+
         [SerializeField]
         private float attackRange;
 
@@ -68,7 +70,7 @@ namespace Game.Weapons
             timeUntillNextAttack -= Time.deltaTime;
             if (timeUntillNextAttack <= 0)
             {
-                var targets = targetSelector.SelectTargets(_transform.position, attackRange);
+                var targets = targetSelector.SelectTargets(_transform.position, GetAttackRange());
                 if (targets != null && targets.Length > 0)
                 {
                     isAttacking = true;

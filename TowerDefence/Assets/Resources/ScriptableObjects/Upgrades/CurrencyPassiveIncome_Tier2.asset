@@ -17,3 +17,4 @@ MonoBehaviour:
   weaponType: 254
   upgradeType: 1
   value: 4
+  valueText: +{0} Income

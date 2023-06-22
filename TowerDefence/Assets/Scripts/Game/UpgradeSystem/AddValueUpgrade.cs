@@ -13,7 +13,10 @@ namespace Game.UpgradeSystem
         private UpgradeType upgradeType;
         
         [SerializeField]
-        private int value;
+        private float value;
+
+        [SerializeField]
+        private string valueText;
 
         public override bool IsApplicable(UpgradeType upgradeType, WeaponType weaponType)
         {
@@ -21,5 +24,10 @@ namespace Game.UpgradeSystem
         }
 
         public override float GetUpgradeValue() => value;
+
+        public override string GetValueText()
+        {
+            return string.Format(valueText, value);
+        }
     }
 }
