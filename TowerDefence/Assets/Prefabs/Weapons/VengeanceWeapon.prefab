@@ -50,7 +50,7 @@ MonoBehaviour:
   color: {r: 0.9811321, g: 0.4321593, b: 0, a: 1}
   targetSelectorPrefab: {fileID: 7269473910757939555, guid: 5824e72e7e7846746ae4870487fdf096, type: 3}
   projectilePrefab: {fileID: 62216399339084744, guid: 8184468cf69eeaf479f9f2e5f1497e74, type: 3}
-  projectileMoveSpeed: 1.9
+  projectileMoveSpeed: 2.5
   projectileMinExplodeDistance: 0.15
 --- !u!114 &6201588479892148989
 MonoBehaviour:
@@ -77,6 +77,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23b7c2b84fa54d5b8fa99c8f825d15c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 8
-  attackInterval: 2
-  attackRange: 5
+  attackDamage: 5
+  attackInterval: 1.6
+  attackRange: 5.5

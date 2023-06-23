@@ -182,7 +182,7 @@ MonoBehaviour:
   color: {r: 0.0013062527, g: 0.990566, b: 0, a: 1}
   targetSelectorPrefab: {fileID: 7656259469755932241, guid: e515c191b7ea8534eb9d3cf23032f47c, type: 3}
   lineRenderer: {fileID: 1400857802}
-  lineShowDuration: 0.4
+  lineShowDuration: 0.35
 --- !u!114 &2001922270532119689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,5 +209,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 1
-  attackInterval: 1
+  attackInterval: 1.2
   attackRange: 5

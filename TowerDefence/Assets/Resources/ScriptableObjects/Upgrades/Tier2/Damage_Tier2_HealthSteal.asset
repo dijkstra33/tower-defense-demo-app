@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a600241ae84e42a2aaa44677134919ff, type: 3}
   m_Name: Damage_Tier2_HealthSteal
   m_EditorClassIdentifier: 
+  applicationType: 0
   buffedAttributeType: 1
-  buffHolderType: 4
-  value: 8
+  value: 4

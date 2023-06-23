@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a600241ae84e42a2aaa44677134919ff, type: 3}
   m_Name: CurrencyPassiveIncome_Tier2
   m_EditorClassIdentifier: 
+  applicationType: 0
   buffedAttributeType: 2
-  buffHolderType: 0
-  value: 4
+  value: 3

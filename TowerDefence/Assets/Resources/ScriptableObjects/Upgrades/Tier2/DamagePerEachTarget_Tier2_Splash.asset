@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af50af72f1845ad853ab1a296ff751c, type: 3}
   m_Name: DamagePerEachTarget_Tier2_Splash
   m_EditorClassIdentifier: 
-  buffHolderType: 1
-  damagePerEachTarget: 0.5
+  applicationType: 0
+  damagePerEachTarget: 0.75

@@ -50,7 +50,7 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   targetSelectorPrefab: {fileID: 6729861934396503073, guid: 1b080ee7a51d80c4bbc7b752604d4efc, type: 3}
   projectilePrefab: {fileID: 5905614910941387483, guid: 23c9c18dd49e8c24280b3b272135d168, type: 3}
-  projectileMoveSpeed: 1.2
+  projectileMoveSpeed: 3
   projectileMinExplodeDistance: 0.25
 --- !u!114 &340598325141996742
 MonoBehaviour:
@@ -64,9 +64,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23b7c2b84fa54d5b8fa99c8f825d15c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 4
+  attackDamage: 3
   attackInterval: 2
-  attackRange: 1
+  attackRange: 0.75
 --- !u!114 &257169574878241735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4838a136b98af047a26f0da6f08f922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxValue: 7
+  maxValue: 20
 --- !u!114 &8267856240445595303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f812db0a56534627a6898db554ec707e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseKillCurrencyBonus: 4
+  baseKillCurrencyBonus: 2
 --- !u!114 &8106747759788926515
 MonoBehaviour:
   m_ObjectHideFlags: 0

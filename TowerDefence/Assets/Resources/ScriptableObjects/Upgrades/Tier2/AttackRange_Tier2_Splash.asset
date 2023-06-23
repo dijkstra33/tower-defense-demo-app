@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a600241ae84e42a2aaa44677134919ff, type: 3}
   m_Name: AttackRange_Tier2_Splash
   m_EditorClassIdentifier: 
+  applicationType: 0
   buffedAttributeType: 4
-  buffHolderType: 1
-  value: 0.5
+  value: 0.75

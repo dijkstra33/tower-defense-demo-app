@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   applicationType: 1
   buffedAttributeType: 0
-  buffHolderType: 3
-  value: -4
+  value: -3

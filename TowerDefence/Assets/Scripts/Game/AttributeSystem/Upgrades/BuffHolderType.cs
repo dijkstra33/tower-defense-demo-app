@@ -8,5 +8,6 @@
         DebuffWeapon,
         HealthStealWeapon,
         VengeanceWeapon,
+        Other,
     }
 }
