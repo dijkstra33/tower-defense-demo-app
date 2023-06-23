@@ -11,7 +11,7 @@ namespace Game.AttributeSystem.Buffs
         public override AttributeType BuffedAttributeType => AttributeType.Damage;
         public override float GetValue(AttackContext context)
         {
-            var targetsCount = context?.Targets?.Length ?? 0;
+            var targetsCount = context?.AllTargets?.Length ?? 0;
             return targetsCount * damagePerEachTarget;
         }
 

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+using Game.AttributeSystem.Buffs;
 using Game.HealthSystem;
 using UnityEngine;
 
@@ -7,49 +7,35 @@ namespace Game.Weapons.TargetSelection
 {
     public class RandomTowerAttackerUnitTargetSelector : AbstractTargetSelector
     {
-        private HashSet<Unit> towerAttackers = new();
-
         private System.Random random = new();
+        private BattleContext towerBattleContext;
         
         private void Start()
         {
-            var towerHealth = Tower.Instance.GetComponent<Health>();
-            towerHealth.OnDamageReceived += OnTowerDamageReceived;
-            DeathManager.Instance.OnUnitDeath += HandleUnitDeath;
-        }
-
-        private void OnTowerDamageReceived(Health towerAttacker)
-        {
-            if (towerAttacker == null)
-            {
-                return;
-            }
-
-            var unit = towerAttacker.GetComponent<Unit>();
-            if (unit != null)
-            {
-                towerAttackers.Add(unit);
-            }
+            towerBattleContext = Tower.Instance.GetComponent<BattleContext>();
         }
         
-        private void HandleUnitDeath(Unit diedUnit)
-        {
-            towerAttackers.Remove(diedUnit);
-        }
-
         public override TargetInfo[] SelectTargets(Vector3 selectorPosition, float attackRange)
         {
-            var towerAttackerUnits = towerAttackers.ToArray();
+            var allUnits = FindObjectsOfType<Unit>();
             var potentialTargets = new List<Unit>();
-            foreach (var towerAttackerUnit in towerAttackerUnits)
+
+            foreach (var unit in allUnits)
             {
-                var distance = Vector3.Distance(towerAttackerUnit.Transform.position, selectorPosition);
-                if (!towerAttackerUnit.gameObject.activeInHierarchy || distance > attackRange)
+                var towerHasBeenHitByUnit = false;
+                foreach (var unitWeapon in unit.Weapons)
+                {
+                    var unitWeaponBuffHolder = unitWeapon.GetComponent<BuffHolder>();
+                    towerHasBeenHitByUnit |= towerBattleContext.GetHitsCountBy(unitWeaponBuffHolder) > 0;
+                }
+
+                var distance = Vector3.Distance(unit.Transform.position, selectorPosition);
+                if (!towerHasBeenHitByUnit || !unit.gameObject.activeInHierarchy || distance > attackRange)
                 {
                     continue;
                 }
 
-                potentialTargets.Add(towerAttackerUnit);
+                potentialTargets.Add(unit);
             }
 
             if (potentialTargets.Count == 0)

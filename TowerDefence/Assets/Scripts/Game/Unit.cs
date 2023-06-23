@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Game
 {
-    [RequireComponent(typeof(Health))]
+    [RequireComponent(typeof(Health), typeof(AbstractAttributeOwner), typeof(BattleContext))]
     public class Unit : MonoBehaviour, IResettable
     {
         private enum UnitState
@@ -19,6 +19,7 @@ namespace Game
         [SerializeField]
         private float moveSpeed;
 
+        public AbstractWeapon[] Weapons => weapons;
         private AbstractWeapon[] weapons;
         
         private UnitState state = UnitState.Idle;

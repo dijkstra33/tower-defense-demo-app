@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3059773870934440738}
   - component: {fileID: 6415722372125710656}
   - component: {fileID: 565520127771315352}
+  - component: {fileID: 9078305188889209427}
   m_Layer: 0
   m_Name: DebuffWeapon
   m_TagString: Untagged
@@ -80,3 +81,15 @@ MonoBehaviour:
   attackDamage: 1
   attackInterval: 1.7
   attackRange: 9
+--- !u!114 &9078305188889209427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059773870934440737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634d817121fd4d01b1904f22c0aa7ff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Game.Weapons
 {
-    [RequireComponent(typeof(WeaponAttributeOwner))]
+    [RequireComponent(typeof(WeaponAttributeOwner), typeof(BattleContext))]
     public abstract class AbstractWeapon : MonoBehaviour, IResettable
     {
         public WeaponType WeaponType => weaponType;
@@ -66,8 +66,7 @@ namespace Game.Weapons
                 if (targets != null && targets.Length > 0)
                 {
                     isAttacking = true;
-                    var attackContext = new AttackContext(targets);
-                    Attack(targets, attackContext);
+                    Attack(targets);
                     timeUntillNextAttack = attributeOwner.GetValue(AttributeType.AttackInterval);
                 }
                 else
@@ -78,15 +77,15 @@ namespace Game.Weapons
             }
         }
 
-        protected virtual void Attack(TargetInfo[] targets, AttackContext attackContext)
+        protected virtual void Attack(TargetInfo[] targets)
         {
             foreach (var target in targets)
             {
-                Attack(target, attackContext);
+                Attack(target, targets);
             }
         }
 
-        protected virtual void Attack(TargetInfo target, AttackContext attackContext) { }
+        protected virtual void Attack(TargetInfo target, TargetInfo[] allTargets) { }
 
         public void Reset()
         {

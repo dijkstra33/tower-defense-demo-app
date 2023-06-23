@@ -1,16 +1,21 @@
-﻿using Game.Weapons.TargetSelection;
+﻿using Game.AttributeSystem.Buffs;
+using Game.Weapons.TargetSelection;
 
 namespace Game.Weapons
 {
     public class AttackContext
     {
-        public static AttackContext Empty = new(new TargetInfo[0]);
+        public static AttackContext Empty = new(default, new TargetInfo[0], null);
         
-        public TargetInfo[] Targets { get; }
+        public TargetInfo Target { get; }
+        public TargetInfo[] AllTargets { get; }
+        public BuffHolder AttackerBuffHolder { get; }
         
-        public AttackContext(TargetInfo[] targets)
+        public AttackContext(TargetInfo targetInfo, TargetInfo[] allAllTargets, BuffHolder attackerBuffHolder)
         {
-            Targets = targets;
+            Target = targetInfo;
+            AllTargets = allAllTargets;
+            AttackerBuffHolder = attackerBuffHolder;
         }
     }
 }

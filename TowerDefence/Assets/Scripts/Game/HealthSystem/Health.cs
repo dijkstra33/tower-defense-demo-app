@@ -9,7 +9,6 @@ namespace Game.HealthSystem
     [RequireComponent(typeof(AbstractAttributeOwner))]
     public class Health : MonoBehaviour, IResettable
     {
-        public event Action<Health> OnDamageReceived;
         public event Action OnDeath;
         
         public int MaxValue => maxValue;
@@ -31,7 +30,7 @@ namespace Game.HealthSystem
             buffHolder = GetComponent<BuffHolder>();
         }
 
-        public void ReceiveDamage(float damage, Health attackerHealth = null, BuffHolder attackerBuffHolder = null)
+        public void ReceiveDamage(float damage, BuffHolder attackerBuffHolder = null)
         {
             if (isDead)
             {
@@ -39,7 +38,7 @@ namespace Game.HealthSystem
             }
 
             var pureDamage = GetPureDamage(damage);
-            OnDamageReceived?.Invoke(attackerHealth);
+            BattleContextManager.Instance.OnDamageReceived(this, attackerBuffHolder);
             currentValue = Math.Max(currentValue - pureDamage, 0);
 
             if (currentValue == 0)

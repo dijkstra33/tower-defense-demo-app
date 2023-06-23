@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4028788195800972746}
   - component: {fileID: 3519502744233529376}
   - component: {fileID: 5306436362325103506}
+  - component: {fileID: 5925914075705612180}
   m_Layer: 0
   m_Name: SplashWeapon
   m_TagString: Untagged
@@ -79,6 +80,18 @@ MonoBehaviour:
   attackDamage: 1
   attackInterval: 3
   attackRange: 4.5
+--- !u!114 &5925914075705612180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4028788195800972749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634d817121fd4d01b1904f22c0aa7ff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4028788195580288546
 PrefabInstance:
   m_ObjectHideFlags: 0

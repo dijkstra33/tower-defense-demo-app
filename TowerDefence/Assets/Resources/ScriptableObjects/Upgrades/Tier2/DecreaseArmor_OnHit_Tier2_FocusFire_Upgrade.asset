@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3fb65b4c618457f89180cb2e2115416, type: 3}
+  m_Name: DecreaseArmor_OnHit_Tier2_FocusFire_Upgrade
+  m_EditorClassIdentifier: 
+  buffHolderType: 2
+  buff: {fileID: 11400000, guid: 3bd9f46e2f98d9143bdf73088302dbdf, type: 2}
+  price: 50
+  sprite: {fileID: 21300000, guid: ade04e341acd7a640afa18738d12fc0f, type: 3}
+  valueText: 'Debuff On Hit: {0} Armor'

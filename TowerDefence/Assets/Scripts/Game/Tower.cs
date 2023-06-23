@@ -1,12 +1,13 @@
 ﻿using System;
 using Core;
 using Game.AttributeSystem;
+using Game.HealthSystem;
 using Game.Weapons;
 using UnityEngine;
 
 namespace Game
 {
-    [RequireComponent(typeof(TowerAttributeOwner))]
+    [RequireComponent(typeof(TowerAttributeOwner), typeof(BattleContext))]
     public class Tower : SingletonMoneBehaviour<Tower>
     {
         public int CurrencyAmount => currencyAmount;

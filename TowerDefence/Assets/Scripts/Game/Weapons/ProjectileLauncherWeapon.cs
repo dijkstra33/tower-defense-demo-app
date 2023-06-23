@@ -24,8 +24,9 @@ namespace Game.Weapons
             projectileLauncher = new ProjectileLauncher(projectilePrefab, ownerHealth, buffHolder);
         }
         
-        protected override void Attack(TargetInfo target, AttackContext attackContext)
+        protected override void Attack(TargetInfo target, TargetInfo[] allTargets)
         {
+            var attackContext = new AttackContext(target, allTargets, buffHolder);
             projectileLauncher.Launch(_transform.position, target, GetProjectileParams(attackContext));
         }
 

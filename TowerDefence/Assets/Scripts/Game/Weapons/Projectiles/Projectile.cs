@@ -71,7 +71,7 @@ namespace Game.Weapons.Projectiles
         {
             isFired = false;
 
-            targetInfo.Health.ReceiveDamage(projectileParams.Damage, projectileOwnerInfo?.Health, projectileOwnerInfo?.BuffHolder);
+            targetInfo.Health.ReceiveDamage(projectileParams.Damage, projectileOwnerInfo?.BuffHolder);
             DeathManager.Instance.OnDeath(gameObject);
             
             if (projectileOwnerInfo != null)

@@ -1793,6 +1793,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &796918054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 796918055}
+  - component: {fileID: 796918056}
+  m_Layer: 0
+  m_Name: BattleContextManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &796918055
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796918054}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1501968328}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &796918056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796918054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3f92a6392a043c59157c645db258587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &835741593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1930,6 +1974,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+--- !u!114 &835741610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835741594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634d817121fd4d01b1904f22c0aa7ff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &905228460
 GameObject:
   m_ObjectHideFlags: 0
@@ -3135,6 +3191,7 @@ Transform:
   - {fileID: 346994716}
   - {fileID: 1291122937}
   - {fileID: 1068233095}
+  - {fileID: 796918055}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4117,6 +4174,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthStealWeapon
       objectReference: {fileID: 0}
+    - target: {fileID: 14524272168538429, guid: 0d9ffc41aaaa1ef4684bf3a4d4377e2a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 14524272168538431, guid: 0d9ffc41aaaa1ef4684bf3a4d4377e2a, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -4231,6 +4292,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FocusFireWeapon
       objectReference: {fileID: 0}
+    - target: {fileID: 1521232533528635892, guid: 15310813befc5b0499bb089a4aee1ec2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1521232533528635894, guid: 15310813befc5b0499bb089a4aee1ec2, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4287,6 +4352,10 @@ PrefabInstance:
     - target: {fileID: 3059773870934440737, guid: fafa95a247a54564bad65ba90777ef94, type: 3}
       propertyPath: m_Name
       value: DebuffWeapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 3059773870934440737, guid: fafa95a247a54564bad65ba90777ef94, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3059773870934440739, guid: fafa95a247a54564bad65ba90777ef94, type: 3}
       propertyPath: m_RootOrder
@@ -4388,6 +4457,10 @@ PrefabInstance:
     - target: {fileID: 4028788195800972749, guid: afad3c9d28a13c44a8208d8cb88ed6d3, type: 3}
       propertyPath: m_Name
       value: SplashWeapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028788195800972749, guid: afad3c9d28a13c44a8208d8cb88ed6d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afad3c9d28a13c44a8208d8cb88ed6d3, type: 3}
