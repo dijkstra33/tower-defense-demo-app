@@ -40,9 +40,10 @@ namespace Game.CurrencySystem
         
         private void HandleUnitDeath(Unit unit)
         {
-            var totalKillCurrencyReward = 
-                tower.AttributeOwner.GetValue(AttributeType.KillCurrencyBonus) + 
-                unit.AttributeOwner.GetValue(AttributeType.KillCurrencyBonus);
+            var basicKillCurrencyReward = tower.AttributeOwner.GetValue(AttributeType.KillCurrencyBonus);
+            var unitKillCurrencyRewardBonus = unit.AttributeOwner.GetValue(AttributeType.KillCurrencyBonus);
+            
+            var totalKillCurrencyReward = basicKillCurrencyReward + unitKillCurrencyRewardBonus;
 
             tower.ReceiveCurrency((int)totalKillCurrencyReward);
         }

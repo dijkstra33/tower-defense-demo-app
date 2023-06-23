@@ -67,6 +67,8 @@ namespace Game.AttributeSystem.Buffs
             {
                 buffs.Value.Clear();
             }
+            
+            buffsToTargetOnHit.Clear();
         }
     }
 }
