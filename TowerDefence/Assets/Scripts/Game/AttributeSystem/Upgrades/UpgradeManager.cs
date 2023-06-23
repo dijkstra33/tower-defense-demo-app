@@ -22,6 +22,15 @@ namespace Game.AttributeSystem.Upgrades
         [SerializeField]
         private int upgradesPerReroll;
 
+        public int RerollPrice => rerollPrice;
+        private int rerollPrice;
+        
+        [SerializeField]
+        private int baseRerollPrice;
+
+        [SerializeField]
+        private int rerollPriceIncrease;
+
         private Upgrade[] allUpgrades;
         private Upgrade[] availableUpgrades;
 
@@ -42,6 +51,7 @@ namespace Game.AttributeSystem.Upgrades
             allUpgrades = Resources.LoadAll<Upgrade>(UPGRADES_PATH);
             timeUntilAutoReroll = upgradeSystemStartDelay;
             autoRerollCycleDuration = upgradeSystemStartDelay;
+            rerollPrice = baseRerollPrice;
         }
         private void Update()
         {
@@ -54,8 +64,6 @@ namespace Game.AttributeSystem.Upgrades
             if (timeUntilAutoReroll <= 0f)
             {
                 RerollUpgrades();
-                timeUntilAutoReroll = upgradeAutoRerollInterval;
-                autoRerollCycleDuration = upgradeAutoRerollInterval;
             }
         }
 
@@ -68,6 +76,9 @@ namespace Game.AttributeSystem.Upgrades
                 .ToArray();
 
             OnAvailableUpgradesChanged?.Invoke(availableUpgrades);
+            
+            timeUntilAutoReroll = upgradeAutoRerollInterval;
+            autoRerollCycleDuration = upgradeAutoRerollInterval;
         }
 
         public void BuyUpgrade(Upgrade upgrade)
@@ -93,6 +104,25 @@ namespace Game.AttributeSystem.Upgrades
             }
             availableUpgrades[Array.IndexOf(availableUpgrades, upgrade)] = null;
             OnAvailableUpgradesChanged?.Invoke(availableUpgrades);
+        }
+
+        public void BuyReroll()
+        {
+            if (GameManager.Instance.GameOver)
+            {
+                return;
+            }
+            
+            var isRerollAffordable = Tower.Instance.CurrencyAmount >= rerollPrice;
+            if (!isRerollAffordable)
+            {
+                return;
+            }
+
+            Tower.Instance.SpendCurrency(rerollPrice);
+            rerollPrice += rerollPriceIncrease;
+
+            RerollUpgrades();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Game;
 using Game.AttributeSystem.Upgrades;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,12 @@ namespace UI
         [SerializeField]
         private Image autoRerollProgressBarImage;
 
+        [SerializeField]
+        private Button rerollButton;
+        
+        [SerializeField]
+        private TMP_Text rerollPriceText;
+
         private UpgradeView[] upgradeViews;
 
         private void Start()
@@ -26,6 +33,8 @@ namespace UI
                 upgradeViews[i] = Instantiate(upgradeViewPrefab, upgradeViewsRoot);
                 upgradeViews[i].SetData(null);
             }
+            rerollButton.onClick.AddListener(HandleRerollClick);
+            rerollPriceText.text = UpgradeManager.Instance.RerollPrice.ToString();
         }
 
         private void Update()
@@ -46,6 +55,12 @@ namespace UI
                 var upgrade = (i < upgrades.Length) ? upgrades[i] : null;
                 upgradeViews[i].SetData(upgrade);
             }
+        }
+        
+        private void HandleRerollClick()
+        {
+            UpgradeManager.Instance.BuyReroll();
+            rerollPriceText.text = UpgradeManager.Instance.RerollPrice.ToString();
         }
     }
 }
