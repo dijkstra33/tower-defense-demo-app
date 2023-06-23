@@ -74,6 +74,7 @@ namespace Game.Weapons
                 {
                     isAttacking = true;
                     Attack(targets);
+                    TryHealAttacker(targets);
                     timeUntillNextAttack = attributeOwner.GetValue(AttributeType.AttackInterval);
                 }
                 else
@@ -81,6 +82,14 @@ namespace Game.Weapons
                     isAttacking = false;
                     // Ready to attack, just waiting for target.
                 }
+            }
+        }
+
+        private void TryHealAttacker(TargetInfo[] targets)
+        {
+            if (targets.Length > 0)
+            {
+                ownerHealth.ReceiveHeal(attributeOwner);
             }
         }
 

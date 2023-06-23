@@ -9,5 +9,6 @@
         AttackRange,
         AttackInterval,
         DecreaseAttackIntervalOnTowerHit,
+        HealOnHit,
     }
 }

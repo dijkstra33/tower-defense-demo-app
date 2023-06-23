@@ -53,6 +53,17 @@ namespace Game.HealthSystem
             }
         }
 
+        public void ReceiveHeal(AbstractAttributeOwner attrOwner)
+        {
+            if (isDead)
+            {
+                return;
+            }
+
+            var healValue = (int)Math.Abs(attrOwner.GetValue(AttributeType.HealOnHit));
+            currentValue = Math.Min(maxValue, currentValue + healValue);
+        }
+
         private void TryToApplyBuffsOnHit(BuffHolder attackerBuffHolder)
         {
             if (attackerBuffHolder == null || buffHolder == null)
