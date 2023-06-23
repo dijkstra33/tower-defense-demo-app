@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3fb65b4c618457f89180cb2e2115416, type: 3}
   m_Name: Damage_Tier2_HealthSteal_Upgrade
   m_EditorClassIdentifier: 
+  buffHolderType: 4
   buff: {fileID: 11400000, guid: 445381fda8353f5468329bfda6885b27, type: 2}
   price: 50
   sprite: {fileID: 21300000, guid: 1418ea639c3675346a5a07d9fa9799ec, type: 3}

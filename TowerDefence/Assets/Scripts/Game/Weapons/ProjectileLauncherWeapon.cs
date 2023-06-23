@@ -21,7 +21,7 @@ namespace Game.Weapons
         protected override void Awake()
         {
             base.Awake();
-            projectileLauncher = new ProjectileLauncher(projectilePrefab, ownerHealth);
+            projectileLauncher = new ProjectileLauncher(projectilePrefab, ownerHealth, buffHolder);
         }
         
         protected override void Attack(TargetInfo target, AttackContext attackContext)

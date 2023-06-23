@@ -1,4 +1,4 @@
-﻿namespace Game.AttributeSystem.Buffs
+﻿namespace Game.AttributeSystem.Upgrades
 {
     public enum BuffHolderType
     {
@@ -8,6 +8,5 @@
         DebuffWeapon,
         HealthStealWeapon,
         VengeanceWeapon,
-        Any,
     }
 }

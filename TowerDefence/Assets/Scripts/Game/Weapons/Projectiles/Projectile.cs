@@ -11,7 +11,7 @@ namespace Game.Weapons.Projectiles
     {
         private bool isFired = false;
         
-        private Health attackerHealth;
+        private ProjectileOwnerInfo projectileOwnerInfo;
         private TargetInfo targetInfo;
         private ProjectileParams projectileParams;
 
@@ -22,25 +22,25 @@ namespace Game.Weapons.Projectiles
             _transform = transform;
         }
 
-        public void Fire(Health attackerHealth, TargetInfo targetInfo, ProjectileParams projectileParams)
+        public void Fire(ProjectileOwnerInfo projectileOwnerInfo, TargetInfo targetInfo, ProjectileParams projectileParams)
         {
             if (isFired)
             {
                 return;
             }
 
-            this.attackerHealth = attackerHealth;
+            this.projectileOwnerInfo = projectileOwnerInfo;
+            this.projectileOwnerInfo.Health.OnDeath += HandleOnAttackerDeath;
+            
             this.targetInfo = targetInfo;
             this.projectileParams = projectileParams;
             isFired = true;
-
-            attackerHealth.OnDeath += HandleOnAttackerDeath;
         }
 
         private void HandleOnAttackerDeath()
         {
-            attackerHealth.OnDeath -= HandleOnAttackerDeath;
-            attackerHealth = null;
+            projectileOwnerInfo.Health.OnDeath -= HandleOnAttackerDeath;
+            projectileOwnerInfo = null;
         }
 
         private void Update()
@@ -70,14 +70,14 @@ namespace Game.Weapons.Projectiles
         private void Explode()
         {
             isFired = false;
-            
-            targetInfo.Health.ReceiveDamage(projectileParams.Damage, attackerHealth);
+
+            targetInfo.Health.ReceiveDamage(projectileParams.Damage, projectileOwnerInfo?.Health, projectileOwnerInfo?.BuffHolder);
             DeathManager.Instance.OnDeath(gameObject);
             
-            if (attackerHealth != null)
+            if (projectileOwnerInfo != null)
             {
-                attackerHealth.OnDeath -= HandleOnAttackerDeath;
-                attackerHealth = null;
+                projectileOwnerInfo.Health.OnDeath -= HandleOnAttackerDeath;
+                projectileOwnerInfo = null;
             }
         }
     }

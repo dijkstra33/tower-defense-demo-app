@@ -85,8 +85,7 @@ namespace Game.AttributeSystem.Upgrades
             Tower.Instance.SpendCurrency(upgrade.Price);
             foreach (var buffHolder in buffHolders)
             {
-                if (upgrade.Buff.BuffHolderType == BuffHolderType.Any 
-                    || upgrade.Buff.BuffHolderType == buffHolder.Type)
+                if (upgrade.BuffHolderType == buffHolder.Type)
                 {
                     buffHolder.ApplyBuff(upgrade.Buff);
                 }

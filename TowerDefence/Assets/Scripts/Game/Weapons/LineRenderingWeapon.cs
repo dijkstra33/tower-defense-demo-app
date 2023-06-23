@@ -30,7 +30,7 @@ namespace Game.Weapons
         {
             ShowLineToTarget(target);
             var attackDamage = attributeOwner.GetValue(AttributeType.Damage, attackContext);
-            target.Health.ReceiveDamage(attackDamage, ownerHealth);
+            target.Health.ReceiveDamage(attackDamage, ownerHealth, buffHolder);
         }
 
         private void ShowLineToTarget(TargetInfo target)

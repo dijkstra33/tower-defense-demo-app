@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3fb65b4c618457f89180cb2e2115416, type: 3}
-  m_Name: Damage_Tier2_Debuff_Upgrade
+  m_Script: {fileID: 11500000, guid: a600241ae84e42a2aaa44677134919ff, type: 3}
+  m_Name: ArmorDecrease_OnHit_Debuff_Tier2
   m_EditorClassIdentifier: 
+  applicationType: 1
+  buffedAttributeType: 0
   buffHolderType: 3
-  buff: {fileID: 11400000, guid: 36e705575f7148c49ad21bbc91eb1378, type: 2}
-  price: 50
-  sprite: {fileID: 21300000, guid: aa26fa9df4f8b8c4598ab600e55b356c, type: 3}
-  valueText: +{0} Damage
+  value: -4

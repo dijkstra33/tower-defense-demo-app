@@ -27,7 +27,7 @@ namespace Game.Weapons
             var attackDamage = attributeOwner.GetValue(AttributeType.Damage, attackContext);
             foreach (var target in targets)
             {
-                target.Health.ReceiveDamage(attackDamage, ownerHealth);
+                target.Health.ReceiveDamage(attackDamage, ownerHealth, buffHolder);
             }
         }
     }

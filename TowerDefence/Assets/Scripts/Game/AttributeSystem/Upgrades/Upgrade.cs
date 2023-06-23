@@ -6,6 +6,10 @@ namespace Game.AttributeSystem.Upgrades
 {
     public class Upgrade : ScriptableObject
     {
+        public BuffHolderType BuffHolderType => buffHolderType;
+        [SerializeField]
+        private BuffHolderType buffHolderType;
+        
         public AbstractBuff Buff => buff;
         [SerializeField]
         private AbstractBuff buff;

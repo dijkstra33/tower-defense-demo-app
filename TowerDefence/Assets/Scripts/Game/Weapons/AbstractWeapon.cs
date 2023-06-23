@@ -1,5 +1,6 @@
 ﻿using Core.ObjectPooling;
 using Game.AttributeSystem;
+using Game.AttributeSystem.Buffs;
 using Game.HealthSystem;
 using Game.Weapons.TargetSelection;
 using UnityEngine;
@@ -23,6 +24,7 @@ namespace Game.Weapons
         private AbstractTargetSelector targetSelector;
         
         protected Health ownerHealth;
+        protected BuffHolder buffHolder;
 
         public AbstractAttributeOwner AttributeOwner => attributeOwner;
         protected AbstractAttributeOwner attributeOwner;
@@ -38,6 +40,7 @@ namespace Game.Weapons
         protected virtual void Awake()
         {
             ownerHealth = GetComponentInParent<Health>();
+            buffHolder = GetComponent<BuffHolder>();
             attributeOwner = GetComponent<AbstractAttributeOwner>();
         }
 

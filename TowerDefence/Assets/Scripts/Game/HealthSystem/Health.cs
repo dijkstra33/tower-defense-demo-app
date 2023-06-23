@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using Core.ObjectPooling;
 using Game.AttributeSystem;
+using Game.AttributeSystem.Buffs;
 using UnityEngine;
 
 namespace Game.HealthSystem
@@ -21,20 +23,22 @@ namespace Game.HealthSystem
         private bool isDead = false;
 
         private AbstractAttributeOwner attributeOwner;
+        private BuffHolder buffHolder;
 
         private void Awake()
         {
             currentValue = maxValue;
             attributeOwner = GetComponent<AbstractAttributeOwner>();
+            buffHolder = GetComponent<BuffHolder>();
         }
 
-        public void ReceiveDamage(float damage, Health attackerHealth = null)
+        public void ReceiveDamage(float damage, Health attackerHealth = null, BuffHolder attackerBuffHolder = null)
         {
             if (isDead)
             {
                 return;
             }
-            
+
             var pureDamage = GetPureDamage(damage);
             OnDamageReceived?.Invoke(attackerHealth);
             currentValue = Math.Max(currentValue - pureDamage, 0);
@@ -43,8 +47,26 @@ namespace Game.HealthSystem
             {
                 Die();
             }
+            else
+            {
+                TryToApplyBuffsOnHit(attackerBuffHolder);
+            }
         }
-        
+
+        private void TryToApplyBuffsOnHit(BuffHolder attackerBuffHolder)
+        {
+            if (attackerBuffHolder == null || buffHolder == null)
+            {
+                return;
+            }
+            
+            var buffsOnHit = attackerBuffHolder.BuffsToTargetOnHit;
+            foreach (var buffOnHit in buffsOnHit)
+            {
+                buffHolder.ApplyBuff(buffOnHit, BuffApplicationType.Direct);
+            }
+        }
+
         private int GetPureDamage(float damage)
         {
             var armor = (int)attributeOwner.GetValue(AttributeType.Armor);

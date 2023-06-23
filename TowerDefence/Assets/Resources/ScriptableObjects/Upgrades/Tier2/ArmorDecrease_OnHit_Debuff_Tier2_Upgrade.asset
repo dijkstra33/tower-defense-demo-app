@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3fb65b4c618457f89180cb2e2115416, type: 3}
-  m_Name: AttackRange_Tier2_Splash_Upgrade
+  m_Name: ArmorDecrease_OnHit_Debuff_Tier2_Upgrade
   m_EditorClassIdentifier: 
-  buffHolderType: 1
-  buff: {fileID: 11400000, guid: 237b5c8863c187145b44ef600ebb56ef, type: 2}
+  buffHolderType: 3
+  buff: {fileID: 11400000, guid: ac63796f175885545b742d48da8b8956, type: 2}
   price: 50
-  sprite: {fileID: 21300000, guid: 8b494021498fdc943be72e335ccddb85, type: 3}
-  valueText: +{0:F1} Attack Range
+  sprite: {fileID: 21300000, guid: aa26fa9df4f8b8c4598ab600e55b356c, type: 3}
+  valueText: '{0} Target Armor On Hit'
