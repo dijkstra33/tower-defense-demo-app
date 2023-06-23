@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Core.ObjectPooling;
 using Game.AttributeSystem.Buffs;
 using UnityEngine;
@@ -44,7 +45,8 @@ namespace Game.HealthSystem
         
         public void Reset()
         {
-            foreach (var key in hitsCountByBuffHolder.Keys)
+            var keys = hitsCountByBuffHolder.Keys.ToArray();
+            foreach (var key in keys)
             {
                 hitsCountByBuffHolder[key] = 0;
             }

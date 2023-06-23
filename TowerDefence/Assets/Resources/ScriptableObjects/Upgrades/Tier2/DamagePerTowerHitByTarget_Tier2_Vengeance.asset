@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 750b2f80ee3b427cbb3ae71715c61c06, type: 3}
-  m_Name: DamagePerHitOnSameTarget_Tier2_FocusFire
+  m_Script: {fileID: 11500000, guid: d6a8c0f408864b6a8d8a06809d8fcd5a, type: 3}
+  m_Name: DamagePerTowerHitByTarget_Tier2_Vengeance
   m_EditorClassIdentifier: 
   applicationType: 0
-  damagePerEachHitOnSameTarget: 1.5
+  damagePerEachTowerAttackByTarget: 5
