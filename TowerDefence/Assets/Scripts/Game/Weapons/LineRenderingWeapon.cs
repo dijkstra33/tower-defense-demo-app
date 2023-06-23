@@ -29,9 +29,9 @@ namespace Game.Weapons
         protected override void Attack(TargetInfo target, TargetInfo[] allTargets)
         {
             ShowLineToTarget(target);
-            var attackContext = new AttackContext(target, allTargets, buffHolder);
+            var attackContext = new AttackContext(target, allTargets, weaponBuffHolder);
             var attackDamage = attributeOwner.GetValue(AttributeType.Damage, attackContext);
-            target.Health.ReceiveDamage(attackDamage, buffHolder);
+            target.Health.ReceiveDamage(attackDamage, weaponBuffHolder, weaponOwnerHealth);
         }
 
         private void ShowLineToTarget(TargetInfo target)

@@ -23,8 +23,8 @@ namespace Game.Weapons
 
         private AbstractTargetSelector targetSelector;
         
-        protected Health ownerHealth;
-        protected BuffHolder buffHolder;
+        protected Health weaponOwnerHealth;
+        protected BuffHolder weaponBuffHolder;
 
         public AbstractAttributeOwner AttributeOwner => attributeOwner;
         protected AbstractAttributeOwner attributeOwner;
@@ -39,8 +39,8 @@ namespace Game.Weapons
 
         protected virtual void Awake()
         {
-            ownerHealth = GetComponentInParent<Health>();
-            buffHolder = GetComponent<BuffHolder>();
+            weaponOwnerHealth = GetComponentInParent<Health>();
+            weaponBuffHolder = GetComponent<BuffHolder>();
             attributeOwner = GetComponent<AbstractAttributeOwner>();
         }
 
@@ -74,7 +74,7 @@ namespace Game.Weapons
                 {
                     isAttacking = true;
                     Attack(targets);
-                    TryHealAttacker(targets);
+                    HealManager.Instance.TryHealAttacker(weaponOwnerHealth, attributeOwner);
                     timeUntillNextAttack = attributeOwner.GetValue(AttributeType.AttackInterval);
                 }
                 else
@@ -82,14 +82,6 @@ namespace Game.Weapons
                     isAttacking = false;
                     // Ready to attack, just waiting for target.
                 }
-            }
-        }
-
-        private void TryHealAttacker(TargetInfo[] targets)
-        {
-            if (targets.Length > 0)
-            {
-                ownerHealth.ReceiveHeal(attributeOwner);
             }
         }
 

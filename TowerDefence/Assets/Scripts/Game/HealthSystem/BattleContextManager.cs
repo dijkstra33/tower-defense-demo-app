@@ -14,7 +14,7 @@ namespace Game.HealthSystem
             DeathManager.Instance.OnUnitDeath += HandleUnitDeath;
         }
 
-        private void HandleUnitDeath(Unit diedUnit)
+        private void HandleUnitDeath(Unit diedUnit, BuffHolder killerWeaponBuffHolder, Health killerHealth)
         {
             var diedUnitWeapons = diedUnit.Weapons;
             foreach (var weapon in diedUnitWeapons)

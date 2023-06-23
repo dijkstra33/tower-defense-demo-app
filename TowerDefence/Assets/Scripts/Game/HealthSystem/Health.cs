@@ -31,7 +31,7 @@ namespace Game.HealthSystem
             buffHolder = GetComponent<BuffHolder>();
         }
 
-        public void ReceiveDamage(float damage, BuffHolder attackerBuffHolder = null)
+        public void ReceiveDamage(float damage, BuffHolder weaponBuffHolder = null, Health attackerHealth = null)
         {
             if (isDead)
             {
@@ -40,27 +40,27 @@ namespace Game.HealthSystem
 
             var pureDamage = GetPureDamage(damage);
             OnDamageReceived?.Invoke();
-            BattleContextManager.Instance.OnDamageReceived(this, attackerBuffHolder);
+            BattleContextManager.Instance.OnDamageReceived(this, weaponBuffHolder);
             currentValue = Math.Max(currentValue - pureDamage, 0);
 
             if (currentValue == 0)
             {
-                Die();
+                Die(weaponBuffHolder, attackerHealth);
             }
             else
             {
-                TryToApplyBuffsOnHit(attackerBuffHolder);
+                TryToApplyBuffsOnHit(weaponBuffHolder);
             }
         }
 
-        public void ReceiveHeal(AbstractAttributeOwner attrOwner)
+        public void ReceiveHeal(AbstractAttributeOwner attrOwner, AttributeType healType)
         {
-            if (isDead)
+            if (isDead || attrOwner == null)
             {
                 return;
             }
 
-            var healValue = (int)Math.Abs(attrOwner.GetValue(AttributeType.HealOnHit));
+            var healValue = (int)Math.Abs(attrOwner.GetValue(healType));
             currentValue = Math.Min(maxValue, currentValue + healValue);
         }
 
@@ -84,10 +84,10 @@ namespace Game.HealthSystem
             return Math.Max(1, (int)damage - armor);
         }
 
-        private void Die()
+        private void Die(BuffHolder weaponBuffHolder, Health attackerHealth)
         {
             isDead = true;
-            DeathManager.Instance.OnDeath(gameObject);
+            DeathManager.Instance.OnDeath(gameObject, weaponBuffHolder, attackerHealth);
             OnDeath?.Invoke();
         }
 

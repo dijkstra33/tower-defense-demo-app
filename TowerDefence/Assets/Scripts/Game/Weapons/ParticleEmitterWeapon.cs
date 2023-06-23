@@ -26,9 +26,9 @@ namespace Game.Weapons
 
             foreach (var target in targets)
             {
-                var attackContext = new AttackContext(target, targets, buffHolder);
+                var attackContext = new AttackContext(target, targets, weaponBuffHolder);
                 var attackDamage = attributeOwner.GetValue(AttributeType.Damage, attackContext);
-                target.Health.ReceiveDamage(attackDamage, buffHolder);
+                target.Health.ReceiveDamage(attackDamage, weaponBuffHolder, weaponOwnerHealth);
             }
         }
     }

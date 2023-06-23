@@ -6,12 +6,12 @@ namespace Game.Weapons.Projectiles
     public class ProjectileOwnerInfo
     {
         public Health Health { get; }
-        public BuffHolder BuffHolder { get; }
+        public BuffHolder WeaponBuffHolder { get; }
 
-        public ProjectileOwnerInfo(Health health, BuffHolder buffHolder)
+        public ProjectileOwnerInfo(Health health, BuffHolder weaponBuffHolder)
         {
             Health = health;
-            BuffHolder = buffHolder;
+            WeaponBuffHolder = weaponBuffHolder;
         }
     }
 }

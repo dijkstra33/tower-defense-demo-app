@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Game.AttributeSystem.Buffs;
 using Game.HealthSystem;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ namespace Game.Weapons.TargetSelection
             DeathManager.Instance.OnUnitDeath += HandleUnitDied;
         }
         
-        private void HandleUnitDied(Unit unit)
+        private void HandleUnitDied(Unit unit, BuffHolder weaponBuffHolder, Health killerHealth)
         {
             if (currentTarget.HasValue && currentTarget.Value.Transform == unit.transform)
             {

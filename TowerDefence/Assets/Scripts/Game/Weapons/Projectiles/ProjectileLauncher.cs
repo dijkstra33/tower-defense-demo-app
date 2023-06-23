@@ -12,10 +12,10 @@ namespace Game.Weapons.Projectiles
         private readonly Projectile projectilePrefab;
         private readonly ProjectileOwnerInfo projectileOwnerInfo;
 
-        public ProjectileLauncher(Projectile projectilePrefab, Health attackerHealth, BuffHolder attackerBuffHolder)
+        public ProjectileLauncher(Projectile projectilePrefab, Health attackerHealth, BuffHolder weaponBuffHolder)
         {
             this.projectilePrefab = projectilePrefab;
-            projectileOwnerInfo = new ProjectileOwnerInfo(attackerHealth, attackerBuffHolder);
+            projectileOwnerInfo = new ProjectileOwnerInfo(attackerHealth, weaponBuffHolder);
         }
         
         public void Launch(Vector3 attackerPosition, TargetInfo target, ProjectileParams projectileParams)
