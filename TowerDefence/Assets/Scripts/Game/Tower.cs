@@ -17,10 +17,14 @@ namespace Game
         public AbstractAttributeOwner AttributeOwner => attributeOwner;
         private AbstractAttributeOwner attributeOwner;
 
+        private AbstractWeapon[] weapons;
+        public AbstractWeapon[] Weapons => weapons;
+
         protected override void Awake()
         {
             base.Awake();
             attributeOwner = GetComponent<AbstractAttributeOwner>();
+            weapons = GetComponentsInChildren<AbstractWeapon>();
         }
 
         public void ReceiveCurrency(int currency)
@@ -32,11 +36,6 @@ namespace Game
         {
             currencyAmount -= currency;
             currencyAmount = Math.Max(0, currencyAmount);
-        }
-
-        public AbstractWeapon[] GetWeapons()
-        {
-            return GetComponentsInChildren<AbstractWeapon>();
         }
     }
 }

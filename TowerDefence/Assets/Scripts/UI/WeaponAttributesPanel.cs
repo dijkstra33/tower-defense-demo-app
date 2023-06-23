@@ -15,7 +15,7 @@ namespace UI
 
         private void Start()
         {
-            var towerWeapons = Tower.Instance.GetWeapons();
+            var towerWeapons = Tower.Instance.Weapons;
             _attributesViews = new WeaponAttributesView[towerWeapons.Length];
             for (int i = 0; i < _attributesViews.Length; i++)
             {

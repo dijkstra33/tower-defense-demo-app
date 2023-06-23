@@ -4174,10 +4174,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthStealWeapon
       objectReference: {fileID: 0}
-    - target: {fileID: 14524272168538429, guid: 0d9ffc41aaaa1ef4684bf3a4d4377e2a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 14524272168538431, guid: 0d9ffc41aaaa1ef4684bf3a4d4377e2a, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -4279,10 +4275,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: VengeanceWeapon
       objectReference: {fileID: 0}
-    - target: {fileID: 1132637353375856100, guid: f024a7a86c9fdd5448afda6865b5e556, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f024a7a86c9fdd5448afda6865b5e556, type: 3}
 --- !u!1001 &1521232532172345481
@@ -4295,10 +4287,6 @@ PrefabInstance:
     - target: {fileID: 1521232533528635892, guid: 15310813befc5b0499bb089a4aee1ec2, type: 3}
       propertyPath: m_Name
       value: FocusFireWeapon
-      objectReference: {fileID: 0}
-    - target: {fileID: 1521232533528635892, guid: 15310813befc5b0499bb089a4aee1ec2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1521232533528635894, guid: 15310813befc5b0499bb089a4aee1ec2, type: 3}
       propertyPath: m_RootOrder
@@ -4356,10 +4344,6 @@ PrefabInstance:
     - target: {fileID: 3059773870934440737, guid: fafa95a247a54564bad65ba90777ef94, type: 3}
       propertyPath: m_Name
       value: DebuffWeapon
-      objectReference: {fileID: 0}
-    - target: {fileID: 3059773870934440737, guid: fafa95a247a54564bad65ba90777ef94, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3059773870934440739, guid: fafa95a247a54564bad65ba90777ef94, type: 3}
       propertyPath: m_RootOrder
@@ -4461,10 +4445,6 @@ PrefabInstance:
     - target: {fileID: 4028788195800972749, guid: afad3c9d28a13c44a8208d8cb88ed6d3, type: 3}
       propertyPath: m_Name
       value: SplashWeapon
-      objectReference: {fileID: 0}
-    - target: {fileID: 4028788195800972749, guid: afad3c9d28a13c44a8208d8cb88ed6d3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afad3c9d28a13c44a8208d8cb88ed6d3, type: 3}

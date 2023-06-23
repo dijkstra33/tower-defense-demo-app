@@ -8,5 +8,6 @@
         KillCurrencyBonus,
         AttackRange,
         AttackInterval,
+        DecreaseAttackIntervalOnTowerHit,
     }
 }

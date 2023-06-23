@@ -62,6 +62,7 @@ namespace Game.AttributeSystem.Upgrades
         private void RerollUpgrades()
         {
             availableUpgrades = allUpgrades
+                .Where(x => !x.IsUseless())
                 .OrderBy(x => random.Next())
                 .Take(upgradesPerReroll)
                 .ToArray();

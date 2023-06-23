@@ -49,6 +49,13 @@ namespace Game.Weapons
             Reset();
             _transform = transform;
             targetSelector = Instantiate(targetSelectorPrefab, _transform);
+            var towerHealth = Tower.Instance.GetComponent<Health>();
+            towerHealth.OnDamageReceived += HandleDamageReceivedByTower;
+        }
+
+        private void HandleDamageReceivedByTower()
+        {
+            timeUntillNextAttack -= attributeOwner.GetValue(AttributeType.DecreaseAttackIntervalOnTowerHit);
         }
 
         protected virtual void Update()
