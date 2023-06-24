@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace Game.Weapons.TargetSelection
 {
-    public class TowerTargetSelector : TemplatedTargetSelector<Tower>
+    public class TowerTargetSelector : AbstractTemplatedTargetSelector<Tower>
     {
         protected override Tower[] GetPotentialTargets()
         {
             return new[] { Tower.Instance };
         }
 
-        protected override bool MatchFilter(Tower potentialTarget, Vector3 selectorPosition, float selectRange)
+        protected override bool MatchObligatoryFilter(Tower potentialTarget, Vector3 selectorPosition, float selectRange)
         {
             var distanceToTarget = Vector3.Distance(potentialTarget.gameObject.transform.position, selectorPosition);
             return distanceToTarget <= selectRange;

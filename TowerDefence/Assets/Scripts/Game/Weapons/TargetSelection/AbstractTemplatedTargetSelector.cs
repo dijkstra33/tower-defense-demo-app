@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.Weapons.TargetSelection
 {
-    public abstract class TemplatedTargetSelector<TTarget> : AbstractTargetSelector
+    public abstract class AbstractTemplatedTargetSelector<TTarget> : AbstractTargetSelector
     {
         public override TargetInfo[] SelectTargets(Vector3 selectorPosition, float selectRange)
         {
@@ -11,7 +11,8 @@ namespace Game.Weapons.TargetSelection
             var filteredTargets = new List<TTarget>();
             foreach (var potentialTarget in potentialTargets)
             {
-                if (MatchFilter(potentialTarget, selectorPosition, selectRange))
+                if (MatchObligatoryFilter(potentialTarget, selectorPosition, selectRange) 
+                    && MatchFilter(potentialTarget))
                 {
                     filteredTargets.Add(potentialTarget);
                 }
@@ -21,7 +22,9 @@ namespace Game.Weapons.TargetSelection
         }
 
         protected abstract TTarget[] GetPotentialTargets();
-        protected abstract bool MatchFilter(TTarget potentialTarget, Vector3 selectorPosition, float selectRange);
+        protected abstract bool MatchObligatoryFilter(TTarget potentialTarget, Vector3 selectorPosition, float selectRange);
+        protected virtual bool MatchFilter(TTarget potentialTarget) => true;
+
         protected abstract TargetInfo[] FinalizeResult(List<TTarget> filteredTargets, Vector3 selectorPosition, float selectRange);
     }
 }

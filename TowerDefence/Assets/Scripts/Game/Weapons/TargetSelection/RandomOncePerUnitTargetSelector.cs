@@ -19,10 +19,9 @@ namespace Game.Weapons.TargetSelection
             targetedUnits.Remove(unit);
         }
 
-        protected override bool MatchFilter(Unit potentialTarget, Vector3 selectorPosition, float selectRange)
+        protected override bool MatchFilter(Unit potentialTarget)
         {
-            return base.MatchFilter(potentialTarget, selectorPosition, selectRange) 
-                   && !targetedUnits.Contains(potentialTarget);
+            return !targetedUnits.Contains(potentialTarget);
         }
 
         protected override TargetInfo[] FinalizeResult(List<Unit> filteredTargets, Vector3 selectorPosition, float selectRange)

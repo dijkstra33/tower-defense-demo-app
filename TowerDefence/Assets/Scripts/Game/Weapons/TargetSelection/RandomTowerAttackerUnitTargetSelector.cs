@@ -1,6 +1,5 @@
 ﻿using Game.AttributeSystem.Buffs;
 using Game.HealthSystem;
-using UnityEngine;
 
 namespace Game.Weapons.TargetSelection
 {
@@ -13,13 +12,8 @@ namespace Game.Weapons.TargetSelection
             towerBattleContext = Tower.Instance.GetComponent<BattleContext>();
         }
 
-        protected override bool MatchFilter(Unit potentialTarget, Vector3 selectorPosition, float selectRange)
+        protected override bool MatchFilter(Unit potentialTarget)
         {
-            if (!base.MatchFilter(potentialTarget, selectorPosition, selectRange))
-            {
-                return false;
-            }
-            
             foreach (var unitWeapon in potentialTarget.Weapons)
             {
                 var unitWeaponBuffHolder = unitWeapon.GetComponent<BuffHolder>();
