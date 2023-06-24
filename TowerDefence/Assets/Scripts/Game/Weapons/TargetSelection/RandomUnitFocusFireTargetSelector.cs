@@ -5,12 +5,10 @@ using UnityEngine;
 
 namespace Game.Weapons.TargetSelection
 {
-    public class RandomUnitFocusFireTargetSelector : AbstractTargetSelector
+    public class RandomUnitFocusFireTargetSelector : RandomUnitTargetSelector
     {
-        private TargetInfo? currentTarget;
+        private Unit currentTarget;
         
-        private System.Random random = new();
-
         private void Start()
         {
             DeathManager.Instance.OnUnitDeath += HandleUnitDied;
@@ -18,44 +16,21 @@ namespace Game.Weapons.TargetSelection
         
         private void HandleUnitDied(Unit unit, BuffHolder weaponBuffHolder, Health killerHealth)
         {
-            if (currentTarget.HasValue && currentTarget.Value.Transform == unit.transform)
+            if (currentTarget != null && currentTarget.Transform == unit.transform)
             {
                 currentTarget = null;
             }
         }
 
-        public override TargetInfo[] SelectTargets(Vector3 selectorPosition, float attackRange)
+        protected override TargetInfo[] FinalizeResult(List<Unit> filteredTargets, Vector3 selectorPosition, float selectRange)
         {
-            if (currentTarget.HasValue && currentTarget.Value.Transform.gameObject.activeInHierarchy)
+            if (currentTarget != null)
             {
-                return new [] { currentTarget.Value };
+                return ToTargetInfo(currentTarget);
             }
 
-            var units = FindObjectsOfType<Unit>();
-            var potentialTargets = new List<Unit>();
-            
-            foreach (var unit in units)
-            {
-                var distance = Vector3.Distance(unit.Transform.position, selectorPosition);
-                if (!unit.gameObject.activeInHierarchy || distance > attackRange)
-                {
-                    continue;
-                }
-
-                potentialTargets.Add(unit);
-            }
-            
-            if (potentialTargets.Count == 0)
-            {
-                return null;
-            }
-
-            var randomIndex = random.Next(0, potentialTargets.Count - 1);
-            var targetUnit = potentialTargets[randomIndex];
-            var targetInfo = new TargetInfo(targetUnit.GetComponent<Health>(), targetUnit.Transform);
-            currentTarget = targetInfo;
-
-            return new[] { targetInfo };
+            currentTarget = GetRandomUnit(filteredTargets);
+            return ToTargetInfo(currentTarget);
         }
     }
 }

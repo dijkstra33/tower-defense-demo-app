@@ -1,24 +1,35 @@
-﻿using Game.HealthSystem;
+﻿using System.Collections.Generic;
+using Game.HealthSystem;
 using UnityEngine;
 
 namespace Game.Weapons.TargetSelection
 {
-    public class TowerTargetSelector : AbstractTargetSelector
+    public class TowerTargetSelector : TemplatedTargetSelector<Tower>
     {
-        public override TargetInfo[] SelectTargets(Vector3 selectorPosition, float attackRange)
+        protected override Tower[] GetPotentialTargets()
         {
-            var tower = Tower.Instance;
-            var distanceToTarget = Vector3.Distance(tower.gameObject.transform.position, selectorPosition);
-            if (distanceToTarget > attackRange)
+            return new[] { Tower.Instance };
+        }
+
+        protected override bool MatchFilter(Tower potentialTarget, Vector3 selectorPosition, float selectRange)
+        {
+            var distanceToTarget = Vector3.Distance(potentialTarget.gameObject.transform.position, selectorPosition);
+            return distanceToTarget <= selectRange;
+        }
+
+        protected override TargetInfo[] FinalizeResult(List<Tower> filteredTargets, Vector3 selectorPosition, float selectRange)
+        {
+            if (filteredTargets.Count > 0)
             {
-                return null;
+                var tower = filteredTargets[0];
+                var towerHealth = tower.GetComponent<Health>();
+                return new []
+                {
+                    new TargetInfo(towerHealth, tower.gameObject.transform),
+                };
             }
-            
-            var towerHealth = tower.GetComponent<Health>();
-            return new []
-            {
-                new TargetInfo(towerHealth, tower.gameObject.transform),
-            };
+
+            return null;
         }
     }
 }

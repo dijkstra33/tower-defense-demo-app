@@ -5,13 +5,10 @@ using UnityEngine;
 
 namespace Game.Weapons.TargetSelection
 {
-    public class RandomOncePerUnitTargetSelector : AbstractTargetSelector
+    public class RandomOncePerUnitTargetSelector : RandomUnitTargetSelector
     {
-        private HashSet<Unit> targetedUnits = new();
+        private readonly HashSet<Unit> targetedUnits = new();
         
-        // TODO: put all random classes into one or use unity random instead?
-        private System.Random random = new();
-
         private void Start()
         {
             DeathManager.Instance.OnUnitDeath += HandleUnitDied;
@@ -21,35 +18,22 @@ namespace Game.Weapons.TargetSelection
         {
             targetedUnits.Remove(unit);
         }
-        
-        public override TargetInfo[] SelectTargets(Vector3 selectorPosition, float attackRange)
+
+        protected override bool MatchFilter(Unit potentialTarget, Vector3 selectorPosition, float selectRange)
         {
-            var units = FindObjectsOfType<Unit>();
-            var potentialTargets = new List<Unit>();
-            
-            foreach (var unit in units)
-            {
-                var distance = Vector3.Distance(unit.Transform.position, selectorPosition);
-                var targetedBefore = targetedUnits.Contains(unit);
-                if (!unit.gameObject.activeInHierarchy || distance > attackRange || targetedBefore)
-                {
-                    continue;
-                }
+            return base.MatchFilter(potentialTarget, selectorPosition, selectRange) 
+                   && !targetedUnits.Contains(potentialTarget);
+        }
 
-                potentialTargets.Add(unit);
-            }
-            
-            if (potentialTargets.Count == 0)
+        protected override TargetInfo[] FinalizeResult(List<Unit> filteredTargets, Vector3 selectorPosition, float selectRange)
+        {
+            var randomUnit = GetRandomUnit(filteredTargets);
+            if (randomUnit != null)
             {
-                return null;
+                targetedUnits.Add(randomUnit);
             }
 
-            var randomIndex = random.Next(0, potentialTargets.Count - 1);
-            var targetUnit = potentialTargets[randomIndex];
-            var targetInfo = new TargetInfo(targetUnit.GetComponent<Health>(), targetUnit.Transform);
-            targetedUnits.Add(targetUnit);
-
-            return new[] { targetInfo };
+            return ToTargetInfo(randomUnit);
         }
     }
 }

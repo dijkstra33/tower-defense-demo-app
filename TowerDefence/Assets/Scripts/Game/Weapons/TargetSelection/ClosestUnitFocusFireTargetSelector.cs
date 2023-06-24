@@ -1,4 +1,5 @@
-﻿using Game.AttributeSystem.Buffs;
+﻿using System.Collections.Generic;
+using Game.AttributeSystem.Buffs;
 using Game.HealthSystem;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ namespace Game.Weapons.TargetSelection
 {
     public class ClosestUnitFocusFireTargetSelector : ClosestUnitTargetSelector
     {
-        private TargetInfo? currentTarget;
+        private Unit currentTarget;
 
         private void Start()
         {
@@ -15,26 +16,21 @@ namespace Game.Weapons.TargetSelection
         
         private void HandleUnitDied(Unit unit, BuffHolder weaponBuffHolder, Health killerHealth)
         {
-            if (currentTarget.HasValue && currentTarget.Value.Transform == unit.transform)
+            if (currentTarget != null && currentTarget.Transform == unit.transform)
             {
                 currentTarget = null;
             }
         }
 
-        public override TargetInfo[] SelectTargets(Vector3 selectorPosition, float attackRange)
+        protected override TargetInfo[] FinalizeResult(List<Unit> filteredTargets, Vector3 selectorPosition, float selectRange)
         {
-            if (currentTarget.HasValue && currentTarget.Value.Transform.gameObject.activeInHierarchy)
+            if (currentTarget != null)
             {
-                return new [] { currentTarget.Value };
+                return ToTargetInfo(currentTarget);
             }
 
-            var targets = base.SelectTargets(selectorPosition, attackRange);
-            if (targets != null && targets.Length > 0)
-            {
-                currentTarget = targets[0];
-            }
-
-            return targets;
+            currentTarget = GetClosestUnit(filteredTargets, selectorPosition, selectRange);
+            return ToTargetInfo(currentTarget);
         }
     }
 }

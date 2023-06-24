@@ -1,40 +1,31 @@
-﻿using Game.HealthSystem;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Weapons.TargetSelection
 {
-    public class ClosestUnitTargetSelector : AbstractTargetSelector
+    public class ClosestUnitTargetSelector : AbstractUnitTargetSelector
     {
-        public override TargetInfo[] SelectTargets(Vector3 selectorPosition, float attackRange)
+        protected override TargetInfo[] FinalizeResult(List<Unit> filteredTargets, Vector3 selectorPosition, float selectRange)
         {
-            var units = FindObjectsOfType<Unit>();
+            var closestUnit = GetClosestUnit(filteredTargets, selectorPosition, selectRange);
+            return ToTargetInfo(closestUnit);
+        }
+
+        protected Unit GetClosestUnit(List<Unit> filteredTargets, Vector3 selectorPosition, float selectRange)
+        {
             var closestDistance = float.MaxValue;
             Unit closestTarget = null;
-
-            foreach (var unit in units)
+            foreach (var filteredTarget in filteredTargets)
             {
-                var distance = Vector3.Distance(unit.Transform.position, selectorPosition);
-                if (!unit.gameObject.activeInHierarchy || distance > attackRange)
-                {
-                    continue;
-                }
-                
+                var distance = Vector3.Distance(filteredTarget.Transform.position, selectorPosition);
                 if (distance < closestDistance)
                 {
                     closestDistance = distance;
-                    closestTarget = unit;
+                    closestTarget = filteredTarget;
                 }
             }
 
-            if (closestTarget == null)
-            {
-                return null;
-            }
-
-            return new []
-            {
-                new TargetInfo(closestTarget.GetComponent<Health>(), closestTarget.Transform),
-            };
+            return closestTarget;
         }
     }
 }
