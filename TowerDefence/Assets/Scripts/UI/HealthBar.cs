@@ -16,35 +16,47 @@ namespace UI
         [SerializeField]
         private Health health;
 
-        private float interpolatedCurrentValue;
-        private int prevCurrentHealth = -1;
-        private int prevMaxHealth = -1;
+        [SerializeField]
+        private float healthUpdateSpeedSeconds;
+
+        private float currentFillAmount;
+        private float targetFillAmount;
+        private float elapsedTime;
 
         private void Start()
         {
-            interpolatedCurrentValue = health.CurrentValue;
+            health.OnValueChanged += HandleHealthValueChanged;
+            
+            currentFillAmount = 1f * health.CurrentValue / health.MaxValue;
+            HandleHealthValueChanged();
+        }
+
+        private void HandleHealthValueChanged()
+        {
+            elapsedTime = 0f;
+            targetFillAmount = 1f * health.CurrentValue / health.MaxValue;
+            healthText.text = $"{health.CurrentValue}/{health.MaxValue}";
         }
 
         private void Update()
         {
-            interpolatedCurrentValue = Mathf.Lerp(interpolatedCurrentValue, health.CurrentValue, Time.deltaTime);
-            healthImage.fillAmount = interpolatedCurrentValue / health.MaxValue;
-            if (IsHealthChanged())
+            if (elapsedTime > healthUpdateSpeedSeconds)
             {
-                healthText.text = $"{health.CurrentValue}/{health.MaxValue}";
-            }
-        }
-
-        private bool IsHealthChanged()
-        {
-            if (prevCurrentHealth == health.CurrentValue && prevMaxHealth == health.MaxValue)
-            {
-                return false;
+                return;
             }
 
-            prevCurrentHealth = health.CurrentValue;
-            prevMaxHealth = health.MaxValue;
-            return true;
+            elapsedTime += Time.deltaTime;
+            if (elapsedTime < healthUpdateSpeedSeconds)
+            {
+                currentFillAmount = Mathf.Lerp(currentFillAmount, targetFillAmount, elapsedTime / healthUpdateSpeedSeconds);
+                healthImage.fillAmount = currentFillAmount;
+            }
+            else
+            {
+                currentFillAmount = targetFillAmount;
+                healthImage.fillAmount = currentFillAmount;
+            }
         }
     }
 }
+    

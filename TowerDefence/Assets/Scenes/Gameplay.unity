@@ -4411,6 +4411,7 @@ MonoBehaviour:
   healthImage: {fileID: 1558764349}
   healthText: {fileID: 1701494173}
   health: {fileID: 835741595}
+  healthUpdateSpeedSeconds: 0.75
 --- !u!1 &2013324815
 GameObject:
   m_ObjectHideFlags: 0
