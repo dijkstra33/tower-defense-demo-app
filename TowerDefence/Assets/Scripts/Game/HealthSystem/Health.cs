@@ -10,13 +10,22 @@ namespace Game.HealthSystem
     public class Health : MonoBehaviour, IResettable
     {
         public event Action OnDamageReceived;
+        public event Action OnValueChanged;
         public event Action OnDeath;
         
         public int MaxValue => maxValue;
         [SerializeField]
         private int maxValue;
 
-        public int CurrentValue => currentValue;
+        public int CurrentValue
+        {
+            get => currentValue;
+            set
+            {
+                currentValue = value;
+                OnValueChanged?.Invoke();
+            }
+        }
         private int currentValue;
 
         private bool isDead = false;
@@ -26,7 +35,7 @@ namespace Game.HealthSystem
 
         private void Awake()
         {
-            currentValue = maxValue;
+            CurrentValue = maxValue;
             attributeOwner = GetComponent<AbstractAttributeOwner>();
             buffHolder = GetComponent<BuffHolder>();
         }
@@ -41,9 +50,9 @@ namespace Game.HealthSystem
             var pureDamage = GetPureDamage(damage);
             OnDamageReceived?.Invoke();
             BattleContextManager.Instance.OnDamageReceived(this, weaponBuffHolder);
-            currentValue = Math.Max(currentValue - pureDamage, 0);
+            CurrentValue = Math.Max(CurrentValue - pureDamage, 0);
 
-            if (currentValue == 0)
+            if (CurrentValue == 0)
             {
                 Die(weaponBuffHolder, attackerHealth);
             }
@@ -61,7 +70,7 @@ namespace Game.HealthSystem
             }
 
             var healValue = (int)Math.Abs(attrOwner.GetValue(healType));
-            currentValue = Math.Min(maxValue, currentValue + healValue);
+            CurrentValue = Math.Min(maxValue, CurrentValue + healValue);
         }
 
         private void TryToApplyBuffsOnHit(BuffHolder attackerBuffHolder)
@@ -94,7 +103,7 @@ namespace Game.HealthSystem
         public void Reset()
         {
             isDead = false;
-            currentValue = maxValue;
+            CurrentValue = maxValue;
         }
     }
 }
