@@ -48,8 +48,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9c6aa464114fa4b7e6244d5b5f5a0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponType: 1
-  color: {r: 0.5787859, g: 0, b: 1, a: 1}
+  visualData:
+    name: Splash
+    color: {r: 0.34117648, g: 0.058823533, b: 0.65882355, a: 1}
+    icon: {fileID: 21300000, guid: 8b494021498fdc943be72e335ccddb85, type: 3}
   targetSelectorPrefab: {fileID: -8550851618821670046, guid: b5fe44be9cb2fe84a826b76c26866b33, type: 3}
   attackParticleSystem: {fileID: 7263060952219328102}
 --- !u!114 &3519502744233529376

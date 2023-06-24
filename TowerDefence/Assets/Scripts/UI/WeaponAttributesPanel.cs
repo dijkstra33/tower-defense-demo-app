@@ -19,8 +19,9 @@ namespace UI
             _attributesViews = new WeaponAttributesView[towerWeapons.Length];
             for (int i = 0; i < _attributesViews.Length; i++)
             {
+                var weapon = towerWeapons[i];
                 _attributesViews[i] = Instantiate(attributesViewPrefab, attributesViewsRoot);
-                _attributesViews[i].SetData(towerWeapons[i]);
+                _attributesViews[i].SetData(weapon.VisualData, weapon.AttributeOwner);
             }
         }
     }

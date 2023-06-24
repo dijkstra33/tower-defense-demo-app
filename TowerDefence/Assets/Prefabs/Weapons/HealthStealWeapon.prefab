@@ -179,8 +179,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d376ae709f842d191edba42c843dce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponType: 5
-  color: {r: 0.0013062527, g: 0.990566, b: 0, a: 1}
+  visualData:
+    name: Health Steal
+    color: {r: 0.25490198, g: 0.9490197, b: 0.2392157, a: 1}
+    icon: {fileID: 21300000, guid: 1418ea639c3675346a5a07d9fa9799ec, type: 3}
   targetSelectorPrefab: {fileID: 7656259469755932241, guid: e515c191b7ea8534eb9d3cf23032f47c, type: 3}
   lineRenderer: {fileID: 1400857802}
   lineShowDuration: 0.35

@@ -47,8 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5149111f3f74256acf3779ad89ffd6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponType: 3
-  color: {r: 0, g: 0.11148453, b: 0.98039216, a: 1}
+  visualData:
+    name: Debuff
+    color: {r: 0.32156864, g: 0.62352943, b: 0.8980393, a: 1}
+    icon: {fileID: 21300000, guid: aa26fa9df4f8b8c4598ab600e55b356c, type: 3}
   targetSelectorPrefab: {fileID: 301475837594985049, guid: eff82004b46f98a4aa0ecdbc35942890, type: 3}
   projectilePrefab: {fileID: 6906503672136009371, guid: fbb56cc61b97a7b4aad66a0f946b79ba, type: 3}
   projectileMoveSpeed: 1.3

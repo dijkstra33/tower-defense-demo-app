@@ -47,8 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5149111f3f74256acf3779ad89ffd6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponType: 2
-  color: {r: 1, g: 0.028755568, b: 0, a: 1}
+  visualData:
+    name: Focus Fire
+    color: {r: 0.9803922, g: 0.09019608, b: 0.09019608, a: 1}
+    icon: {fileID: 21300000, guid: ade04e341acd7a640afa18738d12fc0f, type: 3}
   targetSelectorPrefab: {fileID: 4184637558670201907, guid: 581bfffcb6e405a4e88ef3288ea84440, type: 3}
   projectilePrefab: {fileID: 3044954744779103906, guid: 6cf5b26b61d828848bfcd9d3cd09627c, type: 3}
   projectileMoveSpeed: 2.4

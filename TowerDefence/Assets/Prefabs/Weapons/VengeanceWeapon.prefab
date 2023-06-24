@@ -47,8 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5149111f3f74256acf3779ad89ffd6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponType: 4
-  color: {r: 0.9811321, g: 0.4321593, b: 0, a: 1}
+  visualData:
+    name: Vengeance
+    color: {r: 0.9921569, g: 0.5176471, b: 0.10196079, a: 1}
+    icon: {fileID: 21300000, guid: 94404a7b14f965c4d8ad137132f6241c, type: 3}
   targetSelectorPrefab: {fileID: 7269473910757939555, guid: 5824e72e7e7846746ae4870487fdf096, type: 3}
   projectilePrefab: {fileID: 62216399339084744, guid: 8184468cf69eeaf479f9f2e5f1497e74, type: 3}
   projectileMoveSpeed: 2.5

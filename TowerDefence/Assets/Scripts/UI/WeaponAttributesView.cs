@@ -1,5 +1,4 @@
-﻿using Game;
-using Game.AttributeSystem;
+﻿using Game.AttributeSystem;
 using Game.Weapons;
 using TMPro;
 using UnityEngine;
@@ -10,10 +9,13 @@ namespace UI
     public class WeaponAttributesView : MonoBehaviour
     {
         [SerializeField]
-        private Image backgroundImage;
-        
+        private Image weaponNameBackground;
+
         [SerializeField]
-        private TMP_Text weaponTypeText;
+        private TMP_Text weaponNameText;
+
+        [SerializeField]
+        private Image weaponIcon;
 
         [SerializeField]
         private TMP_Text weaponDamageText;
@@ -30,42 +32,44 @@ namespace UI
         
         private float prevWeaponAttackRange = -1f;
 
-        private AbstractWeapon weapon;
+        private AbstractAttributeOwner weaponAttributeOwner;
 
-        public void SetData(AbstractWeapon weapon)
+        public void SetData(WeaponVisualData weaponVisualData, AbstractAttributeOwner weaponAttributeOwner)
         {
-            this.weapon = weapon;
+            weaponNameBackground.color = weaponVisualData.Color;
+            weaponNameText.text = weaponVisualData.Name;
+            weaponIcon.sprite = weaponVisualData.Icon;
 
-            backgroundImage.color = weapon.Color;
-            weaponTypeText.text = weapon.WeaponType.ToString();
+            this.weaponAttributeOwner = weaponAttributeOwner;
         }
 
         private void Update()
         {
-            if (weapon == null)
+            if (weaponAttributeOwner == null)
             {
                 return;
             }
 
-            var attackDamage = (int)weapon.AttributeOwner.GetValue(AttributeType.Damage);
+            var attackDamage = (int)weaponAttributeOwner.GetValue(AttributeType.Damage);
             if (prevWeaponDamage != attackDamage)
             {
                 prevWeaponDamage = attackDamage;
-                weaponDamageText.text = attackDamage.ToString();
+                weaponDamageText.text = $"Damage:\t{attackDamage}";
             }
 
-            var attackSpeed = weapon.GetAttackSpeed();
+            var attackInterval = weaponAttributeOwner.GetValue(AttributeType.AttackInterval);
+            var attackSpeed = 1 / attackInterval;
             if (!Mathf.Approximately(prevWeaponAttackSpeed, attackSpeed))
             {
                 prevWeaponAttackSpeed = attackSpeed;
-                weaponAttackSpeedText.text = $"{attackSpeed:F1}";
+                weaponAttackSpeedText.text = $"Speed:\t{attackSpeed:F1}";
             }
 
-            var attackRange = weapon.AttributeOwner.GetValue(AttributeType.AttackRange);
+            var attackRange = weaponAttributeOwner.GetValue(AttributeType.AttackRange);
             if (!Mathf.Approximately(prevWeaponAttackRange, attackRange))
             {
                 prevWeaponAttackRange = attackRange;
-                weaponAttackRangeText.text = $"{attackRange:F1}";
+                weaponAttackRangeText.text = $"Range:\t{attackRange:F1}";
             }
         }
     }

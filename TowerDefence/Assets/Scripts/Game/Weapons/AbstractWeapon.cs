@@ -10,13 +10,9 @@ namespace Game.Weapons
     [RequireComponent(typeof(WeaponAttributeOwner), typeof(BattleContext))]
     public abstract class AbstractWeapon : MonoBehaviour, IResettable
     {
-        public WeaponType WeaponType => weaponType;
+        public WeaponVisualData VisualData => visualData;
         [SerializeField]
-        protected WeaponType weaponType;
-
-        public Color Color => color;
-        [SerializeField]
-        private Color color;
+        private WeaponVisualData visualData;
         
         [SerializeField]
         protected AbstractTargetSelector targetSelectorPrefab;
@@ -29,8 +25,6 @@ namespace Game.Weapons
         public AbstractAttributeOwner AttributeOwner => attributeOwner;
         protected AbstractAttributeOwner attributeOwner;
         
-        public float GetAttackSpeed() => 1 / attributeOwner.GetValue(AttributeType.AttackInterval);
-
         public bool IsAttacking => isAttacking;
         private bool isAttacking;
         private float timeUntillNextAttack;
