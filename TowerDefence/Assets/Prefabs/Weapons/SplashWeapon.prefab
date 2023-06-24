@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3519502744233529376}
   - component: {fileID: 5306436362325103506}
   - component: {fileID: 5925914075705612180}
+  - component: {fileID: 1632292372}
   m_Layer: 0
   m_Name: SplashWeapon
   m_TagString: Untagged
@@ -45,15 +46,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4028788195800972749}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9c6aa464114fa4b7e6244d5b5f5a0f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d376ae709f842d191edba42c843dce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   visualData:
     name: Splash
-    color: {r: 0.34117648, g: 0.058823533, b: 0.65882355, a: 1}
+    color: {r: 0.43921572, g: 0.08235294, b: 0.8000001, a: 1}
     icon: {fileID: 21300000, guid: 8b494021498fdc943be72e335ccddb85, type: 3}
   targetSelectorPrefab: {fileID: -8550851618821670046, guid: b5fe44be9cb2fe84a826b76c26866b33, type: 3}
-  attackParticleSystem: {fileID: 7263060952219328102}
 --- !u!114 &3519502744233529376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,6 +94,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634d817121fd4d01b1904f22c0aa7ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1632292372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4028788195800972749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e373f95a37fb49dcbbb8c0d7e342b470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackParticleSystem: {fileID: 7263060952219328102}
 --- !u!1001 &4028788195580288546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -147,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5607991058571270658, guid: cd1e0308d7ddc294f80fe29dadcc6b63, type: 3}
       propertyPath: m_Name
-      value: WaveEffect
+      value: WaveParticleSystem
       objectReference: {fileID: 0}
     - target: {fileID: 5990547201973190724, guid: cd1e0308d7ddc294f80fe29dadcc6b63, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b

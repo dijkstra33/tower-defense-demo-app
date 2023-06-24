@@ -47,8 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5149111f3f74256acf3779ad89ffd6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponType: 255
-  color: {r: 0, g: 0, b: 0, a: 0}
+  visualData:
+    name: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    icon: {fileID: 0}
   targetSelectorPrefab: {fileID: 6729861934396503073, guid: 1b080ee7a51d80c4bbc7b752604d4efc, type: 3}
   projectilePrefab: {fileID: 5905614910941387483, guid: 23c9c18dd49e8c24280b3b272135d168, type: 3}
   projectileMoveSpeed: 3
@@ -67,7 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 3
   attackInterval: 2
-  attackRange: 0.75
+  attackRange: 1.6
 --- !u!114 &257169574878241735
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
-﻿using Core.ObjectPooling;
+﻿using System;
+using Core.ObjectPooling;
 using Game.AttributeSystem;
 using Game.AttributeSystem.Buffs;
 using Game.HealthSystem;
@@ -10,6 +11,8 @@ namespace Game.Weapons
     [RequireComponent(typeof(WeaponAttributeOwner), typeof(BattleContext))]
     public abstract class AbstractWeapon : MonoBehaviour, IResettable
     {
+        public event Action<TargetInfo[]> OnAttack;
+        
         public WeaponVisualData VisualData => visualData;
         [SerializeField]
         private WeaponVisualData visualData;
@@ -67,6 +70,7 @@ namespace Game.Weapons
                 if (targets != null && targets.Length > 0)
                 {
                     isAttacking = true;
+                    OnAttack?.Invoke(targets);
                     Attack(targets);
                     HealManager.Instance.TryHealAttacker(weaponOwnerHealth, attributeOwner);
                     timeUntillNextAttack = attributeOwner.GetValue(AttributeType.AttackInterval);
