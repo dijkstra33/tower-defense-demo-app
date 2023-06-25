@@ -3129,7 +3129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   passiveIncomeStartDelay: 5
-  passiveIncomeInterval: 5
+  passiveIncomeInterval: 1
 --- !u!1 &1318186314
 GameObject:
   m_ObjectHideFlags: 0
@@ -3205,7 +3205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95af3975fcda43f781b5a34033530d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCurrencyPassiveIncome: 10
+  baseCurrencyPassiveIncome: 2
   baseKillCurrencyBonus: 0
 --- !u!114 &1318186319
 MonoBehaviour:
