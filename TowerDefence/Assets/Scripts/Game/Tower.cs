@@ -11,8 +11,10 @@ namespace Game
     public class Tower : SingletonMoneBehaviour<Tower>
     {
         public int CurrencyAmount => currencyAmount;
-        [SerializeField]
         private int currencyAmount;
+        
+        [SerializeField] 
+        private int baseCurrencyAmount;
 
         public AbstractAttributeOwner AttributeOwner => attributeOwner;
         private AbstractAttributeOwner attributeOwner;
@@ -25,6 +27,7 @@ namespace Game
             base.Awake();
             attributeOwner = GetComponent<AbstractAttributeOwner>();
             weapons = GetComponentsInChildren<AbstractWeapon>();
+            currencyAmount = baseCurrencyAmount;
         }
 
         public void ReceiveCurrency(int currency)
