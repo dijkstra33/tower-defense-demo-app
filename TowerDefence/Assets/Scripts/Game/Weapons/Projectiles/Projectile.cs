@@ -15,11 +15,11 @@ namespace Game.Weapons.Projectiles
         private TargetInfo targetInfo;
         private ProjectileParams projectileParams;
 
-        private Transform _transform;
+        private Transform cachedTransform;
 
         private void Start()
         {
-            _transform = transform;
+            cachedTransform = transform;
         }
 
         public void Fire(ProjectileOwnerInfo projectileOwnerInfo, TargetInfo targetInfo, ProjectileParams projectileParams)
@@ -50,7 +50,7 @@ namespace Game.Weapons.Projectiles
                 return;
             }
 
-            var distanceToTarget = Vector3.Distance(_transform.position, targetInfo.Transform.position);
+            var distanceToTarget = Vector3.Distance(cachedTransform.position, targetInfo.Transform.position);
             if (distanceToTarget < projectileParams.MinExplodeDistance)
             {
                 Explode();
@@ -63,7 +63,7 @@ namespace Game.Weapons.Projectiles
 
         private void Move()
         {
-            var direction = (targetInfo.Transform.position - _transform.position).normalized;
+            var direction = (targetInfo.Transform.position - cachedTransform.position).normalized;
             transform.position += direction * projectileParams.MoveSpeed * Time.deltaTime;
         }
 

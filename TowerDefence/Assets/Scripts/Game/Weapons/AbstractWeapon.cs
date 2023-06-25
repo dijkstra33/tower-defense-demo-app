@@ -32,7 +32,7 @@ namespace Game.Weapons
         private bool isAttacking;
         private float timeUntillNextAttack;
 
-        protected Transform _transform;
+        protected Transform cachedTransform;
 
         protected virtual void Awake()
         {
@@ -44,8 +44,8 @@ namespace Game.Weapons
         protected void Start()
         {
             Reset();
-            _transform = transform;
-            targetSelector = Instantiate(targetSelectorPrefab, _transform);
+            cachedTransform = transform;
+            targetSelector = Instantiate(targetSelectorPrefab, cachedTransform);
             var towerHealth = Tower.Instance.GetComponent<Health>();
             towerHealth.OnDamageReceived += HandleDamageReceivedByTower;
         }
@@ -66,7 +66,7 @@ namespace Game.Weapons
             if (timeUntillNextAttack <= 0)
             {
                 var attackRange = attributeOwner.GetValue(AttributeType.AttackRange);
-                var targets = targetSelector.SelectTargets(_transform.position, attackRange);
+                var targets = targetSelector.SelectTargets(cachedTransform.position, attackRange);
                 if (targets != null && targets.Length > 0)
                 {
                     isAttacking = true;

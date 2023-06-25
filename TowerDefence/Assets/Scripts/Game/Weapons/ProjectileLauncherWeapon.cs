@@ -27,7 +27,7 @@ namespace Game.Weapons
         protected override void Attack(TargetInfo target, TargetInfo[] allTargets)
         {
             var attackContext = new AttackContext(target, allTargets, weaponBuffHolder);
-            projectileLauncher.Launch(_transform.position, target, GetProjectileParams(attackContext));
+            projectileLauncher.Launch(cachedTransform.position, target, GetProjectileParams(attackContext));
         }
 
         private ProjectileParams GetProjectileParams(AttackContext attackContext)

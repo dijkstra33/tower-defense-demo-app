@@ -24,8 +24,8 @@ namespace Game
         
         private UnitState state = UnitState.Idle;
 
-        public Transform Transform => _transform;
-        private Transform _transform;
+        public Transform Transform => cachedTransform;
+        private Transform cachedTransform;
 
         private Transform targetTransform;
 
@@ -39,7 +39,7 @@ namespace Game
 
         private void Start()
         {
-            _transform = transform;
+            cachedTransform = transform;
             weapons = GetComponentsInChildren<AbstractWeapon>();
         }
 
@@ -93,7 +93,7 @@ namespace Game
 
         private void Move()
         {
-            var direction = (targetTransform.position - _transform.position).normalized;
+            var direction = (targetTransform.position - cachedTransform.position).normalized;
             transform.position += direction * (moveSpeed * Time.deltaTime);
         }
 

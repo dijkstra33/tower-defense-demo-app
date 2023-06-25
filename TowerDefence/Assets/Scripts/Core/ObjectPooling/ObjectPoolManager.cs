@@ -6,12 +6,12 @@ namespace Core.ObjectPooling
     public class ObjectPoolManager : SingletonMoneBehaviour<ObjectPoolManager>
     {
         private Dictionary<int, ObjectPool> objectPools = new();
-        private Transform _transform;
+        private Transform cachedTransform;
 
         protected override void Awake()
         {
             base.Awake();
-            _transform = transform;
+            cachedTransform = transform;
         }
 
         public T GetObject<T>(T poolablePrefab, Vector3 position, Quaternion rotation, Vector3? scale = null, Transform parent = null)
@@ -33,7 +33,7 @@ namespace Core.ObjectPooling
             var instanceId = poolable.gameObject.GetInstanceID();
             if (!objectPools.ContainsKey(instanceId))
             {
-                objectPools.Add(instanceId, new ObjectPool(poolable, _transform));
+                objectPools.Add(instanceId, new ObjectPool(poolable, cachedTransform));
             }
 
             return objectPools[instanceId];

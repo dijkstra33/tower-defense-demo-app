@@ -8,11 +8,11 @@ namespace Game.SpawnSystem
         [SerializeField]
         private Unit unitPrefab;
 
-        private Transform _transform;
+        private Transform cachedTransform;
 
         private void Start()
         {
-            _transform = transform;
+            cachedTransform = transform;
         }
 
         public void Spawn(SpawnData spawnData)
@@ -21,8 +21,8 @@ namespace Game.SpawnSystem
             
             var spawnedUnit = 
                 ObjectPoolManager.Instance.GetObject(
-                    unitPrefab, _transform.position, Quaternion.LookRotation(direction), 
-                    unitPrefab.transform.localScale, _transform);
+                    unitPrefab, cachedTransform.position, Quaternion.LookRotation(direction), 
+                    unitPrefab.transform.localScale, cachedTransform);
 
             spawnedUnit.MoveTo(spawnData.TargetTransform);
         }
