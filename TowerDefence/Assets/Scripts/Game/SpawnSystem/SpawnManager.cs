@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 namespace Game.SpawnSystem
@@ -60,10 +61,15 @@ namespace Game.SpawnSystem
 
         private void SpawnWave()
         {
-            for (int i = 0; i < spawnCountPerWave; i++)
+            var randomSpawners = 
+                spawners
+                    .OrderBy(_ => random.Next())
+                    .Take(spawnCountPerWave)
+                    .ToArray();
+
+            foreach (var randomSpawner in randomSpawners)
             {
-                var spawnerIndex = random.Next(0, spawners.Length - 1);
-                spawners[spawnerIndex].Spawn(spawnData);
+                randomSpawner.Spawn(spawnData);
             }
         }
 
