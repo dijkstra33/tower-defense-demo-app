@@ -40,7 +40,7 @@ namespace Game.AttributeSystem.Upgrades
                     var hasWeapon = false;
                     foreach (var towerWeapon in Tower.Instance.Weapons)
                     {
-                        hasWeapon |= towerWeapon.GetComponent<BuffHolder>().Type == BuffHolderType;
+                        hasWeapon |= towerWeapon.GetComponent<BuffOwner>().Type == BuffHolderType;
                     }
                     return !hasWeapon;
                 case BuffHolderType.Tower:

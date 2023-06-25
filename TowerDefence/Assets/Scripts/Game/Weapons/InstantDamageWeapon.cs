@@ -7,9 +7,9 @@ namespace Game.Weapons
     {
         protected override void Attack(TargetInfo target, TargetInfo[] allTargets)
         {
-            var attackContext = new AttackContext(target, allTargets, weaponBuffHolder);
+            var attackContext = new AttackContext(target, allTargets, this);
             var attackDamage = attributeOwner.GetValue(AttributeType.Damage, attackContext);
-            target.Health.ReceiveDamage(attackDamage, weaponBuffHolder, weaponOwnerHealth);
+            target.Health.ReceiveDamage(attackDamage, this, weaponOwnerHealth);
         }
     }
 }

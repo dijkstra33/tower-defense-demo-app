@@ -19,11 +19,11 @@ namespace Game.AttributeSystem
             switch (attributeType)
             {
                 case AttributeType.AttackRange:
-                    return buffHolder.GetBuffedValue(attackRange, AttributeType.AttackRange, attackContext);
+                    return BuffOwner.GetBuffedValue(attackRange, AttributeType.AttackRange, attackContext);
                 case AttributeType.Damage:
-                    return buffHolder.GetBuffedValue(attackDamage, AttributeType.Damage, attackContext);
+                    return BuffOwner.GetBuffedValue(attackDamage, AttributeType.Damage, attackContext);
                 case AttributeType.AttackInterval:
-                    return buffHolder.GetBuffedValue(attackInterval, AttributeType.AttackInterval, attackContext);
+                    return BuffOwner.GetBuffedValue(attackInterval, AttributeType.AttackInterval, attackContext);
             }
             return base.GetValue(attributeType, attackContext);
         }

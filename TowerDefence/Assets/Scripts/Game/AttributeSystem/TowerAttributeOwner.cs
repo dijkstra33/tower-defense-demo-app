@@ -18,9 +18,9 @@ namespace Game.AttributeSystem
                 case AttributeType.Armor:
                     return GetArmor();
                 case AttributeType.CurrencyPassiveIncome:
-                    return (int)buffHolder.GetBuffedValue(baseCurrencyPassiveIncome, attributeType, attackContext);
+                    return (int)BuffOwner.GetBuffedValue(baseCurrencyPassiveIncome, attributeType, attackContext);
                 case AttributeType.KillCurrencyBonus:
-                    return (int)buffHolder.GetBuffedValue(baseKillCurrencyBonus, attributeType, attackContext);
+                    return (int)BuffOwner.GetBuffedValue(baseKillCurrencyBonus, attributeType, attackContext);
             }
             return base.GetValue(attributeType, attackContext);
         }

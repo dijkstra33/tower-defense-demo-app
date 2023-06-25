@@ -1,5 +1,4 @@
-﻿using Game.AttributeSystem.Buffs;
-using Game.Weapons.TargetSelection;
+﻿using Game.Weapons.TargetSelection;
 
 namespace Game.Weapons
 {
@@ -9,13 +8,13 @@ namespace Game.Weapons
         
         public TargetInfo Target { get; }
         public TargetInfo[] AllTargets { get; }
-        public BuffHolder AttackerBuffHolder { get; }
+        public AbstractWeapon AttackerWeapon { get; }
         
-        public AttackContext(TargetInfo targetInfo, TargetInfo[] allAllTargets, BuffHolder attackerBuffHolder)
+        public AttackContext(TargetInfo targetInfo, TargetInfo[] allAllTargets, AbstractWeapon attackerWeapon)
         {
             Target = targetInfo;
             AllTargets = allAllTargets;
-            AttackerBuffHolder = attackerBuffHolder;
+            AttackerWeapon = attackerWeapon;
         }
     }
 }

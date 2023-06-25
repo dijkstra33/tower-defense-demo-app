@@ -13,7 +13,7 @@ namespace Game.Weapons.TargetSelection
         {
             Health = health;
             Transform = transform;
-            BattleContext = BattleContextManager.Instance.GetBattleContextBy(health);
+            BattleContext = health.GetComponent<BattleContext>();
         }
     }
 }

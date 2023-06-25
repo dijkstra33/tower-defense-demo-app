@@ -1,5 +1,4 @@
 ﻿using Core.ObjectPooling;
-using Game.AttributeSystem.Buffs;
 using Game.HealthSystem;
 using Game.SpawnSystem;
 using Game.Weapons.TargetSelection;
@@ -12,10 +11,10 @@ namespace Game.Weapons.Projectiles
         private readonly Projectile projectilePrefab;
         private readonly ProjectileOwnerInfo projectileOwnerInfo;
 
-        public ProjectileLauncher(Projectile projectilePrefab, Health attackerHealth, BuffHolder weaponBuffHolder)
+        public ProjectileLauncher(Projectile projectilePrefab, Health attackerHealth, AbstractWeapon weapon)
         {
             this.projectilePrefab = projectilePrefab;
-            projectileOwnerInfo = new ProjectileOwnerInfo(attackerHealth, weaponBuffHolder);
+            projectileOwnerInfo = new ProjectileOwnerInfo(attackerHealth, weapon);
         }
         
         public void Launch(Vector3 attackerPosition, TargetInfo target, ProjectileParams projectileParams)

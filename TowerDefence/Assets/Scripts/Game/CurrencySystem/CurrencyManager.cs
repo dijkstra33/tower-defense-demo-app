@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using Game.AttributeSystem;
-using Game.AttributeSystem.Buffs;
 using Game.HealthSystem;
+using Game.Weapons;
 using UnityEngine;
 
 namespace Game.CurrencySystem
@@ -39,10 +39,10 @@ namespace Game.CurrencySystem
             }
         }
         
-        private void HandleUnitDeath(Unit unit, BuffHolder weaponBuffHolder, Health killerHealth)
+        private void HandleUnitDeath(Unit diedUnit, AbstractWeapon killerWeapon, Health killerHealth)
         {
             var basicKillCurrencyReward = tower.AttributeOwner.GetValue(AttributeType.KillCurrencyBonus);
-            var unitKillCurrencyRewardBonus = unit.AttributeOwner.GetValue(AttributeType.KillCurrencyBonus);
+            var unitKillCurrencyRewardBonus = diedUnit.AttributeOwner.GetValue(AttributeType.KillCurrencyBonus);
             
             var totalKillCurrencyReward = basicKillCurrencyReward + unitKillCurrencyRewardBonus;
 

@@ -13,7 +13,7 @@ namespace Game.AttributeSystem
             switch (attributeType)
             {
                 case AttributeType.KillCurrencyBonus:
-                    return (int)buffHolder.GetBuffedValue(baseKillCurrencyBonus, attributeType, attackContext);
+                    return (int)BuffOwner.GetBuffedValue(baseKillCurrencyBonus, attributeType, attackContext);
             }
 
             return base.GetValue(attributeType, attackContext);

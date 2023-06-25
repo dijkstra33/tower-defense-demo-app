@@ -1,12 +1,10 @@
-﻿using System;
-using Core.ObjectPooling;
+﻿using Core.ObjectPooling;
 using Game.HealthSystem;
 using Game.Weapons.TargetSelection;
 using UnityEngine;
 
 namespace Game.Weapons.Projectiles
 {
-    // TODO: add on fire particle effects controlled by separate component.
     [RequireComponent(typeof(Poolable))]
     public class Projectile : MonoBehaviour
     {
@@ -72,7 +70,7 @@ namespace Game.Weapons.Projectiles
         {
             isFired = false;
 
-            targetInfo.Health.ReceiveDamage(projectileParams.Damage, projectileOwnerInfo?.WeaponBuffHolder, projectileOwnerInfo?.Health);
+            targetInfo.Health.ReceiveDamage(projectileParams.Damage, projectileOwnerInfo?.Weapon, projectileOwnerInfo?.Health);
             DeathManager.Instance.OnDeath(gameObject, null, null);
             
             if (projectileOwnerInfo != null)

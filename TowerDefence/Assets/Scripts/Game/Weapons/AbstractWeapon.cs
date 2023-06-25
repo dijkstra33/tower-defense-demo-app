@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Core.ObjectPooling;
 using Game.AttributeSystem;
 using Game.AttributeSystem.Buffs;
@@ -23,10 +24,12 @@ namespace Game.Weapons
         private AbstractTargetSelector targetSelector;
         
         protected Health weaponOwnerHealth;
-        protected BuffHolder weaponBuffHolder;
 
-        public AbstractAttributeOwner AttributeOwner => attributeOwner;
-        protected AbstractAttributeOwner attributeOwner;
+        public List<AbstractBuff> GetBuffsToTargetOnHit() => weaponBuffOwner.BuffsToTargetOnHit;
+        protected BuffOwner weaponBuffOwner;
+
+        public WeaponAttributeOwner AttributeOwner => attributeOwner;
+        protected WeaponAttributeOwner attributeOwner;
         
         public bool IsAttacking => isAttacking;
         private bool isAttacking;
@@ -38,8 +41,8 @@ namespace Game.Weapons
         {
             cachedTransform = transform;
             weaponOwnerHealth = GetComponentInParent<Health>();
-            weaponBuffHolder = GetComponent<BuffHolder>();
-            attributeOwner = GetComponent<AbstractAttributeOwner>();
+            weaponBuffOwner = GetComponent<BuffOwner>();
+            attributeOwner = GetComponent<WeaponAttributeOwner>();
         }
 
         protected void Start()

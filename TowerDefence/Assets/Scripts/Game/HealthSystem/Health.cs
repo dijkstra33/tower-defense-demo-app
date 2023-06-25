@@ -2,6 +2,7 @@ using System;
 using Core.ObjectPooling;
 using Game.AttributeSystem;
 using Game.AttributeSystem.Buffs;
+using Game.Weapons;
 using UnityEngine;
 
 namespace Game.HealthSystem
@@ -31,16 +32,16 @@ namespace Game.HealthSystem
         private bool isDead = false;
 
         private AbstractAttributeOwner attributeOwner;
-        private BuffHolder buffHolder;
+        private BuffOwner buffOwner;
 
         private void Awake()
         {
             CurrentValue = maxValue;
             attributeOwner = GetComponent<AbstractAttributeOwner>();
-            buffHolder = GetComponent<BuffHolder>();
+            buffOwner = GetComponent<BuffOwner>();
         }
 
-        public void ReceiveDamage(float damage, BuffHolder weaponBuffHolder = null, Health attackerHealth = null)
+        public void ReceiveDamage(float damage, AbstractWeapon attackerWeapon = null, Health attackerHealth = null)
         {
             if (isDead)
             {
@@ -49,16 +50,16 @@ namespace Game.HealthSystem
 
             var pureDamage = GetPureDamage(damage);
             OnDamageReceived?.Invoke();
-            BattleContextManager.Instance.OnDamageReceived(this, weaponBuffHolder);
+            BattleContextManager.Instance.OnDamageReceived(this, attackerWeapon);
             CurrentValue = Math.Max(CurrentValue - pureDamage, 0);
 
             if (CurrentValue == 0)
             {
-                Die(weaponBuffHolder, attackerHealth);
+                Die(attackerHealth, attackerWeapon);
             }
             else
             {
-                TryToApplyBuffsOnHit(weaponBuffHolder);
+                TryToApplyBuffsOnHit(attackerWeapon);
             }
         }
 
@@ -73,17 +74,16 @@ namespace Game.HealthSystem
             CurrentValue = Math.Min(maxValue, CurrentValue + healValue);
         }
 
-        private void TryToApplyBuffsOnHit(BuffHolder attackerBuffHolder)
+        private void TryToApplyBuffsOnHit(AbstractWeapon attackerWeapon)
         {
-            if (attackerBuffHolder == null || buffHolder == null)
+            if (attackerWeapon == null || buffOwner == null)
             {
                 return;
             }
             
-            var buffsOnHit = attackerBuffHolder.BuffsToTargetOnHit;
-            foreach (var buffOnHit in buffsOnHit)
+            foreach (var buffOnHit in attackerWeapon.GetBuffsToTargetOnHit())
             {
-                buffHolder.ApplyBuff(buffOnHit, BuffApplicationType.Direct);
+                buffOwner.ApplyBuff(buffOnHit, BuffApplicationType.Direct);
             }
         }
 
@@ -93,10 +93,10 @@ namespace Game.HealthSystem
             return Math.Max(1, (int)damage - armor);
         }
 
-        private void Die(BuffHolder weaponBuffHolder, Health attackerHealth)
+        private void Die(Health attackerHealth, AbstractWeapon attackerWeapon)
         {
             isDead = true;
-            DeathManager.Instance.OnDeath(gameObject, weaponBuffHolder, attackerHealth);
+            DeathManager.Instance.OnDeath(gameObject, attackerWeapon, attackerHealth);
             OnDeath?.Invoke();
         }
 

@@ -40,14 +40,14 @@ namespace Game.AttributeSystem.Upgrades
         public float AutoRerollCycleDuration => autoRerollCycleDuration;
         private float autoRerollCycleDuration;
 
-        private BuffHolder[] buffHolders;
+        private BuffOwner[] buffHolders;
         
         private readonly System.Random random = new();
 
         protected override void Awake()
         {
             base.Awake();
-            buffHolders = Tower.Instance.GetComponentsInChildren<BuffHolder>();
+            buffHolders = Tower.Instance.GetComponentsInChildren<BuffOwner>();
             allUpgrades = Resources.LoadAll<Upgrade>(UPGRADES_PATH);
             timeUntilAutoReroll = upgradeSystemStartDelay;
             autoRerollCycleDuration = upgradeSystemStartDelay;

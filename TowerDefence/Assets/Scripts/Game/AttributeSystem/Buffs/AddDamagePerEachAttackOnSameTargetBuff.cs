@@ -15,7 +15,7 @@ namespace Game.AttributeSystem.Buffs
             var battleContext = context.Target.BattleContext;
             var targetHitsCount = 
                 battleContext != null 
-                    ? battleContext.GetHitsCountBy(context.AttackerBuffHolder)
+                    ? battleContext.GetHitsCountBy(context.AttackerWeapon)
                     : 0;
 
             return targetHitsCount * damagePerEachHitOnSameTarget;

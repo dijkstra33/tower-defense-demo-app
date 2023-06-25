@@ -1,17 +1,16 @@
-﻿using Game.AttributeSystem.Buffs;
-using Game.HealthSystem;
+﻿using Game.HealthSystem;
 
 namespace Game.Weapons.Projectiles
 {
     public class ProjectileOwnerInfo
     {
         public Health Health { get; }
-        public BuffHolder WeaponBuffHolder { get; }
+        public AbstractWeapon Weapon { get; }
 
-        public ProjectileOwnerInfo(Health health, BuffHolder weaponBuffHolder)
+        public ProjectileOwnerInfo(Health health, AbstractWeapon weapon)
         {
             Health = health;
-            WeaponBuffHolder = weaponBuffHolder;
+            Weapon = weapon;
         }
     }
 }

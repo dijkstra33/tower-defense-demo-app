@@ -63,7 +63,6 @@ namespace Game
                     break;
                 case UnitState.Idle:
                 case UnitState.Attacking:
-                    // TODO: do we really need this states here? :|
                     break;
             }
 

@@ -21,12 +21,12 @@ namespace Game.Weapons
         protected override void Awake()
         {
             base.Awake();
-            projectileLauncher = new ProjectileLauncher(projectilePrefab, weaponOwnerHealth, weaponBuffHolder);
+            projectileLauncher = new ProjectileLauncher(projectilePrefab, weaponOwnerHealth, this);
         }
         
         protected override void Attack(TargetInfo target, TargetInfo[] allTargets)
         {
-            var attackContext = new AttackContext(target, allTargets, weaponBuffHolder);
+            var attackContext = new AttackContext(target, allTargets, this);
             projectileLauncher.Launch(cachedTransform.position, target, GetProjectileParams(attackContext));
         }
 

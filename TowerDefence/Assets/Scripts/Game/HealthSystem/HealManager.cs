@@ -1,6 +1,7 @@
 ﻿using Core;
 using Game.AttributeSystem;
 using Game.AttributeSystem.Buffs;
+using Game.Weapons;
 
 namespace Game.HealthSystem
 {
@@ -16,15 +17,14 @@ namespace Game.HealthSystem
             weaponOwnerHealth.ReceiveHeal(weaponAttributeOwner, AttributeType.HealOnHit);
         }
 
-        private void HandleUnitDeath(Unit diedUnit, BuffHolder weaponBuffHolder, Health killerHealth)
+        private void HandleUnitDeath(Unit diedUnit, AbstractWeapon killerWeapon, Health killerHealth)
         {
-            if (weaponBuffHolder == null || killerHealth == null)
+            if (killerWeapon == null || killerHealth == null)
             {
                 return;
             }
 
-            var weaponAttributeOwner = weaponBuffHolder.GetComponent<AbstractAttributeOwner>();
-            killerHealth.ReceiveHeal(weaponAttributeOwner, AttributeType.HealOnKill);
+            killerHealth.ReceiveHeal(killerWeapon.AttributeOwner, AttributeType.HealOnKill);
         }
     }
 }

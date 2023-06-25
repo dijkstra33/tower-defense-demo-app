@@ -1,54 +1,54 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Core.ObjectPooling;
-using Game.AttributeSystem.Buffs;
+using Game.Weapons;
 using UnityEngine;
 
 namespace Game.HealthSystem
 {
     public class BattleContext : MonoBehaviour, IResettable
     {
-        private readonly Dictionary<BuffHolder, int> hitsCountByBuffHolder = new();
+        private readonly Dictionary<AbstractWeapon, int> hitsCountByWeapon = new();
 
         private void Start()
         {
             BattleContextManager.Instance.Register(this);
         }
 
-        public void RegisterHitBy(BuffHolder buffHolder)
+        public void RegisterHitBy(AbstractWeapon weapon)
         {
-            if (buffHolder == null)
+            if (weapon == null)
             {
                 return;
             }
             
-            if (!hitsCountByBuffHolder.ContainsKey(buffHolder))
+            if (!hitsCountByWeapon.ContainsKey(weapon))
             {
-                hitsCountByBuffHolder[buffHolder] = 0;
+                hitsCountByWeapon[weapon] = 0;
             }
 
-            hitsCountByBuffHolder[buffHolder]++;
+            hitsCountByWeapon[weapon]++;
         }
 
-        public int GetHitsCountBy(BuffHolder buffHolder)
+        public int GetHitsCountBy(AbstractWeapon weapon)
         {
-            return hitsCountByBuffHolder.TryGetValue(buffHolder, out var hitsCount) ? hitsCount : 0;
+            return hitsCountByWeapon.TryGetValue(weapon, out var hitsCount) ? hitsCount : 0;
         }
 
-        public void RemoveInfluenceOf(BuffHolder buffHolder)
+        public void RemoveInfluenceOf(AbstractWeapon weapon)
         {
-            if (hitsCountByBuffHolder.ContainsKey(buffHolder))
+            if (hitsCountByWeapon.ContainsKey(weapon))
             {
-                hitsCountByBuffHolder[buffHolder] = 0;
+                hitsCountByWeapon[weapon] = 0;
             }
         }
         
         public void Reset()
         {
-            var keys = hitsCountByBuffHolder.Keys.ToArray();
+            var keys = hitsCountByWeapon.Keys.ToArray();
             foreach (var key in keys)
             {
-                hitsCountByBuffHolder[key] = 0;
+                hitsCountByWeapon[key] = 0;
             }
         }
     }

@@ -33,7 +33,6 @@ namespace UI
 
         private void HandleGameOver()
         {
-            // TODO: here will show game statistics and other stuff.
             restartButton.gameObject.SetActive(true);
         }
 

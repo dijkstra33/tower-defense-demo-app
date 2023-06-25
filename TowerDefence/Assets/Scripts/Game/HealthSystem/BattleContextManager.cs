@@ -1,56 +1,39 @@
 ﻿using System.Collections.Generic;
 using Core;
-using Game.AttributeSystem.Buffs;
+using Game.Weapons;
 
 namespace Game.HealthSystem
 {
     public class BattleContextManager : SingletonMoneBehaviour<BattleContextManager>
     {
-        private Dictionary<Health, BattleContext> battleContextByHealth = new();
-        private Dictionary<BuffHolder, BattleContext> battleContextByBuffHolder = new();
+        private readonly List<BattleContext> allBattleContexts = new();
 
         private void Start()
         {
             DeathManager.Instance.OnUnitDeath += HandleUnitDeath;
         }
 
-        private void HandleUnitDeath(Unit diedUnit, BuffHolder killerWeaponBuffHolder, Health killerHealth)
+        private void HandleUnitDeath(Unit diedUnit, AbstractWeapon killerWeapon, Health killerHealth)
         {
             var diedUnitWeapons = diedUnit.Weapons;
             foreach (var weapon in diedUnitWeapons)
             {
-                var weaponBuffHolder = weapon.GetComponent<BuffHolder>();
-                foreach (var battleContext in battleContextByHealth.Values)
+                foreach (var battleContext in allBattleContexts)
                 {
-                    battleContext.RemoveInfluenceOf(weaponBuffHolder);
+                    battleContext.RemoveInfluenceOf(weapon);
                 }
             }
         }
 
-        public void OnDamageReceived(Health attackedHealth, BuffHolder attackerBuffHolder)
+        public void OnDamageReceived(Health attackedHealth, AbstractWeapon attackerWeapon)
         {
-            var attackedBattleContext = GetBattleContextBy(attackedHealth);
-            attackedBattleContext.RegisterHitBy(attackerBuffHolder);
+            var attackedBattleContext = attackedHealth.GetComponent<BattleContext>();
+            attackedBattleContext.RegisterHitBy(attackerWeapon);
         }
 
         public void Register(BattleContext battleContext)
         {
-            var health = battleContext.GetComponent<Health>();
-            if (health != null)
-            {
-                battleContextByHealth.Add(health, battleContext);
-            }
-
-            var buffHolder = battleContext.GetComponent<BuffHolder>();
-            if (buffHolder != null)
-            {
-                battleContextByBuffHolder.Add(buffHolder, battleContext);
-            }
-        }
-
-        public BattleContext GetBattleContextBy(Health health)
-        {
-            return battleContextByHealth.TryGetValue(health, out var battleContext) ? battleContext : null;
+            allBattleContexts.Add(battleContext);
         }
     }
 }

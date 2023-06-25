@@ -1,5 +1,4 @@
-﻿using Game.AttributeSystem.Buffs;
-using Game.HealthSystem;
+﻿using Game.HealthSystem;
 
 namespace Game.Weapons.TargetSelection
 {
@@ -16,8 +15,7 @@ namespace Game.Weapons.TargetSelection
         {
             foreach (var unitWeapon in potentialTarget.Weapons)
             {
-                var unitWeaponBuffHolder = unitWeapon.GetComponent<BuffHolder>();
-                if (towerBattleContext.GetHitsCountBy(unitWeaponBuffHolder) > 0)
+                if (towerBattleContext.GetHitsCountBy(unitWeapon) > 0)
                 {
                     return true;
                 }

@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Game.AttributeSystem.Buffs
 {
-    public class BuffHolder : MonoBehaviour, IResettable
+    public class BuffOwner : MonoBehaviour, IResettable
     {
         [SerializeField]
         private BuffHolderType type;

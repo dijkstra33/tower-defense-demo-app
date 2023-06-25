@@ -27,8 +27,7 @@ namespace Game.AttributeSystem.Buffs
             var towerHitsCount = 0;
             foreach (var targetUnitWeapon in targetUnit.Weapons)
             {
-                var weaponBuffHolder = targetUnitWeapon.GetComponent<BuffHolder>();
-                towerHitsCount += towerBattleContext.GetHitsCountBy(weaponBuffHolder);
+                towerHitsCount += towerBattleContext.GetHitsCountBy(targetUnitWeapon);
             }
 
             return towerHitsCount * damagePerEachTowerAttackByTarget;
