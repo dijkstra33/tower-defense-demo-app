@@ -1,16 +1,14 @@
-﻿using Game;
-using Game.AttributeSystem;
+﻿using Game.AttributeSystem;
 using TMPro;
 using UnityEngine;
 
-namespace UI
+namespace Game.UI
 {
     public class TowerAttributesPanel : MonoBehaviour
     {
         [SerializeField]
         private TMP_Text currencyAmountText;
 
-        // TODO: check with profiler - is it worth it?
         private int prevCurrencyAmount = -1;
         
         [SerializeField]

@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace Game.UI
 {
     public class WeaponAttributesView : MonoBehaviour
     {

@@ -1,10 +1,9 @@
 ﻿using Core;
-using Game;
 using Game.AttributeSystem.Upgrades;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace Game.UI
 {
     public class HUD : SingletonMoneBehaviour<HUD>
     {

@@ -1,10 +1,9 @@
-﻿using Game;
-using Game.AttributeSystem.Upgrades;
+﻿using Game.AttributeSystem.Upgrades;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace Game.UI
 {
     public class UpgradesPanel : MonoBehaviour
     {

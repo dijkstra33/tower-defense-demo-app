@@ -1,7 +1,6 @@
-﻿using Game;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace UI
+namespace Game.UI
 {
     public class WeaponAttributesPanel : MonoBehaviour
     {

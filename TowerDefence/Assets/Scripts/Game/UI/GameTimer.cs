@@ -1,9 +1,8 @@
 using System;
-using Game;
 using TMPro;
 using UnityEngine;
 
-namespace UI
+namespace Game.UI
 {
     public class GameTimer : MonoBehaviour
     {
