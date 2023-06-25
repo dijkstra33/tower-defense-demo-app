@@ -36,6 +36,7 @@ namespace Game.Weapons
 
         protected virtual void Awake()
         {
+            cachedTransform = transform;
             weaponOwnerHealth = GetComponentInParent<Health>();
             weaponBuffHolder = GetComponent<BuffHolder>();
             attributeOwner = GetComponent<AbstractAttributeOwner>();
@@ -44,7 +45,6 @@ namespace Game.Weapons
         protected void Start()
         {
             Reset();
-            cachedTransform = transform;
             targetSelector = Instantiate(targetSelectorPrefab, cachedTransform);
             var towerHealth = Tower.Instance.GetComponent<Health>();
             towerHealth.OnDamageReceived += HandleDamageReceivedByTower;
@@ -91,7 +91,7 @@ namespace Game.Weapons
             }
         }
 
-        protected virtual void Attack(TargetInfo target, TargetInfo[] allTargets) { }
+        protected abstract void Attack(TargetInfo target, TargetInfo[] allTargets);
 
         public void Reset()
         {

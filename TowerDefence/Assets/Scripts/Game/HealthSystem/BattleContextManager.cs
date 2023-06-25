@@ -31,9 +31,6 @@ namespace Game.HealthSystem
         {
             var attackedBattleContext = GetBattleContextBy(attackedHealth);
             attackedBattleContext.RegisterHitBy(attackerBuffHolder);
-
-            // increase damage depending on number of attacks towards the tower
-            // tower damaging decrease attack interval ?
         }
 
         public void Register(BattleContext battleContext)

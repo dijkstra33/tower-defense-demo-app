@@ -17,7 +17,8 @@ namespace Game.AttributeSystem
             buffHolder = GetComponent<BuffHolder>(); 
         }
 
-        public virtual float GetValue(AttributeType attributeType, AttackContext attackContext = null) => buffHolder.GetBuffedValue(0, attributeType, attackContext);
+        public virtual float GetValue(AttributeType attributeType, AttackContext attackContext = null) 
+            => buffHolder.GetBuffedValue(0, attributeType, attackContext);
 
         protected int GetArmor()
         {
