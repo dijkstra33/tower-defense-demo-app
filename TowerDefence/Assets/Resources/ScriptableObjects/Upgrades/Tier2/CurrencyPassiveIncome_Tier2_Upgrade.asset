@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3fb65b4c618457f89180cb2e2115416, type: 3}
   m_Name: CurrencyPassiveIncome_Tier2_Upgrade
   m_EditorClassIdentifier: 
+  buffHolderType: 0
   buff: {fileID: 11400000, guid: 5d812a8d1612f974f8af45d3de42c295, type: 2}
   price: 50
-  sprite: {fileID: 21300000, guid: d2c827714dc42ab4693e41a49e0afc42, type: 3}
+  sprite: {fileID: 21300000, guid: 81567b1bebeabd94996fe6c41bbf8839, type: 3}
   valueText: +{0} Income
