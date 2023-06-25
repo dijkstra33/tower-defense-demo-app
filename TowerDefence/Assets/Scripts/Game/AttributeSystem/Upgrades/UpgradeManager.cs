@@ -47,12 +47,17 @@ namespace Game.AttributeSystem.Upgrades
         protected override void Awake()
         {
             base.Awake();
-            buffHolders = Tower.Instance.GetComponentsInChildren<BuffOwner>();
             allUpgrades = Resources.LoadAll<Upgrade>(UPGRADES_PATH);
             timeUntilAutoReroll = upgradeSystemStartDelay;
             autoRerollCycleDuration = upgradeSystemStartDelay;
             rerollPrice = baseRerollPrice;
         }
+
+        private void Start()
+        {
+            buffHolders = Tower.Instance.GetComponentsInChildren<BuffOwner>();
+        }
+        
         private void Update()
         {
             if (GameManager.Instance.GameOver)
