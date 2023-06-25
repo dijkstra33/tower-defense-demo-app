@@ -1,5 +1,5 @@
 ﻿using Game.AttributeSystem;
-using Game.Weapons;
+using Game.WeaponSystem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

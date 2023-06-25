@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Game.Weapons.TargetSelection
+namespace Game.WeaponSystem.TargetSelectors
 {
     public abstract class AbstractTargetSelector : MonoBehaviour
     {

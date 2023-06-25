@@ -1,9 +1,9 @@
 ﻿using Game.AttributeSystem;
-using Game.Weapons.Projectiles;
-using Game.Weapons.TargetSelection;
+using Game.WeaponSystem.Projectiles;
+using Game.WeaponSystem.TargetSelectors;
 using UnityEngine;
 
-namespace Game.Weapons
+namespace Game.WeaponSystem
 {
     public class ProjectileLauncherWeapon : AbstractWeapon
     {

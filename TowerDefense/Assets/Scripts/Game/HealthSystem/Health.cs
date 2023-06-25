@@ -2,7 +2,7 @@ using System;
 using Core.ObjectPooling;
 using Game.AttributeSystem;
 using Game.AttributeSystem.Buffs;
-using Game.Weapons;
+using Game.WeaponSystem;
 using UnityEngine;
 
 namespace Game.HealthSystem

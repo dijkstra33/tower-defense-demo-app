@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Core.ObjectPooling;
 using Game.AttributeSystem.Upgrades;
-using Game.Weapons;
+using Game.WeaponSystem;
 using UnityEngine;
 
 namespace Game.AttributeSystem.Buffs

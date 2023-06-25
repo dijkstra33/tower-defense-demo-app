@@ -2,7 +2,7 @@
 using Game.HealthSystem;
 using UnityEngine;
 
-namespace Game.Weapons.TargetSelection
+namespace Game.WeaponSystem.TargetSelectors
 {
     public class ClosestUnitFocusFireTargetSelector : ClosestUnitTargetSelector
     {

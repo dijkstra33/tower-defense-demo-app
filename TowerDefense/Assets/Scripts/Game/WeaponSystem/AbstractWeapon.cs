@@ -4,10 +4,10 @@ using Core.ObjectPooling;
 using Game.AttributeSystem;
 using Game.AttributeSystem.Buffs;
 using Game.HealthSystem;
-using Game.Weapons.TargetSelection;
+using Game.WeaponSystem.TargetSelectors;
 using UnityEngine;
 
-namespace Game.Weapons
+namespace Game.WeaponSystem
 {
     [RequireComponent(typeof(WeaponAttributeOwner), typeof(BattleContext))]
     public abstract class AbstractWeapon : MonoBehaviour, IResettable

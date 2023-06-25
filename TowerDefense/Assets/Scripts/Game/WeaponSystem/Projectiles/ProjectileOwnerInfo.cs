@@ -1,6 +1,6 @@
 ﻿using Game.HealthSystem;
 
-namespace Game.Weapons.Projectiles
+namespace Game.WeaponSystem.Projectiles
 {
     public class ProjectileOwnerInfo
     {

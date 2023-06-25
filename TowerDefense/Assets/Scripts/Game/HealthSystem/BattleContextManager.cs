@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Core;
-using Game.Weapons;
+using Game.WeaponSystem;
 
 namespace Game.HealthSystem
 {

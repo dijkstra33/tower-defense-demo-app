@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Core.ObjectPooling;
-using Game.Weapons;
+using Game.WeaponSystem;
 using UnityEngine;
 
 namespace Game.HealthSystem

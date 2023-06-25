@@ -1,6 +1,6 @@
 ﻿using System;
 using Game.AttributeSystem.Buffs;
-using Game.Weapons;
+using Game.WeaponSystem;
 using UnityEngine;
 
 namespace Game.AttributeSystem.Upgrades

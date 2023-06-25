@@ -1,7 +1,7 @@
 ﻿using Core;
 using Game.AttributeSystem;
 using Game.AttributeSystem.Buffs;
-using Game.Weapons;
+using Game.WeaponSystem;
 
 namespace Game.HealthSystem
 {

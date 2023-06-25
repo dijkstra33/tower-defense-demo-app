@@ -1,6 +1,6 @@
 ﻿using Game.HealthSystem;
 
-namespace Game.Weapons.TargetSelection
+namespace Game.WeaponSystem.TargetSelectors
 {
     public class RandomTowerAttackerUnitTargetSelector : RandomUnitTargetSelector
     {

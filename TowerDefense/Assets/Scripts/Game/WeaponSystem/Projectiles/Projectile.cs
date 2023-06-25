@@ -1,9 +1,9 @@
 ﻿using Core.ObjectPooling;
 using Game.HealthSystem;
-using Game.Weapons.TargetSelection;
+using Game.WeaponSystem.TargetSelectors;
 using UnityEngine;
 
-namespace Game.Weapons.Projectiles
+namespace Game.WeaponSystem.Projectiles
 {
     [RequireComponent(typeof(Poolable))]
     public class Projectile : MonoBehaviour

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Game.Weapons
+namespace Game.WeaponSystem
 {
     [Serializable]
     public class WeaponVisualData

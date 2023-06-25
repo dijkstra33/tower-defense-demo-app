@@ -1,6 +1,6 @@
 ﻿using Game.AttributeSystem.Buffs;
 using Game.HealthSystem;
-using Game.Weapons;
+using Game.WeaponSystem;
 using UnityEngine;
 
 namespace Game.AttributeSystem

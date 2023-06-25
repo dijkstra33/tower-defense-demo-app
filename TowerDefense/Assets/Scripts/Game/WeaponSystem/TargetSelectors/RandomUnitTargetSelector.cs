@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Weapons.TargetSelection
+namespace Game.WeaponSystem.TargetSelectors
 {
     public class RandomUnitTargetSelector : AbstractUnitTargetSelector
     {

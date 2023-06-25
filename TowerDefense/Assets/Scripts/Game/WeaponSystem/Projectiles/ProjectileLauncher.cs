@@ -1,10 +1,10 @@
 ﻿using Core.ObjectPooling;
 using Game.HealthSystem;
 using Game.SpawnSystem;
-using Game.Weapons.TargetSelection;
+using Game.WeaponSystem.TargetSelectors;
 using UnityEngine;
 
-namespace Game.Weapons.Projectiles
+namespace Game.WeaponSystem.Projectiles
 {
     public class ProjectileLauncher
     {

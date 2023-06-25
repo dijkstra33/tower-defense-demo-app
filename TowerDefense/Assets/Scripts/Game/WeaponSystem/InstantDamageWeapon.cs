@@ -1,7 +1,7 @@
 ﻿using Game.AttributeSystem;
-using Game.Weapons.TargetSelection;
+using Game.WeaponSystem.TargetSelectors;
 
-namespace Game.Weapons
+namespace Game.WeaponSystem
 {
     public class InstantDamageWeapon : AbstractWeapon
     {

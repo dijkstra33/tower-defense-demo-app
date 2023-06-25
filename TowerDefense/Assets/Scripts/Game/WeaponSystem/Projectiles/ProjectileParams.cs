@@ -1,4 +1,4 @@
-﻿namespace Game.Weapons.Projectiles
+﻿namespace Game.WeaponSystem.Projectiles
 {
     public readonly struct ProjectileParams
     {

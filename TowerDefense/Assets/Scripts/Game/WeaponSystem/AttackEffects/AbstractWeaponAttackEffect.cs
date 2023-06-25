@@ -1,8 +1,8 @@
 ﻿using Game.AttributeSystem;
-using Game.Weapons.TargetSelection;
+using Game.WeaponSystem.TargetSelectors;
 using UnityEngine;
 
-namespace Game.Weapons.AttackEffects
+namespace Game.WeaponSystem.AttackEffects
 {
     [RequireComponent(typeof(AbstractWeapon))]
     public abstract class AbstractWeaponAttackEffect : MonoBehaviour

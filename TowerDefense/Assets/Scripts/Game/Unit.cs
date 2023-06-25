@@ -1,7 +1,7 @@
 ﻿using Core.ObjectPooling;
 using Game.AttributeSystem;
 using Game.HealthSystem;
-using Game.Weapons;
+using Game.WeaponSystem;
 using UnityEngine;
 
 namespace Game
