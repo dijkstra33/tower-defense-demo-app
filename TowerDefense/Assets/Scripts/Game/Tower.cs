@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Game
 {
     [RequireComponent(typeof(TowerAttributeOwner), typeof(BattleContext))]
-    public class Tower : SingletonMoneBehaviour<Tower>
+    public class Tower : SingletonMonoBehaviour<Tower>
     {
         public int CurrencyAmount => currencyAmount;
         private int currencyAmount;

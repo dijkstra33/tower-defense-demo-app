@@ -5,7 +5,7 @@ using Game.WeaponSystem;
 
 namespace Game.HealthSystem
 {
-    public class HealManager : SingletonMoneBehaviour<HealManager>
+    public class HealManager : SingletonMonoBehaviour<HealManager>
     {
         private void Start()
         {

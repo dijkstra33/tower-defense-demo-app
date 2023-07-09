@@ -4,7 +4,7 @@ using Game.WeaponSystem;
 
 namespace Game.HealthSystem
 {
-    public class BattleContextManager : SingletonMoneBehaviour<BattleContextManager>
+    public class BattleContextManager : SingletonMonoBehaviour<BattleContextManager>
     {
         private readonly List<BattleContext> allBattleContexts = new();
 

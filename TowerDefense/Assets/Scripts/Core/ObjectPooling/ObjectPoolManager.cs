@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Core.ObjectPooling
 {
-    public class ObjectPoolManager : SingletonMoneBehaviour<ObjectPoolManager>
+    public class ObjectPoolManager : SingletonMonoBehaviour<ObjectPoolManager>
     {
         private Dictionary<int, ObjectPool> objectPools = new();
         private Transform cachedTransform;

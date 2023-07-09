@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 namespace Game
 {
-    public class GameManager : SingletonMoneBehaviour<GameManager>
+    public class GameManager : SingletonMonoBehaviour<GameManager>
     {
         public event Action OnGameOver;
         

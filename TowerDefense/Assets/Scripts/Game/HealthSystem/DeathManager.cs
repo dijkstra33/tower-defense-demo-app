@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Game.HealthSystem
 {
-    public class DeathManager : SingletonMoneBehaviour<DeathManager>
+    public class DeathManager : SingletonMonoBehaviour<DeathManager>
     {
         public delegate void OnUnitDeathAction(Unit diedUnit, AbstractWeapon killerWeapon, Health killerHealth);
 

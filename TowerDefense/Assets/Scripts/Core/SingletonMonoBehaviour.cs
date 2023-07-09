@@ -2,7 +2,7 @@
 
 namespace Core
 {
-    public class SingletonMoneBehaviour<T> : MonoBehaviour where T : SingletonMoneBehaviour<T>
+    public class SingletonMonoBehaviour<T> : MonoBehaviour where T : SingletonMonoBehaviour<T>
     {
         public static T Instance { get; private set; }
 

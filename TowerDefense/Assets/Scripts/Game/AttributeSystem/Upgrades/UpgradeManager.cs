@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Game.AttributeSystem.Upgrades
 {
-    public class UpgradeManager : SingletonMoneBehaviour<UpgradeManager>
+    public class UpgradeManager : SingletonMonoBehaviour<UpgradeManager>
     {
         public event Action<Upgrade[]> OnAvailableUpgradesChanged; 
         

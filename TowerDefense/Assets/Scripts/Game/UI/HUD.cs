@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Game.UI
 {
-    public class HUD : SingletonMoneBehaviour<HUD>
+    public class HUD : SingletonMonoBehaviour<HUD>
     {
         [SerializeField]
         private UpgradesPanel upgradesPanel;
