@@ -18,6 +18,9 @@ You have a tower with 5 different weapons, you have passive money income and you
 - <b>Vengeance</b>: fires orange projectiles hitting random enemies who attacked the tower. When upgraded deals damage depending on how many times the target attacked the tower or decreases the current attack's cooldown on every enemy's attack.
 
 ### Project architecture:
+Unity version 2021.3.15f1
+
+
 The main actors are [Tower](TowerDefense/Assets/Scripts/Game/Tower.cs) and [Unit](TowerDefense/Assets/Scripts/Game/Unit.cs) components that can contain children with [Weapon](TowerDefense/Assets/Scripts/Game/WeaponSystem/AbstractWeapon.cs) components, Weapon has [TargetSelector](TowerDefense/Assets/Scripts/Game/WeaponSystem/TargetSelectors/AbstractTargetSelector.cs) defining who the weapon will attack. The player can buy [upgrades](TowerDefense/Assets/Scripts/Game/AttributeSystem/Upgrades/Upgrade.cs), and upgrades apply [buffs](TowerDefense/Assets/Scripts/Game/AttributeSystem/Buffs/AbstractBuff.cs) to the tower or the tower's weapons, and buffs can modify [attributes](TowerDefense/Assets/Scripts/Game/AttributeSystem/AttributeType.cs) of tower, unit, or weapon. Buffs can be applied directly or by hitting an enemy. Attribute values are managed with [AbstractAttributeOwner](TowerDefense/Assets/Scripts/Game/AttributeSystem/AbstractAttributeOwner.cs) subclasses and buffs are managed with [BuffOwner](TowerDefense/Assets/Scripts/Game/AttributeSystem/Buffs/BuffOwner.cs) class.
 There are a bunch of [attributes](TowerDefense/Assets/Scripts/Game/AttributeSystem/AttributeType.cs), such as money passive income, money kill bonus, and armor, that can be buffed.
 
