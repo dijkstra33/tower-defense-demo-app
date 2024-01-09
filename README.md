@@ -3,8 +3,8 @@
 ### Single sentence concept 
 Endless tower defense where you upgrade various weapons of the only tower and protect it from enemies.
 
-### Gameplay Video ([youtube](https://youtu.be/a4s8bfDGF5o)) 
-[![demo video preview](https://img.youtube.com/vi/a4s8bfDGF5o/0.jpg)](https://youtu.be/a4s8bfDGF5o)
+### Gameplay Video ([youtube](https://youtu.be/xxPMwKHqqY8)) 
+[![demo video preview](https://img.youtube.com/vi/xxPMwKHqqY8/0.jpg)](https://youtu.be/xxPMwKHqqY8)
 
 
 ### The whole concept
@@ -26,4 +26,4 @@ There are a bunch of [attributes](TowerDefense/Assets/Scripts/Game/AttributeSyst
 
 The most interesting part about this solution is that you can easily create different enemies, weapons, upgrades, and buffs in the Unity editor and it's easy to extend behavior if you will need new gameplay attributes or new completely different weapons.
 
-All models are from free sources and icons are generated with neural networks.
+All models, materials, and explosion effects are from free sources. Icons are generated with neural networks. The portal shader graph is my creation though.
