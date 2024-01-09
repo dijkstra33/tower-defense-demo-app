@@ -10,7 +10,7 @@ using UnityEngine;
 namespace Game.WeaponSystem
 {
     [RequireComponent(typeof(WeaponAttributeOwner), typeof(BattleContext))]
-    public abstract class AbstractWeapon : MonoBehaviour, IResettable
+    public abstract class AbstractWeapon : MonoBehaviour, IBeforeGetFromPool
     {
         public event Action<TargetInfo[]> OnAttack;
         
@@ -47,7 +47,7 @@ namespace Game.WeaponSystem
 
         protected void Start()
         {
-            Reset();
+            Execute();
             targetSelector = Instantiate(targetSelectorPrefab, cachedTransform);
             var towerHealth = Tower.Instance.GetComponent<Health>();
             towerHealth.OnDamageReceived += HandleDamageReceivedByTower;
@@ -96,7 +96,7 @@ namespace Game.WeaponSystem
 
         protected abstract void Attack(TargetInfo target, TargetInfo[] allTargets);
 
-        public void Reset()
+        public void Execute()
         {
             timeUntillNextAttack = 0f;
             isAttacking = false;

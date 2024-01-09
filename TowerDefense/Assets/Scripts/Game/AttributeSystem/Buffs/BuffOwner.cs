@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Game.AttributeSystem.Buffs
 {
-    public class BuffOwner : MonoBehaviour, IResettable
+    public class BuffOwner : MonoBehaviour, IBeforeGetFromPool
     {
         [SerializeField]
         private BuffHolderType type;
@@ -61,7 +61,7 @@ namespace Game.AttributeSystem.Buffs
             }
         }
 
-        public void Reset()
+        public void Execute()
         {
             foreach (var buffs in activeBuffsDict)
             {

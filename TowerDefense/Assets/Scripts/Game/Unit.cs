@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Game
 {
     [RequireComponent(typeof(Health), typeof(AbstractAttributeOwner), typeof(BattleContext))]
-    public class Unit : MonoBehaviour, IResettable
+    public class Unit : MonoBehaviour, IBeforeGetFromPool
     {
         private enum UnitState
         {
@@ -96,7 +96,7 @@ namespace Game
             transform.position += direction * (moveSpeed * Time.deltaTime);
         }
 
-        public void Reset()
+        public void Execute()
         {
             state = UnitState.Idle;
         }

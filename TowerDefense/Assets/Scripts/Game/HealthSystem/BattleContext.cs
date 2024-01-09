@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Game.HealthSystem
 {
-    public class BattleContext : MonoBehaviour, IResettable
+    public class BattleContext : MonoBehaviour, IBeforeGetFromPool
     {
         private readonly Dictionary<AbstractWeapon, int> hitsCountByWeapon = new();
 
@@ -43,7 +43,7 @@ namespace Game.HealthSystem
             }
         }
         
-        public void Reset()
+        public void Execute()
         {
             var keys = hitsCountByWeapon.Keys.ToArray();
             foreach (var key in keys)

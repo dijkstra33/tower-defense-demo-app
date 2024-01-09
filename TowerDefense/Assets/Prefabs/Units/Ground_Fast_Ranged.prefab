@@ -54,7 +54,7 @@ MonoBehaviour:
   targetSelectorPrefab: {fileID: 6729861934396503073, guid: 1b080ee7a51d80c4bbc7b752604d4efc, type: 3}
   projectilePrefab: {fileID: 5905614910941387483, guid: 23c9c18dd49e8c24280b3b272135d168, type: 3}
   projectileMoveSpeed: 6
-  projectileMinExplodeDistance: 0.25
+  projectileMinExplodeDistance: 0.7
 --- !u!114 &340598325141996742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 7135531464396621684}
   - component: {fileID: 8106747759788926515}
   - component: {fileID: 7254457878613548746}
+  - component: {fileID: -4919482803620302727}
   m_Layer: 0
   m_Name: Ground_Fast_Ranged
   m_TagString: Untagged
@@ -226,6 +227,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634d817121fd4d01b1904f22c0aa7ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4919482803620302727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8267856240445495300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622c0926ae054086a2d3ae9b5440a254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _deathEffectPrefab: {fileID: -1906202163652412130, guid: 5482413e0940b894aad7561ceff563f2, type: 3}
 --- !u!1001 &1125107475731772435
 PrefabInstance:
   m_ObjectHideFlags: 0

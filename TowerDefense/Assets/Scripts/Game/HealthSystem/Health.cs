@@ -8,7 +8,7 @@ using UnityEngine;
 namespace Game.HealthSystem
 {
     [RequireComponent(typeof(AbstractAttributeOwner))]
-    public class Health : MonoBehaviour, IResettable
+    public class Health : MonoBehaviour, IBeforeGetFromPool
     {
         public event Action OnDamageReceived;
         public event Action OnValueChanged;
@@ -100,7 +100,7 @@ namespace Game.HealthSystem
             OnDeath?.Invoke();
         }
 
-        public void Reset()
+        public void Execute()
         {
             isDead = false;
             CurrentValue = maxValue;

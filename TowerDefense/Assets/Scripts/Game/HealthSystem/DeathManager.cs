@@ -1,7 +1,7 @@
 ﻿using System;
 using Core;
 using Core.ObjectPooling;
-using Game.AttributeSystem.Buffs;
+using Game.HealthSystem.DeathEffects;
 using Game.WeaponSystem;
 using UnityEngine;
 
@@ -13,6 +13,10 @@ namespace Game.HealthSystem
 
         public event OnUnitDeathAction OnUnitDeath;
         public event Action<Tower> OnTowerDeath;
+
+        public Transform DeathEffectRoot => _deathEffectRoot;
+        [SerializeField]
+        private Transform _deathEffectRoot;
 
         public void OnDeath(GameObject died, AbstractWeapon killerWeapon, Health attackerHealth)
         {

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 227842115646130430}
   - component: {fileID: 1523778868146203130}
   - component: {fileID: 7075796311201750155}
+  - component: {fileID: 5445533215195094455}
   m_Layer: 0
   m_Name: Air_Slow_Melee_Armored
   m_TagString: Untagged
@@ -131,6 +132,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634d817121fd4d01b1904f22c0aa7ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5445533215195094455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2756629924625539728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622c0926ae054086a2d3ae9b5440a254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _deathEffectPrefab: {fileID: -1808318293215269612, guid: 19191f60538cb624cba8e9edf40abaed, type: 3}
 --- !u!1 &6193018277190444009
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +199,7 @@ MonoBehaviour:
   targetSelectorPrefab: {fileID: 6729861934396503073, guid: 1b080ee7a51d80c4bbc7b752604d4efc, type: 3}
   projectilePrefab: {fileID: 5905614910941387483, guid: 23c9c18dd49e8c24280b3b272135d168, type: 3}
   projectileMoveSpeed: 3
-  projectileMinExplodeDistance: 0.25
+  projectileMinExplodeDistance: 0.7
 --- !u!114 &2150655772566891171
 MonoBehaviour:
   m_ObjectHideFlags: 0

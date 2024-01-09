@@ -40,10 +40,10 @@ namespace Core.ObjectPooling
             @object.transform.rotation = rotation;
             @object.transform.localScale = scale ?? Vector3.one;
 
-            var resettableArray = @object.GetComponentsInChildren<IResettable>();
+            var resettableArray = @object.GetComponentsInChildren<IBeforeGetFromPool>();
             foreach (var resettable in resettableArray)
             {
-                resettable.Reset();
+                resettable.Execute();
             }
             
             @object.SetActive(true);
@@ -53,6 +53,11 @@ namespace Core.ObjectPooling
 
         public void ReleaseObject(GameObject gameObject)
         {
+            var beforePutToPool = gameObject.GetComponent<IBeforePutToPool>();
+            if (beforePutToPool != null)
+            {
+                beforePutToPool.Execute();
+            }
             gameObject.SetActive(false);
             gameObject.transform.parent = unusedObjectParent;
             unusedObjects.Enqueue(gameObject);

@@ -31,7 +31,7 @@ namespace Game.SpawnSystem
         private IEnumerator ReturnToPoolAfter(float lifetime)
         {
             yield return new WaitForSeconds(lifetime);
-            ObjectPoolManager.Instance.ReleaseObject(_poolable);
+            _poolable.ReleaseObject();
         }
     }
 }
