@@ -26,4 +26,6 @@ There are a bunch of [attributes](TowerDefense/Assets/Scripts/Game/AttributeSyst
 
 The most interesting part about this solution is that you can easily create different enemies, weapons, upgrades, and buffs in the Unity editor and it's easy to extend behavior if you will need new gameplay attributes or new completely different weapons.
 
-All models, materials, and explosion effects are from free sources. Icons are generated with neural networks. The portal shader graph is my creation though.
+There is a custom object pool implementation in the project for demonstration purposes (but I am aware of Unity's built-in object pools). 
+
+All models, materials, and explosion effects are from free sources. Icons are generated with neural networks. The portal shader graph and ugly weapon attack animation effects are my creations though.
