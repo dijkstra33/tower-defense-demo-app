@@ -1,4 +1,5 @@
-﻿using Core.ObjectPooling;
+﻿using System;
+using Core.ObjectPooling;
 using UnityEngine;
 
 namespace Game.SpawnSystem
@@ -15,16 +16,20 @@ namespace Game.SpawnSystem
             cachedTransform = transform;
         }
 
-        public void Spawn(SpawnData spawnData)
+        public void SpawnUnit(SpawnData spawnData)
+        {
+            Spawn(unitPrefab, spawnedUnit => spawnedUnit.MoveTo(spawnData.TargetTransform), spawnData);
+        }
+
+        public void Spawn<T>(T prefab, Action<T> init, SpawnData spawnData) where T : MonoBehaviour
         {
             var direction = (spawnData.TargetTransform.position - transform.position).normalized;
             
-            var spawnedUnit = 
+            var spawnedObject = 
                 ObjectPoolManager.Instance.GetObject(
-                    unitPrefab, cachedTransform.position, Quaternion.LookRotation(direction), 
-                    unitPrefab.transform.localScale, cachedTransform);
-
-            spawnedUnit.MoveTo(spawnData.TargetTransform);
+                    prefab, cachedTransform.position, Quaternion.LookRotation(direction), 
+                    prefab.transform.localScale, cachedTransform);
+            init(spawnedObject);
         }
     }
 }

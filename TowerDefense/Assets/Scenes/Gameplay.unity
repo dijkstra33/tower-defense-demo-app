@@ -4606,6 +4606,8 @@ MonoBehaviour:
   spawnStartDelay: 4
   spawnInterval: 10
   spawnCountPerWave: 4
+  _portalPrefab: {fileID: 3035795905224194433, guid: 72fe07d86fb437b4e98375422f3b1d9d, type: 3}
+  _portalLifetime: 3.4
 --- !u!4 &1744074782
 Transform:
   m_ObjectHideFlags: 0

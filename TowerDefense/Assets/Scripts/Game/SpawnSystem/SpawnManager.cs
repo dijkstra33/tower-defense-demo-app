@@ -24,6 +24,12 @@ namespace Game.SpawnSystem
         [SerializeField]
         private int spawnCountPerWave;
         
+        [SerializeField]
+        private Portal _portalPrefab;
+
+        [SerializeField]
+        private float _portalLifetime;
+        
         private Spawner[] spawners;
         private SpawnData spawnData;
         private readonly System.Random random = new();
@@ -69,7 +75,8 @@ namespace Game.SpawnSystem
 
             foreach (var randomSpawner in randomSpawners)
             {
-                randomSpawner.Spawn(spawnData);
+                randomSpawner.SpawnUnit(spawnData);
+                randomSpawner.Spawn(_portalPrefab, portal => portal.Init(_portalLifetime), spawnData);
             }
         }
 
